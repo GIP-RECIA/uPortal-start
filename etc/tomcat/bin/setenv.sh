@@ -2,7 +2,7 @@
 CATALINA_OPTS="$CATALINA_OPTS -XX:+PrintCommandLineFlags"
 
 # Prevent "Unrecognized Name" SSL warning
-CATALINA_OPTS="$CATALINA_OPTS -Djsse.enableSNIExtension=false"
+CATALINA_OPTS="$CATALINA_OPTS -Djsse.enableSNIExtension=true"
 
 # We need to send a 'portal.home' system property to the JVM;  use the value of PORTAL_HOME, if
 # present, or fall back to a value calculated from $CATALINA_BASE
@@ -25,11 +25,11 @@ fi
 echo $CATALINA_OPTS | grep -e '-Xms'
 if [ $? -eq 1 ]
 then
-    CATALINA_OPTS="$CATALINA_OPTS -Xms64m"
+    CATALINA_OPTS="$CATALINA_OPTS -Xms1G"
 fi
  
 echo $CATALINA_OPTS | grep -e '-Xmx'
 if [ $? -eq 1 ]
 then
-    CATALINA_OPTS="$CATALINA_OPTS -Xmx512m"
+    CATALINA_OPTS="$CATALINA_OPTS -Xmx4G"
 fi
