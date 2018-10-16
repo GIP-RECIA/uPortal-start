@@ -44,7 +44,7 @@
   <!-- 
    | Specify a local property that sets up the logging directory
    +-->
-  <property scope="local" name="LOG_DIR" value="${catalina.base}/logs" />
+  <property scope="local" name="LOG_DIR" value="/home/esco/logs" />
 
   <!--
    | Setup a file based logger that rolls
@@ -82,17 +82,17 @@
   <!-- 
    | Setup default log level to the build-defined value
    +-->
-  <root level="INFO">
+  <root level="ERROR">
     <appender-ref ref="LOG" />
   </root>
 
   <!-- 
    | Turn up logging for portlet specific package
    +-->
-    <!--
-  <logger name="org.jasig.portlet.notification" additivity="false" level="DEBUG">
+
+  <logger name="org.jasig.portlet.notification" additivity="false" level="WARN">
     <appender-ref ref="LOG" />
   </logger>
-  -->
+
 </configuration>
 
