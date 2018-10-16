@@ -12,6 +12,8 @@ subprojects {
     apply plugin: 'waroverlay'
     apply plugin: org.apereo.portal.start.gradle.plugins.GradleTomcatDeployPlugin
 
+    task allDeps(type: DependencyReportTask) {}
+
     repositories {
         mavenLocal()
         mavenCentral()
