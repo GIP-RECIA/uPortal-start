@@ -408,9 +408,6 @@ gradle-app.setting
 *.ipr
 modules.xml
 
-# Project-specific ignores
-/build.properties
-
 # Project specific includes
 !**/filters/local.properties
 !bootstrap/lib/*.jar
