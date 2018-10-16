@@ -1,0 +1,11 @@
+import org.apereo.portal.start.gradle.plugins.GradlePlutoPlugin
+
+apply plugin: GradlePlutoPlugin
+
+dependencies {
+    runtime "org.esupportail.sympa:esco-portlet-sympa:${escoSympaPortletVersion}@war"
+}
+
+war {
+    archiveName 'esco-portlet-sympa.war'
+}
