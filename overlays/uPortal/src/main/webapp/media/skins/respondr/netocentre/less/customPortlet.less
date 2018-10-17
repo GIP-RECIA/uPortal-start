@@ -1,0 +1,66 @@
+.portal {
+  #wrapper {
+    > .portal-content {
+      .up-portlet-wrapper {
+        .up-portlet-wrapper-inner {
+          .up-portlet-content-wrapper-inner {
+            .esupstock {
+              #toolbar {
+                border: none;
+              }
+              #browserArea {
+                /** could be removed when PR would be merged */
+                padding-left: 0;
+                padding-right: 0;
+                /** end PR waiting */
+                thead th, thead th a {
+                  background: @color1;
+                  color: @nocFontColor;
+                  &:hover {
+                    color: @nocFontColor;
+                  }
+                }
+              }
+            }
+            .ui-widget-header {
+              background: @color1;
+              color: @nocFontColor;
+              padding-left: 24px;
+              line-height: 24px;
+              border-radius: unset;
+              border: none;
+            }
+            .esup-lecture {
+              &.viewDef{
+                //compensation du padding 10px natif
+                margin: -10px;
+              }
+              .dropdown-menu.pull-right  {
+                left: unset;
+              }
+              ul {
+                list-style: none;
+              }
+              .nav-stacked > li_cat {
+                margin-top: 2px;
+                margin-left: 0;
+              }
+              :not(.fa-ellipsis-v)::before {
+                color: @color1;
+              }
+              .modePublisher.contenuArticle {
+                padding: 0;
+              }
+              .itemsPublisher a.attachment {
+                color: @nocBodyFontColor;
+                &:hover {
+                  color: lighten(@nocBodyFontColor, 30%)
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
