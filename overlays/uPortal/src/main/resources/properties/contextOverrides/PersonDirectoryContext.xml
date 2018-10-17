@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Licensed to Apereo under one or more contributor license
+    agreements. See the NOTICE file distributed with this work
+    for additional information regarding copyright ownership.
+    Apereo licenses this file to you under the Apache License,
+    Version 2.0 (the "License"); you may not use this file
+    except in compliance with the License.  You may obtain a
+    copy of the License at the following location:
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+
+-->
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+  <bean id="uPortalLdapAttributeSource" class="org.apereo.services.persondir.support.ldap.LdapPersonAttributeDao">
+    <property name="contextSource" ref="defaultLdapContext" />
+    <property name="baseDN" value="ou=people" />
+
+    <!--
+     | Enter all keys that you want users to search with in the Directory Search portlet or portal
+     | search capability. This should contain values from list directoryQueryAttributes in
+     | properties/contexts/userContext.xml.  (Key is internal name, value is ldap attribute name.)
+    -->
+    <property name="queryAttributeMapping">
+      <map>
+        <entry key="username" value="uid" /><!-- should match the uid attribute in your directory;  e.g. sAMAccountName for Active Directory. -->
+        <entry key="cn"  value="cn" />
+        <entry key="givenName" value="givenName"/>
+        <entry key="sn" value="sn" />
+        <entry key="mail" value="mail" />
+      </map>
+    </property>
+    <property name="queryType" value="OR"/>
+    <!-- key is ldap attribute name, values are internal names. -->
+    <property name="resultAttributeMapping">
+      <map>
+        <entry key="objectClass">                   <value>objectClass</value></entry>
+        <entry key="ESCOPersonProfils">             <value>ESCOPersonProfils</value></entry>
+        <entry key="cn">                            <value>cn</value></entry>
+        <entry key="displayName">                   <value>displayName</value></entry>
+        <entry key="personalTitle">                 <value>personalTitle</value></entry>
+        <entry key="sn">                            <value>sn</value></entry>
+        <entry key="givenName">                     <value>givenName</value></entry>
+        <entry key="ENTPersonNomPatro">             <value>ENTPersonNomPatro</value></entry>
+        <entry key="ENTPersonAutresPrenoms">        <value>ENTPersonAutresPrenoms</value></entry>
+        <entry key="mail">                          <value>mail</value></entry>
+        <entry key="ENTPersonAddresse">             <value>ENTPersonAdresse</value></entry>
+        <entry key="ENTPersonCodePostal">           <value>ENTPersonCodePostal</value></entry>
+        <entry key="ENTPersonVille">                <value>ENTPersonVille</value></entry>
+        <entry key="ENTPersonDateNaissance">        <value>ENTPersonDateNaissance</value></entry>
+        <entry key="telephoneNumber">               <value>telephoneNumber</value></entry>
+        <entry key="facsimileTelephoneNumber">      <value>facsimileTelephoneNumber</value></entry>
+        <entry key="homePhone">                     <value>homePhone</value></entry>
+        <entry key="Mobile">                        <value>Mobile</value></entry>
+        <entry key="uid">
+          <set>
+            <value>uid</value>
+            <value>username</value>
+            <value>user.login.id</value>
+          </set>
+        </entry>
+        <entry key="ENTPersonJointure">             <value>ENTPersonJointure</value></entry>
+        <entry key="ENTPersonGARIdentifiant">       <value>ENTPersonGARIdentifiant</value></entry>
+        <entry key="ENTPersonSexe">                 <value>ENTPersonSexe</value></entry>
+        <entry key="ENTPersonFonctions">            <value>ENTPersonFonctions</value></entry>
+        <entry key="ENTPersonStructRattach">        <value>ENTPersonStructRattach</value></entry>
+        <entry key="ENTPersonLogin">                <value>ENTPersonLogin</value></entry>
+        <entry key="ENTPersonAlias">                <value>ENTPersonAlias</value></entry>
+        <entry key="ENTPersonProfils">              <value>ENTPersonProfils</value></entry>
+        <entry key="ESCOUAI">                       <value>ESCOUAI</value></entry>
+        <entry key="ESCOSIREN">                     <value>ESCOSIREN</value></entry>
+        <entry key="ESCOUAIRattachement">           <value>ESCOUAIRattachement</value></entry>
+        <entry key="ESCOUAICourant">                <value>ESCOUAICourant</value></entry>
+        <entry key="ESCOSIREN">                     <value>ESCOSIREN</value></entry>
+        <entry key="ESCOSIRENCourant">              <value>ESCOSIRENCourant</value></entry>
+        <entry key="isMemberOf">                    <value>isMemberOf</value></entry>
+        <entry key="ENTEleveLibelleMEF">            <value>ENTEleveLibelleMEF</value></entry>
+        <entry key="ENTEleveNivFormation">          <value>ENTEleveNivFormation</value></entry>
+        <entry key="ENTEleveEnseignements">         <value>ENTEleveEnseignements</value></entry>
+        <entry key="ENTEleveClasses">               <value>ENTEleveClasses</value></entry>
+        <entry key="ENTEleveGroupes">               <value>ENTEleveGroupes</value></entry>
+        <entry key="ENTEleveMajeur">                <value>ENTEleveMajeur</value></entry>
+        <entry key="ENTEleveMajeurAnticipe">        <value>ENTEleveMajeurAnticipe</value></entry>
+        <entry key="ENTAuxEnsCategoDiscipline">     <value>ENTAuxEnsCategoDiscipline</value></entry>
+        <entry key="ENTAuxEnsMatiereEnseignEtab">   <value>ENTAuxEnsMatiereEnseignEtab</value></entry>
+        <entry key="ENTAuxEnsClasses">              <value>ENTAuxEnsClasses</value></entry>
+        <entry key="ENTAuxEnsGroupes">              <value>ENTAuxEnsGroupes</value></entry>
+        <entry key="ENTAuxEnsClassesPrincipal">     <value>ENTAuxEnsClassesPrincipal</value></entry>
+        <entry key="ENTAuxRespEntrpSociete">        <value>ENTAuxRespEntrpSociete</value></entry>
+        <entry key="ESCODefaultUserProfile">        <value>ESCODefaultUserProfile</value></entry>
+        <entry key="ESCODomaines">                  <value>ESCODomaines</value></entry>
+        <entry key="ESCOPersonPhoto">               <value>ESCOPersonPhoto</value></entry>
+      </map>
+    </property>
+  </bean>
+
+</beans>
