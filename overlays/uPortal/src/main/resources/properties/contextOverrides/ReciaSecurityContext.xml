@@ -8,6 +8,8 @@
             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
             http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
 
+  <!-- scan des bean/servlet pour le monitoring des sessions utilisateur -->
+  <context:component-scan base-package="fr.recia.portal.monitor"/>
 
   <!-- bean pour la màj forcée des infos utilisateur sur la servlet spécifique -->
   <bean id="mapForExternalUpdatePersonProperty" class="java.util.HashMap">

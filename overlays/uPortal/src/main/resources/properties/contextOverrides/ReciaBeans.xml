@@ -8,6 +8,14 @@
             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
             http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
 
+  <!-- bean pour le monitoring des sessions utilisateur -->
+  <bean id="sessionRegistry" class="org.springframework.security.core.session.SessionRegistryImpl"/>
+
+  <!-- bean pour le monitoring des sessions utilisateur -->
+  <bean id="sessionAuthenticationStrategy" class="fr.recia.portal.monitor.RegistrySessionControlStrategy">
+    <constructor-arg name="sessionRegistry" ref="sessionRegistry" />
+  </bean>
+
   <!-- bean pour la récupération du current portlet affiché en vue maximized -->
   <bean id="focusedPortletName" class="fr.recia.portal.portlets.jsp.FocusedPortletNameProvider"></bean>
 
