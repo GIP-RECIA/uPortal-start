@@ -8,6 +8,8 @@
             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
             http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
 
+  <!-- bean pour la récupération du current portlet affiché en vue maximized -->
+  <bean id="focusedPortletName" class="fr.recia.portal.portlets.jsp.FocusedPortletNameProvider"></bean>
 
   <!-- bean de customization de l'URL de service CAS spécifique dans un contexte multi-tenant / multi-servername -->
   <bean id="authUrlCustomizer" class="org.apereo.portal.url.UrlAuthCustomizerRegistry">
