@@ -9,6 +9,30 @@
             http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
 
 
+  <!-- bean pour la màj forcée des infos utilisateur sur la servlet spécifique -->
+  <bean id="mapForExternalUpdatePersonProperty" class="java.util.HashMap">
+    <description>
+      Updatable property map:
+
+      key=propertyName ; value=EXTERN | INTERN | EQUALS | CHOICE | NORELOAD
+
+      EXTERN=The new value must be passed as a parameter
+      INTERN=The property is only reloaded.
+      EQUALS=The property is reloaded and must be equal to that passed in parameter.
+      CHOICE=If a value is transmitted, the property is modified, otherwise it is reloaded
+      NORELOAD= like CHOICE but property is not reloaded (the response show the current value).
+    </description>
+    <constructor-arg>
+      <map key-type="java.lang.String" value-type="java.lang.String">
+        <entry key="lastActiveTime" value="NORELOAD"/>
+        <entry key="ESCOPersonPhoto" value="CHOICE"/>
+      </map>
+    </constructor-arg>
+  </bean>
+
+  <!-- scan pour les servlets nécessaires GIP, update info user, etc.. -->
+  <context:component-scan base-package="fr.recia.portal.spring.web.servlet"/>
+
   <!-- bean pour la définition des de mapping des différents utilisateurs guest -->
   <util:map id="reciaServerNames">
     <!-- Only server names listed here are authorized ! (the value replace the server name)  -->
