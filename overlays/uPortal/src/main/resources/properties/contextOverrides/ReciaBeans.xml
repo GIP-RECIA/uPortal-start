@@ -9,4 +9,23 @@
             http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
 
 
+  <!-- bean de customization de l'URL de service CAS spécifique dans un contexte multi-tenant / multi-servername -->
+  <bean id="authUrlCustomizer" class="org.apereo.portal.url.UrlAuthCustomizerRegistry">
+    <property name="registry">
+      <list>
+        <bean class="org.apereo.portal.url.UrlMultiServerNameCustomizer">
+          <property name="allServerNames">
+            <bean class="org.apereo.portal.utils.StringToSetUtils" factory-method="delimitedSpaceListToSet">
+              <constructor-arg type="java.lang.String" value="${portal.allServerNames}"/>
+            </bean>
+          </property>
+        </bean>
+        <bean class="org.apereo.portal.url.UrlCasParamAppenderCustomizer"
+              p:applyCondition="${esco.urlCasByPassWayfPattern}"
+              p:paramToAppend="idpId=eleves-parents"/>
+        <bean class="fr.recia.portal.url.UrlCasTokenAppenderCustomizer"/>
+      </list>
+    </property>
+  </bean>
+
 </beans>
