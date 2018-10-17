@@ -28,4 +28,7 @@
     </property>
   </bean>
 
+  <!-- récupération du proxy ticket CAS -->
+  <bean id="casTicketUserInfoService" class="org.apereo.portal.portlet.container.services.CasTicketUserInfoService" />
+
 </beans>
