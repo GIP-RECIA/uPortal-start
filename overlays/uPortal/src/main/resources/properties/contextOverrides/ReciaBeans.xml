@@ -11,6 +11,16 @@
   <!-- bean pour la récupération du current portlet affiché en vue maximized -->
   <bean id="focusedPortletName" class="fr.recia.portal.portlets.jsp.FocusedPortletNameProvider"></bean>
 
+  <!-- bean utilitaire pour la transformation d'une liste d'attributs utilisateur en une chaine exploitable par le script Xiti -->
+  <bean id="transformUserAttributes" class="fr.recia.portal.portlets.jsp.TransformUserAttributes">
+    <property name="regexMap">
+      <map>
+        <entry key="objectClass" value=".*(ENTEleve|ENTAuxEnseignant|ENTAuxPersRelEleve|ENTAuxNonEnsEtab|ENTAuxNonEnsCollLoc).*"/>
+        <entry key="ENTPersonStructRattach" value="ENTStructureSIREN=([^,]+),ou=structures,dc=esco-centre,dc=fr" />
+      </map>
+    </property>
+  </bean>
+
   <!-- bean de customization de l'URL de service CAS spécifique dans un contexte multi-tenant / multi-servername -->
   <bean id="authUrlCustomizer" class="org.apereo.portal.url.UrlAuthCustomizerRegistry">
     <property name="registry">
