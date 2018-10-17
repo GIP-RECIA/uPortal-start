@@ -9,4 +9,22 @@
             http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
 
 
+  <!-- bean pour la définition des de mapping des différents utilisateurs guest -->
+  <util:map id="reciaServerNames">
+    <!-- Only server names listed here are authorized ! (the value replace the server name)  -->
+    <entry key="${serverName.lycees}" value="guest-lycees" />
+    <entry key="${serverName.cfa}" value="guest-cfa" />
+    <entry key="${serverName.clg37}" value="guest-clg37" />
+    <entry key="${serverName.recia}" value="guest-recia" />
+    <entry key="${serverName.webocentre}" value="guest-webocentre" />
+    <entry key="${serverName.ef2s}" value="guest-ef2s" />
+  </util:map>
+
+  <!-- bean de sélection des guest en fonction du servername via le bean de la map -->
+  <bean id="regiaGuestSelector" class="fr.recia.portal.security.guest.guestUsernameSelector">
+    <constructor-arg>
+      <ref bean="reciaServerNames" />
+    </constructor-arg>
+  </bean>
+
 </beans>
