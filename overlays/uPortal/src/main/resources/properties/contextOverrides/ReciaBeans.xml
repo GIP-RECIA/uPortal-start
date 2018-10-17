@@ -42,5 +42,8 @@
 
   <!-- récupération du proxy ticket CAS -->
   <bean id="casTicketUserInfoService" class="org.apereo.portal.portlet.container.services.CasTicketUserInfoService" />
+  
+  <!-- bean pour logger les session id associés aux uids -->
+  <bean id="escoStatsLoggerQueuingEventHandler" class="fr.recia.portal.events.handlers.EscoStatsLogger" />
 
 </beans>
