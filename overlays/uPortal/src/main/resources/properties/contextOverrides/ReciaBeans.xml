@@ -54,4 +54,76 @@
   <!-- bean pour logger les session id associés aux uids -->
   <bean id="escoStatsLoggerQueuingEventHandler" class="fr.recia.portal.events.handlers.EscoStatsLogger" />
 
+  <!-- beans pour l'association de skins par défaut sur des paramètres utilisateurs hors dynamic-respondr portlet -->
+  <!-- bean pour l'association sur les guest -->
+  <bean id="guestskinTransformer" class="org.apereo.portal.rendering.xslt.UserAttributeSkinMappingTransformerConfigurationSource" lazy-init="true">
+    <property name="stylesheetDescriptorNames">
+      <set>
+        <value>Respondr</value>
+      </set>
+    </property>
+    <property name="skinAttributeName" value="username" />
+    <property name="attributeToSkinMap">
+      <util:map id="guestSkinMap" map-class="java.util.HashMap" key-type="java.util.regex.Pattern" value-type="java.lang.String">
+        <entry key="guest-lycees" value="netocentre" />
+        <entry key="guest-cfa" value="cfa-netocentre" />
+        <entry key="guest-clg37" value="touraine-eschool" />
+        <entry key="guest-recia" value="recia" />
+        <entry key="guest-webocentre" value="webocentre" />
+        <entry key="guest-ef2s" value="ef2s-netocentre" />
+      </util:map>
+    </property>
+  </bean>
+  <!-- bean pour l'association sur les domaines -->
+  <bean id="defaultskinTransformer" class="org.apereo.portal.rendering.xslt.UserAttributeSkinMappingTransformerConfigurationSource"  lazy-init="true">
+    <property name="stylesheetDescriptorNames">
+      <set>
+        <value>Respondr</value>
+      </set>
+    </property>
+    <property name="skinAttributeName" value="serverName" />
+    <property name="attributeToSkinMap">
+      <map>
+        <entry key="${serverName.lycees}" value="netocentre" />
+        <entry key="${serverName.cfa}" value="cfa-netocentre" />
+        <entry key="${serverName.clg37}" value="touraine-eschool" />
+        <entry key="${serverName.recia}" value="recia" />
+        <entry key="${serverName.webocentre}" value="webocentre" />
+        <entry key="${serverName.ef2s}" value="ef2s-netocentre" />
+      </map>
+    </property>
+  </bean>
+  <!-- bean de surcharge pour les agri -->
+  <bean id="agriSkinTransformer" class="org.apereo.portal.rendering.xslt.UserAttributeSkinMappingTransformerConfigurationSource" lazy-init="true" >
+    <property name="stylesheetDescriptorNames">
+      <set>
+        <value>Respondr</value>
+      </set>
+    </property>
+    <property name="skinAttributeName" value="ESCOUAICourant" />
+    <property name="attributeToSkinMap">
+      <map>
+        <entry key="0180585N" value="agri-netocentre" />
+        <entry key="0280706R" value="agri-netocentre" />
+        <entry key="0360017Y" value="agri-netocentre" />
+        <entry key="0370781Y" value="agri-netocentre" />
+        <entry key="0370794M" value="agri-netocentre" />
+        <entry key="0370878D" value="agri-netocentre" />
+        <entry key="0410018X" value="agri-netocentre" />
+        <entry key="0410626H" value="agri-netocentre" />
+        <entry key="0410629L" value="agri-netocentre" />
+        <entry key="0450027K" value="agri-netocentre" />
+        <entry key="0450094H" value="agri-netocentre" />
+        <entry key="0451535Z" value="agri-netocentre" />
+      </map>
+    </property>
+  </bean>
+
+  <!-- bean de surcharge des skins par défaut listant les bean à appliquer dans le bon ordre -->
+  <util:list id="customSkinsTransformers">
+    <ref bean="defaultskinTransformer"/>
+    <ref bean="guestskinTransformer"/>
+    <ref bean="agriSkinTransformer"/>
+  </util:list>
+
 </beans>
