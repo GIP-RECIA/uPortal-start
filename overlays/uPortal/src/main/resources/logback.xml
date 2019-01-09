@@ -133,6 +133,10 @@
   <logger name="org.apereo.portal" additivity="false" level="WARN">
     <appender-ref ref="PORTAL"/>
   </logger>
+
+  <logger name="org.apereo.portal.groups.smartldap.SmartLdapGroupStore" additivity="false" level="ERROR">
+    <appender-ref ref="PORTAL"/>
+  </logger>
   
   <!-- Log use of the identity and attribute swapper -->
   <logger name="org.apereo.portal.portlets.swapper" additivity="false" level="INFO">
