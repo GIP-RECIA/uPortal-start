@@ -29,7 +29,6 @@
 <script type="text/javascript" language="javascript">
   var versionUpdate = (new Date()).getTime();
   var script = document.createElement("script");
-  script.type = "module";
   script.src = "${ctxPath}/scripts/esco.js?v=" + versionUpdate;
   script.defer = true;
   document.body.appendChild(script);
@@ -51,6 +50,7 @@
     favorites-portlet-card-size="${favoritesPortletCardSize[0]}"
     grid-portlet-card-size="${gridPortletCardSize[0]}"
     hide-action-mode="${hideActionMode[0]}"
+    show-favorites-in-slider="true"
   ></esco-hamburger-menu>
 </div>
 
@@ -70,7 +70,7 @@
       } while (el !== null);
       return null;
     };
-  document.querySelector('#content-menu').closest("section").setAttribute("style", "float: left;")
+  document.querySelector('#content-menu').closest("section").setAttribute("style", "float: left;");
 </script>
 
 <style type="text/css">
