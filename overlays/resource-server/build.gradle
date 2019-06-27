@@ -25,6 +25,9 @@ dependencies {
     runtime "org.webjars.npm:uportal__notification-list:${notificationWebComponentsVersion}@jar"
     runtime "org.webjars.npm:uportal__notification-modal:${notificationWebComponentsVersion}@jar"
 
+    // GIP RECIA Webjars
+    runtime "org.webjars.npm:gip-recia__menu-cantine:${menuCantineWebComponentVersion}@jar"
+
 }
 
 war {

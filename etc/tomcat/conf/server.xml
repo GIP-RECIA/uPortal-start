@@ -326,6 +326,13 @@
           <Manager pathname="" />
         </Context>
 
+        <!--
+        <Context path="/menuCantine" docBase="/opt/webapps/menu-cantine" reloadable="false" crossContext="true">
+          <Manager pathname="" />
+          <Parameter name="spring.config.additional-location" value="${PORTAL_HOME}/menu-cantine-api.yml"/>
+        </Context>
+        -->
+
         <!-- SingleSignOn valve, share authentication between web applications
              Documentation at: /docs/config/valve.html -->
         <!--

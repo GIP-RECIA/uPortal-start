@@ -1,0 +1,7 @@
+dependencies {
+    runtime "fr.recia:menu-cantine:${menuCantineVersion}@war"
+}
+
+war {
+    archiveName 'menu-cantine.war'
+}
