@@ -1,3 +1,7 @@
+import org.apereo.portal.start.gradle.plugins.GradleCustomTasksPlugin
+
+apply plugin: GradleCustomTasksPlugin
+
 dependencies {
     runtime "fr.recia:menu-cantine:${menuCantineVersion}@war"
 }
