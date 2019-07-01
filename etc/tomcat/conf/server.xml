@@ -318,6 +318,13 @@
           <Manager pathname=""/>
         </Context>
 
+        <!--
+        <Context path="/mediacentre-ws" docBase="/opt/webapps/mediacentre-ws" reloadable="false" crossContext="true">
+          <Manager pathname="" />
+          <Parameter name="spring.config.additional-location" value="${PORTAL_HOME}/mediacentre-ws.yml"/>
+        </Context>
+        -->
+
         <Context path="/flash-info-portlet" docBase="/opt/webapps/flash-info-portlet" reloadable="false" crossContext="true">
           <Manager pathname="" />
         </Context>

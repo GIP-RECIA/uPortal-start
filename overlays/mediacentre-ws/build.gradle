@@ -1,0 +1,7 @@
+dependencies {
+    runtime "fr.recia.mediacentre.ws:esco-mediacentre-ws:${mediacentreWsVersion}@war"
+}
+
+war {
+    archiveName 'mediacentre-ws.war'
+}
