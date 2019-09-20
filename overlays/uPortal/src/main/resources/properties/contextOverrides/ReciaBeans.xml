@@ -42,7 +42,10 @@
         </bean>
         <bean class="org.apereo.portal.url.UrlCasParamAppenderCustomizer"
               p:applyCondition="${esco.urlCasByPassWayfPattern}"
-              p:paramToAppend="idpId=eleves-parents"/>
+              p:paramToAppend="${esco.urlCasByPassWayfParamToAppend}"/>
+        <bean class="fr.recia.portal.url.UrlCasParamAppenderFromPortalRequestCustomizer"
+              p:applyCondition="${esco.urlCasByPassWayfEduConnectPattern}"
+              p:paramToAppend="${esco.urlCasByPassWayfEduConnectParamToAppend}"/>
         <bean class="fr.recia.portal.url.UrlCasTokenAppenderCustomizer"/>
       </list>
     </property>
