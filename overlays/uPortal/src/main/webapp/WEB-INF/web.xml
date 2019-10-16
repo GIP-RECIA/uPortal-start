@@ -114,8 +114,8 @@
     </filter>
 
     <filter>
-        <filter-name>springSecurityFilterChain</filter-name>
-        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+      <filter-name>springSecurityFilterChain</filter-name>
+      <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
     </filter>
 
     <filter>
@@ -167,6 +167,11 @@
             <param-name>targetFilterLifecycle</param-name>
             <param-value>true</param-value>
         </init-param>
+    </filter>
+
+    <filter>
+        <filter-name>maxInactiveFilter</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
     </filter>
 
     <filter>
@@ -262,6 +267,13 @@
     </filter-mapping>
 
     <filter-mapping>
+        <filter-name>maxInactiveFilter</filter-name>
+        <servlet-name>RenderingDispatcherServlet</servlet-name>
+        <servlet-name>MVCDispatcherServlet</servlet-name>
+        <servlet-name>JsonRenderingDispatcherServlet</servlet-name>
+    </filter-mapping>
+
+    <filter-mapping>
         <filter-name>requestParameterFilter</filter-name>
         <url-pattern>/Login</url-pattern>
         <url-pattern>/CasProxyServlet</url-pattern>
@@ -284,8 +296,8 @@
     </filter-mapping>
 
     <filter-mapping>
-        <filter-name>springSecurityFilterChain</filter-name>
-        <url-pattern>*</url-pattern>
+      <filter-name>springSecurityFilterChain</filter-name>
+      <url-pattern>*</url-pattern>
     </filter-mapping>
 
     <filter-mapping>
@@ -460,16 +472,16 @@
     </error-page>
 
     <session-config>
-        <cookie-config>
-            <http-only>true</http-only>
-            <!--
-             | Should match the value of org.apereo.portal.portlet.container.services.PortletCookieServiceImpl.portalCookieAlwaysSecure
-             | in portal.properties.
-             +-->
-            <secure>false</secure>
-        </cookie-config>
-        <tracking-mode>COOKIE</tracking-mode>
-        <!-- NOTE:  Specify the HTTP session duration in <tomcatHome>/conf/web.xml so it is the same for all webapps. -->
+      <cookie-config>
+        <http-only>true</http-only>
+        <!--
+         | Should match the value of org.apereo.portal.portlet.container.services.PortletCookieServiceImpl.portalCookieAlwaysSecure
+         | in portal.properties.
+         +-->
+        <secure>false</secure>
+      </cookie-config>
+      <tracking-mode>COOKIE</tracking-mode>
+      <!-- NOTE:  Specify the HTTP session duration in <tomcatHome>/conf/web.xml so it is the same for all webapps. -->
     </session-config>
 
     <welcome-file-list>
