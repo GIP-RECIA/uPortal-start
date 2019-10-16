@@ -340,6 +340,13 @@
         </Context>
         -->
 
+        <!--
+       <Context path="/niveau-bourse" docBase="/opt/webapps/niveau-bourse" reloadable="false" crossContext="true">
+         <Manager pathname="" />
+         <Parameter name="spring.config.additional-location" value="${PORTAL_HOME}/niveau-bourse-ws.yml"/>
+       </Context>
+       -->
+
         <!-- SingleSignOn valve, share authentication between web applications
              Documentation at: /docs/config/valve.html -->
         <!--
