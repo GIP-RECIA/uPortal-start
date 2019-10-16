@@ -160,7 +160,7 @@
 
       <Host name="localhost"  appBase="webapps"
             unpackWARs="false" autoDeploy="false"
-            startStopThreads="4">
+            startStopThreads="0">
 
         <Context path="/portail" docBase="/opt/webapps/uPortal" reloadable="false" crossContext="true" >
           <!--
