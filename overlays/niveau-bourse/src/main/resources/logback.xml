@@ -76,6 +76,34 @@
     </rollingPolicy>
   </appender>
 
+  <appender name="ACCESS" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <!--
+     | Name of the current log file
+     +-->
+    <File>${LOG_DIR}/${CONTEXT_NAME}_UID.log</File>
+
+    <!--
+     | Log message pattern configuration
+     |
+     | http://logback.qos.ch/manual/layouts.html#conversionWord
+     +-->
+    <encoder>
+      <pattern>%5p [%t] %d{MMM/dd HH:mm:ss,SSS} %c - %m%n</pattern>
+    </encoder>
+
+    <!--
+     | Rolls the log file every 24 hours
+     | gzip the archived log file
+     | Delete archived log files older than 28 days
+     |
+     | http://logback.qos.ch/manual/appenders.html#TimeBasedRollingPolicy
+     +-->
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${LOG_DIR}/${CONTEXT_NAME}_UID.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
+      <maxHistory>366</maxHistory>
+    </rollingPolicy>
+  </appender>
+
   <!--
    | Setup default log level to WARN
    +-->
@@ -88,5 +116,8 @@
    +-->
   <logger name="fr.recia.ws.bourse" additivity="false" level="WARN">
     <appender-ref ref="LOG" />
+  </logger>
+  <logger name="fr.recia.ws.bourse.infouid" additivity="false" level="INFO">
+    <appender-ref ref="ACCESS" />
   </logger>
 </configuration>
