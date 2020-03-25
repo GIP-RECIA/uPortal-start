@@ -44,7 +44,8 @@
       <pattern>%-5level [%thread] %logger{36} %d{ISO8601} - %msg%n</pattern>
     </encoder>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-      <fileNamePattern>/home/esco/logs/portal/portal.log.%d{yyyy-MM-dd}</fileNamePattern>
+      <fileNamePattern>/home/esco/logs/portal/portal.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
+      <maxHistory>5</maxHistory>
     </rollingPolicy>
   </appender>
 
@@ -57,7 +58,8 @@
       <pattern>%-5level [%thread] %logger{36} %d{ISO8601} - %msg%n</pattern>
     </encoder>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-      <fileNamePattern>/home/esco/logs/portal/portal-events.log.%d{yyyy-MM-dd}</fileNamePattern>
+      <fileNamePattern>/home/esco/logs/portal/portal-events.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
+      <maxHistory>5</maxHistory>
     </rollingPolicy>
   </appender>
 
@@ -70,7 +72,8 @@
       <pattern>%-5level [%thread] %logger{36} %d{ISO8601} - %msg%n</pattern>
     </encoder>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-      <fileNamePattern>/home/esco/logs/portal/portal-tincan-events.log.%d{yyyy-MM-dd}</fileNamePattern>
+      <fileNamePattern>/home/esco/logs/portal/portal-tincan-events.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
+      <maxHistory>5</maxHistory>
     </rollingPolicy>
   </appender>
 
@@ -83,7 +86,8 @@
       <pattern>%-5level [%thread] %logger{36} %d{ISO8601} - %msg%n</pattern>
     </encoder>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-      <fileNamePattern>/home/esco/logs/audit/portal.audit.log.%d{yyyy-MM-dd}</fileNamePattern>
+      <fileNamePattern>/home/esco/logs/audit/portal.audit.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
+      <maxHistory>5</maxHistory>
     </rollingPolicy>
   </appender>
 
@@ -96,7 +100,8 @@
       <pattern>%-5level [%thread] %logger{36} %d{ISO8601} - %msg%n</pattern>
     </encoder>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-      <fileNamePattern>/home/esco/logs/jgroups/portal.jgroups.log.%d{yyyy-MM-dd}</fileNamePattern>
+      <fileNamePattern>/home/esco/logs/jgroups/portal.jgroups.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
+      <maxHistory>5</maxHistory>
     </rollingPolicy>
   </appender>
 
@@ -121,7 +126,8 @@
       <pattern>[${portal.env.name}] - %d{ISO8601} - %msg%n</pattern>
     </encoder>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-      <fileNamePattern>/home/esco/logs/audit/portal.access.log.%d{yyyy-MM-dd}</fileNamePattern>
+      <fileNamePattern>/home/esco/logs/audit/portal.access.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
+      <maxHistory>366</maxHistory>
     </rollingPolicy>
   </appender>
 
