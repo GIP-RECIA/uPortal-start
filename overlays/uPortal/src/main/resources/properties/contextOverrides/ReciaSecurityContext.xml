@@ -40,7 +40,9 @@
     <!-- Only server names listed here are authorized ! (the value replace the server name)  -->
     <entry key="${serverName.lycees}" value="guest-lycees" />
     <entry key="${serverName.cfa}" value="guest-cfa" />
+    <entry key="${serverName.clg18}" value="guest-clg18" />
     <entry key="${serverName.clg37}" value="guest-clg37" />
+    <entry key="${serverName.clg41}" value="guest-clg41" />
     <entry key="${serverName.recia}" value="guest-recia" />
     <entry key="${serverName.webocentre}" value="guest-webocentre" />
     <entry key="${serverName.ef2s}" value="guest-ef2s" />

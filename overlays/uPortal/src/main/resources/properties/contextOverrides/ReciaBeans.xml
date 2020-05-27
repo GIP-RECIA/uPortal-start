@@ -53,7 +53,7 @@
 
   <!-- récupération du proxy ticket CAS -->
   <bean id="casTicketUserInfoService" class="org.apereo.portal.portlet.container.services.CasTicketUserInfoService" />
-  
+
   <!-- bean pour logger les session id associés aux uids -->
   <bean id="escoStatsLoggerQueuingEventHandler" class="fr.recia.portal.events.handlers.EscoStatsLogger" />
 
@@ -70,7 +70,9 @@
       <util:map id="guestSkinMap" map-class="java.util.HashMap" key-type="java.util.regex.Pattern" value-type="java.lang.String">
         <entry key="guest-lycees" value="netocentre" />
         <entry key="guest-cfa" value="cfa-netocentre" />
+        <entry key="guest-clg18" value="chercan" />
         <entry key="guest-clg37" value="touraine-eschool" />
+        <entry key="guest-clg41" value="colleges41" />
         <entry key="guest-recia" value="recia" />
         <entry key="guest-webocentre" value="webocentre" />
         <entry key="guest-ef2s" value="ef2s-netocentre" />
@@ -89,7 +91,9 @@
       <map>
         <entry key="${serverName.lycees}" value="netocentre" />
         <entry key="${serverName.cfa}" value="cfa-netocentre" />
+        <entry key="${serverName.clg18}" value="chercan" />
         <entry key="${serverName.clg37}" value="touraine-eschool" />
+        <entry key="${serverName.clg37}" value="colleges41" />
         <entry key="${serverName.recia}" value="recia" />
         <entry key="${serverName.webocentre}" value="webocentre" />
         <entry key="${serverName.ef2s}" value="ef2s-netocentre" />

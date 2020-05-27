@@ -21,7 +21,7 @@
 -->
 <skins>
 
-    <!-- 
+    <!--
         NOTE:  The default skin for Respondr is available in three variations:
 
           1. static (enabled by default)
@@ -91,9 +91,19 @@
     <skin-description>Skin ENT pour les EF2S en Région Centre</skin-description>
   </skin>
   <skin>
+    <skin-key>chercan</skin-key>
+    <skin-name>Cher Can</skin-name>
+    <skin-description>Skin ENT pour les Collèges du Cher</skin-description>
+  </skin>
+  <skin>
     <skin-key>touraine-eschool</skin-key>
     <skin-name>Touraine e-school</skin-name>
     <skin-description>Skin ENT pour les Collèges de l'Indre-et-Loire</skin-description>
+  </skin>
+  <skin>
+    <skin-key>colleges41</skin-key>
+    <skin-name>Colleges 41</skin-name>
+    <skin-description>Skin ENT pour les Collèges du Loir-et-Cher</skin-description>
   </skin>
   <skin>
     <skin-key>recia</skin-key>
@@ -105,6 +115,6 @@
     <skin-name>WebO'Centre</skin-name>
     <skin-description>Skin ENT pour les utilisateurs de WebO'Centre</skin-description>
   </skin>
-  
+
 </skins>
 
