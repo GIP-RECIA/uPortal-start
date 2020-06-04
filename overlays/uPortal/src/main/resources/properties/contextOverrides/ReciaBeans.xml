@@ -93,7 +93,7 @@
         <entry key="${serverName.cfa}" value="cfa-netocentre" />
         <entry key="${serverName.clg18}" value="chercan" />
         <entry key="${serverName.clg37}" value="touraine-eschool" />
-        <entry key="${serverName.clg37}" value="colleges41" />
+        <entry key="${serverName.clg41}" value="colleges41" />
         <entry key="${serverName.recia}" value="recia" />
         <entry key="${serverName.webocentre}" value="webocentre" />
         <entry key="${serverName.ef2s}" value="ef2s-netocentre" />
