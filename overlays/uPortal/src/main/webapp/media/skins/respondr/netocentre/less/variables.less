@@ -20,7 +20,7 @@
 /* VARIABLES NETOCENTRE */
 @nocHeaderFooterBackGround: #303030;
 @nocBodyFontColor: @nocHeaderFooterBackGround;
-@nocFooterBackGround:#d0d0d0;
+@nocFooterBackGround: #d0d0d0;
 @nocBackGround: #f3f3f3;
 @nocCardsBackground: #ffffff;
 @nocFontColor: @nocCardsBackground;
@@ -47,7 +47,9 @@
 @logoNOCFooterHeight: 50px;
 /* Affichage logo footer */
 @displaycentreValLoire: inline-block;
+@displaychercan: none;
 @displaytouraine: none;
+@displaycolleges41: none;
 @displayagricole: inline-block;
 @displayagricoleNotGuest: none;
 @displayNetocentre: inline-block;
@@ -64,15 +66,15 @@
  * Grayscale colors. 1 is lightest, 10 is darkest.
  */
 
-@grayscale1:  #F5F5F5;
-@grayscale2:  #E5E5E5;
-@grayscale3:  #D8D8D8;
-@grayscale4:  #CCCCCC;
-@grayscale5:  #ADADAD;
-@grayscale6:  #999999;
-@grayscale7:  #8C8C8C;
-@grayscale8:  #696969;
-@grayscale9:  #404040;
+@grayscale1: #F5F5F5;
+@grayscale2: #E5E5E5;
+@grayscale3: #D8D8D8;
+@grayscale4: #CCCCCC;
+@grayscale5: #ADADAD;
+@grayscale6: #999999;
+@grayscale7: #8C8C8C;
+@grayscale8: #696969;
+@grayscale9: #404040;
 @grayscale10: #333333;
 
 /*
@@ -101,7 +103,7 @@
  * 2) The value must be on the same line as the variable name and be terminated with a semicolon due to
  *    regex searches by skin manager.
  */
-@color2: @nocThemeColor;  // muted orange
+@color2: @nocThemeColor; // muted orange
 @color2-light: lighten(@color2, 10%);
 @color2-lighter: lighten(@color2, 25%);
 @color2-lightest: lighten(@color2, 50%);
@@ -118,7 +120,7 @@
  * 2) The value must be on the same line as the variable name and be terminated with a semicolon due to
  *    regex searches by skin manager.
  */
-@color3:@nocThemeColor;
+@color3: @nocThemeColor;
 @color3-light: lighten(@color3, 15%);
 
 /*
@@ -154,7 +156,7 @@
  * 2) The value must be on the same line as the variable name and be terminated with a semicolon due to
  *    regex searches by skin manager.
  */
-@color6:darken(@nocBackGround, 15%);
+@color6: darken(@nocBackGround, 15%);
 
 @border: 2px solid @nocBackGround;
 
@@ -191,7 +193,7 @@
 /**
  * Page-level styles
  */
-@body-background-color: @footer-secondary-background-color;  // default to match footer-second;  prevents 'gaps' at the bottom of short pages
+@body-background-color: @footer-secondary-background-color; // default to match footer-second;  prevents 'gaps' at the bottom of short pages
 @body-background-image: none;
 //@portal-page-body-background-image: url(./common/images/furley_bg.png); // Using the furley pattern from http://subtlepatterns.com
 @portal-page-body-background-image: none;
@@ -207,11 +209,11 @@
 /**
  * Theme based button styles
  */
-@btn-skin-text-color:             @white;
-@btn-skin-background-color:       @color2;
+@btn-skin-text-color: @white;
+@btn-skin-background-color: @color2;
 
-@btn-skin-alt-text-color:         @grayscale10;
-@btn-skin-alt-background-color:   @color3;
+@btn-skin-alt-text-color: @grayscale10;
+@btn-skin-alt-background-color: @color3;
 
 @btn-primary-color: @btn-skin-text-color;
 @btn-primary-bg: @btn-skin-background-color;
@@ -221,11 +223,12 @@
 @brand-primary: @color2;
 // for btn-info*
 @brand-info: @color2-light;
-    
+
 /**
  * Nav
  */
-@mobile-navbar-top-position: -148px; /* Active only on mobile : if you need to custumize region header height (big banner, small logo etc.), you need to modify this value. default is -148px. */
+@mobile-navbar-top-position: -148px;
+/* Active only on mobile : if you need to custumize region header height (big banner, small logo etc.), you need to modify this value. default is -148px. */
 
 @mobile-navbar-item-active-background-color: @color1;
 @mobile-navbar-item-active-text-color: @white;
