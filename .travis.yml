@@ -8,14 +8,14 @@ matrix:
       sudo: required
       env: DB=mariadb
       addons:
-        mariadb: '10.1'
+        mariadb: '10.2'
     - os: linux
       dist: trusty
       jdk: openjdk8
       sudo: required
       env: DB=mariadb
       addons:
-        mariadb: '10.1'
+        mariadb: '10.2'
     - os: linux
       dist: trusty
       jdk: oraclejdk8
