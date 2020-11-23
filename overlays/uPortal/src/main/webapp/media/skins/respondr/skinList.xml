@@ -96,6 +96,11 @@
     <skin-description>Skin ENT pour les Collèges du Cher</skin-description>
   </skin>
   <skin>
+    <skin-key>mon-e-college36</skin-key>
+    <skin-name>Mon e-collège</skin-name>
+    <skin-description>Skin ENT pour les Collèges de l'Indre</skin-description>
+  </skin>
+  <skin>
     <skin-key>touraine-eschool</skin-key>
     <skin-name>Touraine e-school</skin-name>
     <skin-description>Skin ENT pour les Collèges de l'Indre-et-Loire</skin-description>
@@ -104,6 +109,11 @@
     <skin-key>colleges41</skin-key>
     <skin-name>Colleges 41</skin-name>
     <skin-description>Skin ENT pour les Collèges du Loir-et-Cher</skin-description>
+  </skin>
+  <skin>
+    <skin-key>mon-e-college45</skin-key>
+    <skin-name>Mon e-collège loirétain</skin-name>
+    <skin-description>Skin ENT pour les Collèges du Loiret</skin-description>
   </skin>
   <skin>
     <skin-key>recia</skin-key>
@@ -117,4 +127,3 @@
   </skin>
 
 </skins>
-
