@@ -121,15 +121,6 @@
     </cache>
 
     <!--
-     | Caches if the user is a default user (generally only used during import/export)
-     | - 1 x user
-     | - not replicated
-     +-->
-    <cache name="org.apereo.portal.RDBMUserIdentityStore.isDefaultUser"
-        eternal="false" maxElementsInMemory="10000" overflowToDisk="false" diskPersistent="false"
-        timeToIdleSeconds="600" timeToLiveSeconds="0" memoryStoreEvictionPolicy="LRU" statistics="true" />
-
-    <!--
      | Caches user specific lock
      | - 1 x user
      | - not replicated
@@ -420,6 +411,16 @@
                 replicatePuts=false,
                 replicateUpdates=true, replicateUpdatesViaCopy=false,
                 replicateRemovals=true "/>
+    </cache>
+
+    <!--
+     | Caches search results from searchForGroups() in RDBMEntityGroupStore.
+     | - 1 x search criteria
+     +-->
+    <cache name="org.apereo.portal.groups.RDBMEntityGroupStore.search"
+        eternal="false" maxElementsInMemory="500" overflowToDisk="false" diskPersistent="false"
+        timeToIdleSeconds="0" timeToLiveSeconds="300" memoryStoreEvictionPolicy="LRU" statistics="true" >
+        <cacheEventListenerFactory class="org.apereo.portal.utils.cache.SpringCacheEventListenerFactory" properties="beanName=insufficientSizeCacheEventListener" listenFor="local" />
     </cache>
 
     <!--
