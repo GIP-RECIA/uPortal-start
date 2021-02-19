@@ -71,8 +71,8 @@
       }
       .etablissement-name-header + :not(focused-portlet-header), .focused-portlet {
         span {
-          background: -webkit-linear-gradient(45deg, @white, @color1);
-          -webkit-background-clip: text;
+          background: linear-gradient(45deg, @white, @color1);
+          background-clip: text;
           -webkit-text-fill-color: transparent;
         }
       }
@@ -124,6 +124,9 @@
           &#cher{
             display: @displaychercan;
           }
+          &#eureetloir{
+            display: @displaycollegeseureliens;
+          }
           &#indre{
             display: @displaymonecollege36;
           }
@@ -153,6 +156,9 @@
     }
     #lienChercan {
       display: @displaychercan;
+    }
+    #lienCollegesEureliens {
+      display: @displaycollegeseureliens;
     }
     #lienMonECollege36 {
       display: @displaymonecollege36;

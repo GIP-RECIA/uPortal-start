@@ -96,6 +96,11 @@
     <skin-description>Skin ENT pour les Collèges du Cher</skin-description>
   </skin>
   <skin>
+    <skin-key>colleges-eureliens</skin-key>
+    <skin-name>Colleges Euréliens</skin-name>
+    <skin-description>Skin ENT pour les Collèges de l'Eure-et-Loir</skin-description>
+  </skin>
+  <skin>
     <skin-key>mon-e-college36</skin-key>
     <skin-name>Mon e-collège</skin-name>
     <skin-description>Skin ENT pour les Collèges de l'Indre</skin-description>

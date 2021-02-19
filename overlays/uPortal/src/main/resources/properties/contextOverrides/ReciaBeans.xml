@@ -71,6 +71,7 @@
         <entry key="guest-lycees" value="netocentre" />
         <entry key="guest-cfa" value="cfa-netocentre" />
         <entry key="guest-clg18" value="chercan" />
+        <entry key="guest-clg28" value="colleges-eureliens" />
         <entry key="guest-clg36" value="mon-e-college36" />
         <entry key="guest-clg37" value="touraine-eschool" />
         <entry key="guest-clg41" value="colleges41" />
@@ -94,6 +95,7 @@
         <entry key="${serverName.lycees}" value="netocentre" />
         <entry key="${serverName.cfa}" value="cfa-netocentre" />
         <entry key="${serverName.clg18}" value="chercan" />
+        <entry key="${serverName.clg28}" value="colleges-eureliens" />
         <entry key="${serverName.clg36}" value="mon-e-college36" />
         <entry key="${serverName.clg37}" value="touraine-eschool" />
         <entry key="${serverName.clg41}" value="colleges41" />

@@ -41,6 +41,7 @@
     <entry key="${serverName.lycees}" value="guest-lycees" />
     <entry key="${serverName.cfa}" value="guest-cfa" />
     <entry key="${serverName.clg18}" value="guest-clg18" />
+    <entry key="${serverName.clg28}" value="guest-clg28" />
     <entry key="${serverName.clg36}" value="guest-clg36" />
     <entry key="${serverName.clg37}" value="guest-clg37" />
     <entry key="${serverName.clg41}" value="guest-clg41" />
