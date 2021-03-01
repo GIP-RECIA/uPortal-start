@@ -45,6 +45,7 @@
     <entry key="${serverName.clg36}" value="guest-clg36" />
     <entry key="${serverName.clg37}" value="guest-clg37" />
     <entry key="${serverName.clg41}" value="guest-clg41" />
+    <entry key="${serverName.clg41bis}" value="guest-clg41" />
     <entry key="${serverName.clg45}" value="guest-clg45" />
     <entry key="${serverName.recia}" value="guest-recia" />
     <entry key="${serverName.webocentre}" value="guest-webocentre" />

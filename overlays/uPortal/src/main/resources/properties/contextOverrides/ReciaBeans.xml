@@ -99,6 +99,7 @@
         <entry key="${serverName.clg36}" value="mon-e-college36" />
         <entry key="${serverName.clg37}" value="touraine-eschool" />
         <entry key="${serverName.clg41}" value="colleges41" />
+        <entry key="${serverName.clg41bis}" value="colleges41" />
         <entry key="${serverName.clg45}" value="mon-e-college45" />
         <entry key="${serverName.recia}" value="recia" />
         <entry key="${serverName.webocentre}" value="webocentre" />
