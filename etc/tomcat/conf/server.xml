@@ -70,9 +70,9 @@
                scheme="https" secure="true"
                connectionTimeout="20000"
                redirectPort="8443"
-               maxThreads="1200"
-               compression="on" 
-               compressionMinSize="1024" 
+               maxThreads="1500"
+               compression="on"
+               compressionMinSize="1024"
                compressableMimeType="text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json"
     />
     <!-- Model: 500 users, 1 page / 15 sec, 25 HTTP req / page, 20% buffer -->
@@ -83,7 +83,7 @@
                connectionTimeout="20000"
                redirectPort="8443" />
     -->
-    <!-- Define a SSL/TLS HTTP/1.1 Connector on port 8443
+    <!-- Define an SSL/TLS HTTP/1.1 Connector on port 8443
          This connector uses the NIO implementation. The default
          SSLImplementation will depend on the presence of the APR/native
          library and the useOpenSSL attribute of the
@@ -100,7 +100,7 @@
         </SSLHostConfig>
     </Connector>
     -->
-    <!-- Define a SSL/TLS HTTP/1.1 Connector on port 8443 with HTTP/2
+    <!-- Define an SSL/TLS HTTP/1.1 Connector on port 8443 with HTTP/2
          This connector uses the APR/native implementation which always uses
          OpenSSL for TLS.
          Either JSSE or OpenSSL style configuration may be used. OpenSSL style
@@ -119,7 +119,7 @@
     </Connector>
     -->
     <Connector port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol" SSLEnabled="true"
-               maxThreads="500" scheme="https" secure="true"
+               maxThreads="150" scheme="https" secure="true"
                clientAuth="false" sslProtocol="TLS"
                keystoreFile="/usr/local/ssl/cert/SERVER.keystore"
                keystorePass="CHANGEIT"
@@ -127,7 +127,7 @@
                keystoreType="JKS"/>
 
     <!-- Define an AJP 1.3 Connector on port 8009 -->
-    <Connector port="8009" maxThreads="750" protocol="AJP/1.3" redirectPort="8443" />
+    <Connector port="8009" maxThreads="150" protocol="AJP/1.3" redirectPort="8443" />
 
 
     <!-- An Engine represents the entry point (within Catalina) that processes
@@ -139,7 +139,7 @@
     <!-- You should set jvmRoute to support load-balancing via AJP ie :
     <Engine name="Catalina" defaultHost="localhost" jvmRoute="jvm1">
     -->
-    <Engine name="Catalina" defaultHost="localhost" jvmRoute="CHANGEIT">
+    <Engine name="Catalina" defaultHost="localhost">
 
       <!--For clustering, please take a look at documentation at:
           /docs/cluster-howto.html  (simple how to)
@@ -164,17 +164,6 @@
             startStopThreads="0">
 
         <Context path="/portail" docBase="/opt/webapps/uPortal" reloadable="false" crossContext="true" >
-          <!--
-        <Resource name="jdbc/uPortalDB" auth="Container" type="javax.sql.DataSource"
-        username="esco" password="CHANGEIT"
-        driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://SERVER:3306/DATABASE?autoReconnect=true"
-        maxTotal="100" maxIdle="30" maxWaitMillis="10000"
-        poolPreparedStatements="true"
-        removeAbandonedOnBorrow="true"
-        removeAbandonedTimeout="300"
-        validationQuery="SELECT 1"
-        logAbandoned="true"/>
--->
           <!--  <Manager pathname=""/> -->
         </Context>
 
@@ -194,9 +183,11 @@
           <Manager pathname=""/>
         </Context>
 
-        <!--<Context path="/email-preview" docBase="/opt/webapps/email-preview" reloadable="false" crossContext="true">-->
-        <!--<Manager pathname=""/>-->
-        <!--</Context>-->
+        <!--
+	<Context path="/email-preview" docBase="/opt/webapps/email-preview" reloadable="false" crossContext="true">
+          <Manager pathname=""/>
+        </Context>
+	-->
         <Context path="/FunctionalTestsPortlet" docBase="/opt/webapps/FunctionalTestsPortlet" reloadable="false" crossContext="true">
           <Manager pathname=""/>
         </Context>
@@ -205,71 +196,19 @@
         </Context>
 
         <Context path="/NotificationPortlet" docBase="/opt/webapps/NotificationPortlet" reloadable="false" crossContext="true">
-          <!--<Resource name="jdbc/notificationDB" auth="Container" type="javax.sql.DataSource"
-                    factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
-                    username="notification" password="CHANGEIT"
-                    driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://SERVER:3306/DATAABSE?autoReconnect=true"
-                    initialSize="10" minIdle="10"
-                    maxActive="100" maxIdle="30" maxWait="10000"
-                    removeAbandoned="true"
-                    removeAbandonedTimeout="300"
-                    testOnBorrow="true"
-                    testWhileIdle="true"
-                    numTestsPerEvictionRun="5"
-                    timeBetweenEvictionRunsMillis="10000"
-                    minEvictableIdleTimeMillis="60000"
-                    validationQuery="SELECT 1"
-                    validationQueryTimeout="7"
-                    jdbcInterceptors="ConnectionState(useEquals=true);StatementFinalizer(trace=true);ResetAbandonedTimer;SlowQueryReport"
-                    jmxEnabled="true"
-                    logAbandoned="true"/>-->
           <Manager pathname=""/>
         </Context>
         <Context path="/pluto-testsuite" docBase="/opt/webapps/pluto-testsuite" reloadable="false" crossContext="true">
           <Manager pathname=""/>
         </Context>
         <Context path="/SimpleContentPortlet" docBase="/opt/webapps/SimpleContentPortlet" reloadable="false" crossContext="true">
-          <!--<Resource name="jdbc/simplecontentDB" auth="Container" type="javax.sql.DataSource"
-                    factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
-                    username="simplecontent" password="CHANGEIT"
-                    driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://SERVER:3306/DATABASE?autoReconnect=true"
-                    initialSize="10" minIdle="10"
-                    maxActive="100" maxIdle="30" maxWait="10000"
-                    removeAbandoned="true"
-                    removeAbandonedTimeout="300"
-                    testOnBorrow="true"
-                    testWhileIdle="true"
-                    numTestsPerEvictionRun="5"
-                    timeBetweenEvictionRunsMillis="10000"
-                    minEvictableIdleTimeMillis="60000"
-                    validationQuery="SELECT 1"
-                    validationQueryTimeout="7"
-                    jdbcInterceptors="ConnectionState(useEquals=true);StatementFinalizer(trace=true);ResetAbandonedTimer;SlowQueryReport"
-                    jmxEnabled="true"
-                    logAbandoned="true"/>-->
           <Manager pathname=""/>
         </Context>
-        <!--<Context path="/CalendarPortlet" docBase="/opt/webapps/CalendarPortlet" reloadable="false" crossContext="true">
-            <Resource name="jdbc/calendarDB" auth="Container" type="javax.sql.DataSource"
-                      factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
-                      username="calendar" password="CHANGEIT"
-                      driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://SERVER:3306/DATABASE?autoReconnect=true"
-                      initialSize="10" minIdle="10"
-                      maxActive="100" maxIdle="30" maxWait="10000"
-                      removeAbandoned="true"
-                      removeAbandonedTimeout="300"
-                      testOnBorrow="true"
-                      testWhileIdle="true"
-                      numTestsPerEvictionRun="5"
-                      timeBetweenEvictionRunsMillis="10000"
-                      minEvictableIdleTimeMillis="60000"
-                      validationQuery="SELECT 1"
-                      validationQueryTimeout="7"
-                      jdbcInterceptors="ConnectionState(useEquals=true);StatementFinalizer(trace=true);ResetAbandonedTimer;SlowQueryReport"
-                      jmxEnabled="true"
-                      logAbandoned="true"/>
+        <!--
+        <Context path="/CalendarPortlet" docBase="/opt/webapps/CalendarPortlet" reloadable="false" crossContext="true">
             <Manager pathname=""/>
-        </Context>-->
+        </Context>
+	-->
         <!-- Applis MANAGER -->
         <Context path="/manager" docBase="/opt/tomcat/webapps/manager" reloadable="false" antiResourceLocking="false" privileged="true" useHttpOnly="true">
           <Manager pathname=""/>
@@ -289,11 +228,11 @@
           <Resource name="jdbc/lectureDB" auth="Container" type="javax.sql.DataSource"
                     factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
                     username="lecture" password="CHANGEIT"
-                    driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://SERVER:3306/DATABASE?autoReconnect=true"
+                    driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://SERVER:3307/esupLecture?autoReconnect=true"
                     initialSize="10" minIdle="10"
-                    maxActive="100" maxIdle="30" maxWait="10000"
+                    maxActive="200" maxIdle="30" maxWait="10000"
                     removeAbandoned="true"
-                    removeAbandonedTimeout="300"
+                    removeAbandonedTimeout="60"
                     testOnBorrow="true"
                     testWhileIdle="true"
                     numTestsPerEvictionRun="5"
@@ -319,12 +258,10 @@
           <Manager pathname=""/>
         </Context>
 
-        <!--
         <Context path="/mediacentre-ws" docBase="/opt/webapps/mediacentre-ws" reloadable="false" crossContext="true">
           <Manager pathname="" />
           <Parameter name="spring.config.additional-location" value="${PORTAL_HOME}/mediacentre-ws.yml"/>
         </Context>
-        -->
 
         <Context path="/flash-info-portlet" docBase="/opt/webapps/flash-info-portlet" reloadable="false" crossContext="true">
           <Manager pathname="" />
@@ -334,19 +271,16 @@
           <Manager pathname="" />
         </Context>
 
-        <!--
         <Context path="/menuCantine" docBase="/opt/webapps/menu-cantine" reloadable="false" crossContext="true">
           <Manager pathname="" />
           <Parameter name="spring.config.additional-location" value="${PORTAL_HOME}/menu-cantine-api.yml"/>
         </Context>
-        -->
 
-        <!--
-       <Context path="/niveau-bourse" docBase="/opt/webapps/niveau-bourse" reloadable="false" crossContext="true">
-         <Manager pathname="" />
-         <Parameter name="spring.config.additional-location" value="${PORTAL_HOME}/niveau-bourse-ws.yml"/>
-       </Context>
-       -->
+        <Context path="/niveau-bourse" docBase="/opt/webapps/niveau-bourse" reloadable="false" crossContext="true">
+          <Manager pathname="" />
+          <Parameter name="spring.config.additional-location" value="${PORTAL_HOME}/niveau-bourse-ws.yml"/>
+        </Context>
+
 
         <!-- SingleSignOn valve, share authentication between web applications
              Documentation at: /docs/config/valve.html -->
