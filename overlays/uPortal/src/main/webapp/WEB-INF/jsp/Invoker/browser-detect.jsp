@@ -2,7 +2,7 @@
 
 <div class="browser-detect-script nodisplay">
   <div class="alert alert-danger">
-    <a href="javascript:void(0)" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <a href="javascript:document.querySelector('.browser-detect-script').classList.add('nodisplay')" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <h1>Probl&#232;me de compatibilit&#233; navigateur</h1>
     <p>Un probl&#232;me a &#233;t&#233; d&#233;tect&#233; avec votre navigateur, celui-ci n'est pas totalement compatible avec le fonctionnement de l'ENT.</br>
     Seuls les navigateurs principaux <a href="https://www.mozilla.org/fr/firefox/" target="_blank">Firefox</a>,<a href="https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=fr">Google Chrome</a>,
@@ -16,8 +16,18 @@
       Autrement veuillez utiliser un navigateur reconnu comme compatible parmis la liste suivante: <a href="https://www.mozilla.org/fr/firefox/" target="_blank">Firefox</a>, <a href="https://support.google.com/chrome/answer/95346?co=GENIE.Platform%3DDesktop&hl=fr">Google Chrome</a>, Edge, Safari, Opera.</p>
   </div>
 </div>
+<div class="thirdcookies-detect-script nodisplay">
+  <div class="alert alert-danger">
+    <a href="javascript:document.querySelector('.thirdcookies-detect-script').classList.add('nodisplay')" class="close" aria-label="close">&times;</a>
+    <h1>Probl&#232;me de configuration de votre navigateur</h1>
+    <p>Un probl&#232;me a &#233;t&#233; d&#233;tect&#233; avec votre navigateur qui n'a pas une configuration compatible avec le fonctionnement de l'ENT.</br>
+    Soit votre navigateur est en mode navigation priv&#233;e soit votre param&#233;trage n'autorise pas l'usage des cookies tiers. En effet, la navigation au sein de l'ENT n&#233;cessite parfois la redirection sur des domaines diff&#233;rents (${thirdPartyDomain[0]}) mais toujours li&#233;s &#224; la plateforme ENT.</br>
+    Merci de configurer ou de d&#233;sactiver pour ce site le blocage des cookies tiers, voici les liens vers documentations concernant <a href="https://support.mozilla.org/fr/kb/sites-disent-cookies-bloques-les-debloquer" target="_blank">Firefox</a> ou <a href="https://support.google.com/chrome/answer/95647?hl=fr&co=GENIE.Platform%3DDesktop" target="_blank">Google Chrome</a>.</br><p>
+  </div>
+</div>
 <STYLE type="text/css">
-.browser-detect-script {
+.browser-detect-script,
+.thirdcookies-detect-script {
   position: fixed;
   width: 100%;
   min-height: 50px;
@@ -27,13 +37,17 @@
   text-align: center;
   z-index:1030;
 }
-.browser-detect-script > .alert > p {
+.browser-detect-script > .alert > p,
+.thirdcookies-detect-script > .alert > p {
   color: black;
 }
-.browser-detect-script a {
+.browser-detect-script a,
+.thirdcookies-detect-script a {
   color: red !important;
+  margin: 0 !important;
 }
-.browser-detect-script .nodisplay, .browser-detect-script.nodisplay {
+.browser-detect-script .nodisplay, .browser-detect-script.nodisplay,
+.thirdcookies-detect-script .nodisplay, .thirdcookies-detect-script.nodisplay {
   display:none;
 }
 </STYLE>
@@ -235,5 +249,21 @@ if (browser.name) {
     }
   }
 }
+// 3RDCOOKIES
+var receiveMessage = function (evt) {
+      if (evt.data === 'MM:3PCunsupported') {
+        removeClass(document.body.querySelector(".thirdcookies-detect-script"), "nodisplay");
+        console.log('third party cookies are not supported');
+      } else if (evt.data === 'MM:3PCsupported') {
+        console.log('third party cookies are supported');
+      }
+    };
+    window.addEventListener("message", receiveMessage, false)
+
+const thirdpartyiframe = document.createElement('iframe');
+thirdpartyiframe.id = "thirdpartyiframe";
+thirdpartyiframe.style = "display:none";
+thirdpartyiframe.src = "${thirdPartyScriptURL[0]}?v=" + new Date().getTime();
+document.body.appendChild(thirdpartyiframe);
 })();
 </script>
