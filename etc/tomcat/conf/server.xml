@@ -248,6 +248,29 @@
           <Manager pathname=""/>
         </Context>
 
+        <Context path="/esco-lecture" docBase="/opt/webapps/esco-lecture" reloadable="false" crossContext="true">
+          <Resource name="jdbc/escoLectureDB" auth="Container" type="javax.sql.DataSource"
+                    factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+                    username="lecture" password="CHANGEIT"
+                    driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://SERVER:3307/esupLecture?autoReconnect=true"
+                    initialSize="10" minIdle="10"
+                    maxActive="200" maxIdle="30" maxWait="10000"
+                    removeAbandoned="true"
+                    removeAbandonedTimeout="60"
+                    testOnBorrow="true"
+                    testWhileIdle="true"
+                    numTestsPerEvictionRun="5"
+                    timeBetweenEvictionRunsMillis="10000"
+                    minEvictableIdleTimeMillis="60000"
+                    validationQuery="SELECT 1"
+                    validationQueryTimeout="7"
+                    jdbcInterceptors="ConnectionState(useEquals=true);StatementFinalizer(trace=true);ResetAbandonedTimer;SlowQueryReport"
+                    jmxEnabled="true"
+                    logAbandoned="true"
+          />
+          <Manager pathname=""/>
+        </Context>
+
         <Context path="/esup-portlet-sympa" docBase="/opt/webapps/esup-portlet-sympa" reloadable="false" crossContext="true">
           <Manager pathname=""/>
         </Context>
