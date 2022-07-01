@@ -23,7 +23,6 @@
 <c:set var="request" value="${pageContext.request}" />
 <c:set var="ctxPath" value="${request.contextPath}" />
 
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script src="/resource-server/webjars/vue/dist/vue.min.js"></script>
 <script src="/resource-server/webjars/uportal__eyebrow-user-info/dist/eyebrow-user-info.min.js" defer></script>
 <%--<script type="text/javascript" language="javascript">--%>
