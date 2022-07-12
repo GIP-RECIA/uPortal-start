@@ -102,6 +102,7 @@
         <entry key="ESCODefaultUserProfile">        <value>ESCODefaultUserProfile</value></entry>
         <entry key="ESCODomaines">                  <value>ESCODomaines</value></entry>
         <entry key="ESCOPersonPhoto">               <value>ESCOPersonPhoto</value></entry>
+        <entry key="ESCOPersonExternalIds">         <value>ESCOPersonExternalIds</value></entry>
       </map>
     </property>
   </bean>
