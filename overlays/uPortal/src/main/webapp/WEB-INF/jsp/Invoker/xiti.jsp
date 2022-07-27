@@ -21,7 +21,7 @@
 <%@ include file="/WEB-INF/jsp/include.jsp" %>
 
 <c:set var="request" value="${pageContext.request}" />
-<c:set var="uid" value="${personManager.getPerson(request).getAttribute('uid')}" />
+<c:set var="uid" value="${personManager.getPerson(request).getAttribute('DNMAId')}" />
 <c:set var="siren" value="${transformUserAttributes.processAttribute('ENTPersonStructRattach', personManager.getPerson(request).getAttribute('ENTPersonStructRattach'))}" />
 <c:set var="uai" value="${personManager.getPerson(request).getAttribute('ESCOUAICourant')}" />
 <c:set var="type" value="${transformUserAttributes.processAttribute('objectClass', personManager.getPerson(request).getAttributeValues('objectClass'))}" />

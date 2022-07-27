@@ -24,7 +24,8 @@
        xsi:schemaLocation="
            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
 
-  <bean id="uPortalLdapAttributeSource" class="org.apereo.services.persondir.support.ldap.LdapPersonAttributeDao">
+<!--  <bean id="uPortalLdapAttributeSource" class="org.apereo.services.persondir.support.ldap.LdapPersonAttributeDao">-->
+  <bean id="uPortalLdapAttributeSource" class="fr.recia.portal.persondir.LdapPersonAttributeDao">
     <property name="contextSource" ref="defaultLdapContext" />
     <property name="baseDN" value="ou=people" />
 
@@ -103,8 +104,19 @@
         <entry key="ESCODomaines">                  <value>ESCODomaines</value></entry>
         <entry key="ESCOPersonPhoto">               <value>ESCOPersonPhoto</value></entry>
         <entry key="ESCOPersonExternalIds">         <value>ESCOPersonExternalIds</value></entry>
+        <entry key="DNMAId">                        <value>DNMAId</value></entry>
       </map>
     </property>
+    <property name="formatters">
+      <list>
+        <bean class="fr.recia.portal.persondir.LdapPersonAttributeDao.AttributeFormatter">
+          <constructor-arg index="0" value="DNMAId" />
+          <constructor-arg index="1" value="ESCOPersonExternalIds" />
+          <constructor-arg index="2" value="^DNMA\$(.+)" />
+        </bean>
+      </list>
+    </property>
+
   </bean>
 
 </beans>
