@@ -1,0 +1,40 @@
+/*
+ * NOTE:  This bundled app is a more recent copy of the ResourceServingWebapp.
+ *
+ * For releases beginning with 1.1.0, the resource-server-content module removed some older versions
+ * of several libraries.  uPortal, however, still depends on some of those libraries, and currently
+ * won't work without a copy of ResourceServingWebapp.  For webjar support, on the other hand, we
+ * need version 1.3.x.  So (for now) we will run two copies.
+ */
+
+dependencies {
+    runtime "org.jasig.resourceserver:resource-server-webapp:${resourceServer13Version}@war"
+
+    runtime "org.webjars.npm:vue:${vueVersion}@jar"
+
+    // uPortal Web Components Webjars
+    runtime "org.webjars.npm:uportal__api-template-vue:${uPortalWebComponentsVersion}@jar"
+    runtime "org.webjars.npm:uportal__content-carousel:${uPortalWebComponentsVersion}@jar"
+    runtime "org.webjars.npm:uportal__esco-content-menu:${uPortalWebComponentsVersion}@jar"
+    runtime "org.webjars.npm:uportal__waffle-menu:${uPortalWebComponentsVersion}@jar"
+    runtime "org.webjars.npm:uportal__eyebrow-user-info:${uPortalWebComponentsVersion}@jar"
+
+    // Notification Webjars
+    runtime "org.webjars.npm:uportal__notification-banner:${notificationWebComponentsVersion}@jar"
+    runtime "org.webjars.npm:uportal__notification-icon:${notificationWebComponentsVersion}@jar"
+    runtime "org.webjars.npm:uportal__notification-list:${notificationWebComponentsVersion}@jar"
+    runtime "org.webjars.npm:uportal__notification-modal:${notificationWebComponentsVersion}@jar"
+
+<<<<<<< HEAD
+    // GIP RECIA Webjars
+    runtime "org.webjars.npm:gip-recia__menu-cantine:${menuCantineWebComponentVersion}@jar"
+=======
+    // Third party Webjars
+    runtime "org.webjars.npm:html-include-element:${htmlIncludeElementWebComponentVersion}@jar"
+>>>>>>> ec7973c97... feat: add html-include-element WebComponent
+
+}
+
+war {
+    archiveName 'resource-server.war'
+}

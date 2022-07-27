@@ -1,9 +1,29 @@
 import org.apereo.portal.start.gradle.plugins.GradleImportExportPlugin
 import org.apereo.portal.start.gradle.plugins.GradlePlutoPlugin
 
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.scaldingspoon.gradle:gradle-waroverlay-plugin:${waroverlayPluginVersion}"
+        classpath "org.jasig.resourceserver:resource-server-core:${resourceServer13Version}"
+    }
+}
+plugins {
+  id "com.github.node-gradle.node" version "3.3.0"
+}
+
+configurations {
+    // Create new dependency configuration
+    // for dependencies to be added in
+    // WAR file.
+    warLib.extendsFrom runtime
+}
 dependencies {
     runtime "org.jasig.portal:uPortal-webapp:${uPortalVersion}@war"
     compile configurations.jdbc
+    warLib "fr.recia.portal:recia-uPortal-adds:${reciaUPortalAddsVersion}"
 }
 
 apply plugin: GradleImportExportPlugin
@@ -17,6 +37,16 @@ node {
 
 war {
     archiveName 'uPortal.war'
+    // Add warLib dependency configuration
+    classpath this.configurations.warLib
+
+    // We remove all duplicate files
+    // with this assignment.
+    // geFiles() method return a unique
+    // set of File objects, removing
+    // any duplicates from configurations
+    // added by classpath() method.
+    classpath = classpath.files
     /*
      * For uPortal 5 (and beyond), the Community Best Practice for WAR files published to Maven
      * Central is that they should *not* contain JDBC driver jars;  all such WAR files are
@@ -39,6 +69,9 @@ war {
  * Skinning Support
  */
 import java.util.regex.Pattern
+import org.jasig.resource.aggr.AggregationRequest
+import org.jasig.resource.aggr.ResourcesAggregator
+import org.jasig.resource.aggr.ResourcesAggregatorImpl
 File skinsDir = new File ("${projectDir}/src/main/webapp/media/skins/respondr")
 task skinGenerate() {
     group 'Skin'
@@ -134,10 +167,9 @@ else {
     String skinTmpDir = "${buildDir}/tmp/skin/uPortal/media/skins/respondr/"
     // Identify custom skins located in skinsDir
     logger.lifecycle "Preparing Gradle tasks to compile the following custom skin files defined in ${skinsDir}"
-    FileTree skinFiles = fileTree(dir: skinsDir, include: "*.less")
+    List<String> skinFiles = new FileNameFinder().getFileNames(skinsDir.path, '*.less')
     // Step 3:  Use NodeJS & lessc to compile custom skin(sz)
-    skinFiles.eachWithIndex { f, index ->
-        String it = f.toString()
+    skinFiles.eachWithIndex { it, index ->
         // Strip the path
         String skinFileName = it.substring(it.lastIndexOf(File.separator) + 1)
         logger.lifecycle "  -> ${skinFileName} $index"
@@ -147,9 +179,49 @@ else {
         }
     }
 
-    war.dependsOn {
-        tasks.findAll { task -> task.name.startsWith('compileLess') }
+    task aggregateRespondrSkins(dependsOn: tasks.findAll { task -> task.name.startsWith('compileLess') }) {
+        String workDir = "${buildDir}/tmp/skin/uPortal"
+        doLast {
+            logger.lifecycle "Preparing Gradle tasks to aggregate custom skin files"
+            final ResourcesAggregator aggr = new ResourcesAggregatorImpl();
+            aggr.setDisplayJsWarnings(false);
+
+            File  currentDir = new File(workDir)
+            final String expectedFilePattern = /.*skin\.xml/
+            def skins = []
+
+            currentDir.eachFileRecurse(groovy.io.FileType.FILES) {
+                if (it.name ==~ expectedFilePattern && it.name != "common_skin.xml") {
+                    skins << it
+                }
+            }
+
+            skins.each {
+                logger.lifecycle "\t-> Aggregating the custom skin files from ${it.absolutePath}"
+                String skinDir = it.absolutePath.substring(0, it.absolutePath.lastIndexOf(File.separator) + 1)
+
+                final File resourcesXmlFile = new File(it.absolutePath);
+                final File fullOutputDirectory = new File(skinDir);
+                final File sharedJavaScriptDirectory = new File(workDir, '/media/skins/respondr');
+
+                // Provide the paths we evaluated in DEBUG logging
+                logger.debug("resourcesXmlFile=${resourcesXmlFile}");
+                logger.debug("fullOutputDirectory=${fullOutputDirectory}");
+                logger.debug("sharedJavaScriptDirectory=${sharedJavaScriptDirectory}");
+
+                final AggregationRequest aggregationRequest = new AggregationRequest();
+                aggregationRequest
+                        .setResourcesXml(resourcesXmlFile)
+                        .setOutputBaseDirectory(fullOutputDirectory)
+                        .addAdditionalSourceDirectory(fullOutputDirectory)
+                        .setSharedJavaScriptDirectory(sharedJavaScriptDirectory);
+                aggr.aggregate(aggregationRequest);
+            }
+
+        }
     }
+
+    war.dependsOn(aggregateRespondrSkins)
 }
 
 /*

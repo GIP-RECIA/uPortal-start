@@ -1,0 +1,61 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+
+  <!-- scan des bean/servlet pour le monitoring des sessions utilisateur -->
+  <context:component-scan base-package="fr.recia.portal.monitor"/>
+
+  <!-- bean pour la màj forcée des infos utilisateur sur la servlet spécifique -->
+  <bean id="mapForExternalUpdatePersonProperty" class="java.util.HashMap">
+    <description>
+      Updatable property map:
+
+      key=propertyName ; value=EXTERN | INTERN | EQUALS | CHOICE | NORELOAD
+
+      EXTERN=The new value must be passed as a parameter
+      INTERN=The property is only reloaded.
+      EQUALS=The property is reloaded and must be equal to that passed in parameter.
+      CHOICE=If a value is transmitted, the property is modified, otherwise it is reloaded
+      NORELOAD= like CHOICE but property is not reloaded (the response show the current value).
+    </description>
+    <constructor-arg>
+      <map key-type="java.lang.String" value-type="java.lang.String">
+        <entry key="lastActiveTime" value="NORELOAD"/>
+        <entry key="ESCOPersonPhoto" value="CHOICE"/>
+      </map>
+    </constructor-arg>
+  </bean>
+
+  <!-- scan pour les servlets nécessaires GIP, update info user, etc.. -->
+  <context:component-scan base-package="fr.recia.portal.spring.web.servlet"/>
+
+  <!-- bean pour la définition des de mapping des différents utilisateurs guest -->
+  <util:map id="reciaServerNames">
+    <!-- Only server names listed here are authorized ! (the value replace the server name)  -->
+    <entry key="${serverName.lycees}" value="guest-lycees" />
+    <entry key="${serverName.cfa}" value="guest-cfa" />
+    <entry key="${serverName.clg18}" value="guest-clg18" />
+    <entry key="${serverName.clg28}" value="guest-clg28" />
+    <entry key="${serverName.clg36}" value="guest-clg36" />
+    <entry key="${serverName.clg37}" value="guest-clg37" />
+    <entry key="${serverName.clg41}" value="guest-clg41" />
+    <entry key="${serverName.clg45}" value="guest-clg45" />
+    <entry key="${serverName.recia}" value="guest-recia" />
+    <entry key="${serverName.webocentre}" value="guest-webocentre" />
+    <entry key="${serverName.ef2s}" value="guest-ef2s" />
+  </util:map>
+
+  <!-- bean de sélection des guest en fonction du servername via le bean de la map -->
+  <bean id="regiaGuestSelector" class="fr.recia.portal.security.guest.guestUsernameSelector">
+    <constructor-arg>
+      <ref bean="reciaServerNames" />
+    </constructor-arg>
+  </bean>
+
+</beans>

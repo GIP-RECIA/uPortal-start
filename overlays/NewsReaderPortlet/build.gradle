@@ -47,8 +47,8 @@ dataInit {
      * Drop (if present) then create the Hibernate-managed schema.
      */
     doLast {
-        File serverBase = rootProject.file(rootProject.ext['buildProperties'].getProperty('server.base'))
-        File deployDir = new File (serverBase, "webapps/${project.name}")
+        File serverWebapps = rootProject.file(rootProject.ext['buildProperties'].getProperty('server.webapps'))
+        File deployDir = new File (serverWebapps, "${project.name}")
 
         /*
          * The following specifies failonerror=false because it will produce an exception like...
@@ -80,8 +80,8 @@ dataInit {
      * specified by 'implementation.entities.location'.
      */
     doLast {
-        File serverBase = rootProject.file(rootProject.ext['buildProperties'].getProperty('server.base'))
-        File deployDir = new File (serverBase, "webapps/${project.name}")
+        File serverWebapps = rootProject.file(rootProject.ext['buildProperties'].getProperty('server.webapps'))
+        File deployDir = new File (serverWebapps, "${project.name}")
         String implementationEntitiesLocation = PortalShellInvoker.createGroovySafePath(rootProject.ext['buildProperties'].getProperty('implementation.entities.location'))
 
         ant.setLifecycleLogLevel('INFO')
@@ -107,8 +107,8 @@ dataImport {
         String dirEscaped = PortalShellInvoker.createGroovySafePath(dir)
         println "Export directory: ${dirEscaped}"
 
-        File serverBase = rootProject.file(rootProject.ext['buildProperties'].getProperty('server.base'))
-        File deployDir = new File (serverBase, "webapps/${project.name}")
+        File serverWebapps = rootProject.file(rootProject.ext['buildProperties'].getProperty('server.webapps'))
+        File deployDir = new File (serverWebapps, "${project.name}")
         println "classes: ${deployDir}/WEB-INF/classes"
 
         ant.setLifecycleLogLevel('INFO')
@@ -134,8 +134,8 @@ dataExport {
         String dirEscaped = PortalShellInvoker.createGroovySafePath(dir)
         println "Export directory: ${dirEscaped}"
 
-        File serverBase = rootProject.file(rootProject.ext['buildProperties'].getProperty('server.base'))
-        File deployDir = new File (serverBase, "webapps/${project.name}")
+        File serverWebapps = rootProject.file(rootProject.ext['buildProperties'].getProperty('server.webapps'))
+        File deployDir = new File (serverWebapps, "${project.name}")
         println "classes: ${deployDir}/WEB-INF/classes"
 
         ant.setLifecycleLogLevel('INFO')

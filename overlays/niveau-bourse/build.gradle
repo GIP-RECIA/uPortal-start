@@ -1,0 +1,7 @@
+dependencies {
+    runtime "fr.recia:bourse-ws:${bourseWSVersion}@war"
+}
+
+war {
+    archiveName 'niveau-bourse.war'
+}

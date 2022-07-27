@@ -1,0 +1,11 @@
+import org.apereo.portal.start.gradle.plugins.GradlePlutoPlugin
+
+apply plugin: GradlePlutoPlugin
+
+dependencies {
+    runtime "org.esupportail.sympa:esup-portlet-sympa:${esupSympaPortletVersion}@war"
+}
+
+war {
+    archiveName 'esup-portlet-sympa.war'
+}
