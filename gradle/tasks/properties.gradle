@@ -117,6 +117,15 @@ task portalProperties() {
         }
 
         /*
+        * Step Seven:  Calculate server.webapps (if absent)
+        */
+        if (!buildProperties.containsKey('server.webapps')) {
+            // Still need to check for a JVM argument...
+            String serverWebapps = System.getProperty('server.webapps') ?: "${buildProperties.getProperty('server.base')}/webapps"
+            buildProperties.setProperty('server.webapps', serverWebapps)
+        }
+
+        /*
          * List the complete set of build properties to the console.
          */
         logger.lifecycle('Using the following build properties:')
