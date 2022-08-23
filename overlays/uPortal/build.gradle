@@ -10,9 +10,9 @@ buildscript {
         classpath "org.jasig.resourceserver:resource-server-core:${resourceServer13Version}"
     }
 }
-plugins {
-  id "com.github.node-gradle.node" version "3.3.0"
-}
+//plugins {
+//  id "com.github.node-gradle.node" version "3.4.0"
+//}
 
 configurations {
     // Create new dependency configuration
