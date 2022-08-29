@@ -11,17 +11,12 @@ buildscript {
     }
 }
 
-plugins {
-  id "com.moowork.node" version "1.3.1"
-}
-
 configurations {
     // Create new dependency configuration
     // for dependencies to be added in
     // WAR file.
     warLib.extendsFrom runtime
 }
-
 dependencies {
     runtime "org.jasig.portal:uPortal-webapp:${uPortalVersion}@war"
     compile configurations.jdbc
@@ -30,7 +25,7 @@ dependencies {
 
 apply plugin: GradleImportExportPlugin
 apply plugin: GradlePlutoPlugin
-apply plugin: 'com.moowork.node'
+apply plugin: 'com.github.node-gradle.node'
 
 node {
     version = nodejsVersion
@@ -170,9 +165,10 @@ else {
     String skinTmpDir = "${buildDir}/tmp/skin/uPortal/media/skins/respondr/"
     // Identify custom skins located in skinsDir
     logger.lifecycle "Preparing Gradle tasks to compile the following custom skin files defined in ${skinsDir}"
-    List<String> skinFiles = new FileNameFinder().getFileNames(skinsDir.path, '*.less')
+    FileTree skinFiles = fileTree(dir: skinsDir, include: "*.less")
     // Step 3:  Use NodeJS & lessc to compile custom skin(sz)
-    skinFiles.eachWithIndex { it, index ->
+    skinFiles.eachWithIndex { f, index ->
+        String it = f.toString()
         // Strip the path
         String skinFileName = it.substring(it.lastIndexOf(File.separator) + 1)
         logger.lifecycle "  -> ${skinFileName} $index"
@@ -196,7 +192,7 @@ else {
             currentDir.eachFileRecurse(groovy.io.FileType.FILES) {
                 if (it.name ==~ expectedFilePattern && it.name != "common_skin.xml") {
                     skins << it
-                }
+    		 }
             }
 
             skins.each {

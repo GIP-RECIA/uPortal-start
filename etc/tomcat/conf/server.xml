@@ -71,8 +71,8 @@
                redirectPort="8443"
                maxConnections="20000"
                acceptCount="1000"
-               compression="on"
-               compressionMinSize="1024"
+               compression="on" 
+               compressionMinSize="1024" 
                compressableMimeType="text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json"
     />
     <!-- Model: 500 users, 1 page / 15 sec, 25 HTTP req / page, 20% buffer -->
@@ -83,7 +83,7 @@
                connectionTimeout="20000"
                redirectPort="8443" />
     -->
-    <!-- Define an SSL/TLS HTTP/1.1 Connector on port 8443
+    <!-- Define a SSL/TLS HTTP/1.1 Connector on port 8443
          This connector uses the NIO implementation. The default
          SSLImplementation will depend on the presence of the APR/native
          library and the useOpenSSL attribute of the
@@ -100,7 +100,7 @@
         </SSLHostConfig>
     </Connector>
     -->
-    <!-- Define an SSL/TLS HTTP/1.1 Connector on port 8443 with HTTP/2
+    <!-- Define a SSL/TLS HTTP/1.1 Connector on port 8443 with HTTP/2
          This connector uses the APR/native implementation which always uses
          OpenSSL for TLS.
          Either JSSE or OpenSSL style configuration may be used. OpenSSL style
@@ -305,7 +305,6 @@
           <Parameter name="spring.config.additional-location" value="${PORTAL_HOME}/niveau-bourse-ws.yml"/>
         </Context>
 
-
         <!-- SingleSignOn valve, share authentication between web applications
              Documentation at: /docs/config/valve.html -->
         <!--
@@ -328,8 +327,9 @@
         />
         <!-- Access log for apache conf
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
-          prefix="localhost_access_log" suffix=".txt"
-          pattern="%h %l %u %t &quot;%r&quot; %s %b" />
+               prefix="localhost_access_log" suffix=".txt"
+               pattern="%h %l %u %t &quot;%r&quot; %s %b" />
+
         -->
       </Host>
     </Engine>

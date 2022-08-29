@@ -3,7 +3,10 @@
 # image.
 
 # This image aims for maximum slimness
-FROM openjdk:8-jdk-alpine
+FROM adoptopenjdk:8-jdk-hotspot
+
+RUN apt-get update && DEBIAN_FRONTEND="noninteractive" apt-get install -y wget && \
+    apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
 # For this image, we only need the fully-assembled Tomcat container
 COPY .gradle/tomcat tomcat
