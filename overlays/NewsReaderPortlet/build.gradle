@@ -107,8 +107,8 @@ dataImport {
         String dirEscaped = PortalShellInvoker.createGroovySafePath(dir)
         println "Export directory: ${dirEscaped}"
 
-        File serverBase = rootProject.file(rootProject.ext['buildProperties'].getProperty('server.base'))
-        File deployDir = new File (serverBase, "webapps/${project.name}")
+        File serverWebapps = rootProject.file(rootProject.ext['buildProperties'].getProperty('server.webapps'))
+        File deployDir = new File (serverWebapps, "${project.name}")
         println "classes: ${deployDir}/WEB-INF/classes"
 
         ant.setLifecycleLogLevel('INFO')
@@ -134,8 +134,8 @@ dataExport {
         String dirEscaped = PortalShellInvoker.createGroovySafePath(dir)
         println "Export directory: ${dirEscaped}"
 
-        File serverBase = rootProject.file(rootProject.ext['buildProperties'].getProperty('server.base'))
-        File deployDir = new File (serverBase, "webapps/${project.name}")
+        File serverWebapps = rootProject.file(rootProject.ext['buildProperties'].getProperty('server.webapps'))
+        File deployDir = new File (serverWebapps, "${project.name}")
         println "classes: ${deployDir}/WEB-INF/classes"
 
         ant.setLifecycleLogLevel('INFO')

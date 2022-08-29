@@ -89,7 +89,7 @@
   <!-- 
    | Turn up logging for portlet specific package
    +-->
-  <logger name="org.jasig.portlet.notification" additivity="false" level="WARN">
+  <logger name="org.jasig.portlet.notice" additivity="false" level="WARN">
     <appender-ref ref="LOG" />
   </logger>
 </configuration>
