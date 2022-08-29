@@ -21,7 +21,8 @@
 <%@ include file="/WEB-INF/jsp/include.jsp" %>
 
 <c:set var="request" value="${pageContext.request}" />
-<c:set var="uid" value="${personManager.getPerson(request).getAttribute('DNMAId')}" />
+<c:set var="uid" value="${personManager.getPerson(request).getAttribute('uid')}" />
+<c:set var="dnmaId" value="${personManager.getPerson(request).getAttribute('DNMAId')}" />
 <c:set var="siren" value="${transformUserAttributes.processAttribute('ENTPersonStructRattach', personManager.getPerson(request).getAttribute('ENTPersonStructRattach'))}" />
 <c:set var="uai" value="${personManager.getPerson(request).getAttribute('ESCOUAICourant')}" />
 <c:set var="type" value="${transformUserAttributes.processAttribute('objectClass', personManager.getPerson(request).getAttributeValues('objectClass'))}" />
@@ -30,15 +31,15 @@
     <script type="text/javascript" src="/esciti/js/esciti.js"></script>
     <script type="text/javascript">
       var X=InfoENT4esciti;
-      X.setUid('${uid}');
+      X.setUid('${uid}','${dnmaId}');
       X.setSiren('${siren}');
       X.setUai('${uai}');
       X.setObjectClass('${type}');
     </script>
     <script type="text/javascript" defer>
-      if (! InfoENT4esciti.callByContextInCssClass(up.jQuery, '%portletPortail')){
+      if (! InfoENT4esciti.callByContextInCssClass('%portletPortail')){
         InfoENT4esciti.callByService("Page_ENT");
       }
-      InfoENT4esciti.marqueOnClick(up.jQuery, '%ancrePortail');
+      InfoENT4esciti.marqueOnClick('%ancrePortail');
     </script>
 </div>
