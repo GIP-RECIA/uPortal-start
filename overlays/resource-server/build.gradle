@@ -30,6 +30,7 @@ dependencies {
 
     // GIP RECIA Webjars
     runtime "org.webjars.npm:gip-recia__menu-cantine:${menuCantineWebComponentVersion}@jar"
+    runtime "org.webjars.npm:gip-recia__esco-content-menu-lit:${escoContentMenuLitWebComponentsVersion}@jar"
 
 }
 

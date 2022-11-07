@@ -23,13 +23,12 @@
 <c:set var="request" value="${pageContext.request}" />
 <c:set var="ctxPath" value="${request.contextPath}" />
 
-<script src="/resource-server/webjars/vue/dist/vue.min.js"></script>
-<script src="/resource-server/webjars/uportal__esco-content-menu/dist/esco.min.js" defer></script>
+<script src="/resource-server/webjars/gip-recia__esco-content-menu-lit/dist/js/esco-content-menu.min.js" defer></script>
 <%--
 <script type="text/javascript" language="javascript">
   var versionUpdate = (new Date()).getTime();
   var script = document.createElement("script");
-  script.src = "${ctxPath}/scripts/esco.js?v=" + versionUpdate;
+  script.src = "${ctxPath}/scripts/esco-content-menu.js?v=" + versionUpdate;
   script.defer = true;
   document.body.appendChild(script);
 </script>
