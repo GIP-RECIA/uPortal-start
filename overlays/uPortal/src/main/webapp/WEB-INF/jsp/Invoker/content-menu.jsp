@@ -50,7 +50,7 @@
     grid-portlet-card-size="${gridPortletCardSize[0]}"
     hide-action-mode="${hideActionMode[0]}"
     show-favorites-in-slider="true"
-    icon-type="four-square"
+    icon-type="nine-square"
   ></esco-hamburger-menu>
 </div>
 
