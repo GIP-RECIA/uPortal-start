@@ -143,6 +143,11 @@
   <logger name="org.apereo.portal.groups.smartldap.SmartLdapGroupStore" additivity="false" level="ERROR">
     <appender-ref ref="PORTAL"/>
   </logger>
+
+  <!-- removing too much useless WARN log - could be usefull to get it in WARN when having troubles on URL rewrite from URL params -->
+  <logger name="org.apereo.portal.utils.personalize.PersonalizerImpl" additivity="false" level="ERROR">
+    <appender-ref ref="PORTAL"/>
+  </logger>
   
   <!-- Log use of the identity and attribute swapper -->
   <logger name="org.apereo.portal.portlets.swapper" additivity="false" level="INFO">
