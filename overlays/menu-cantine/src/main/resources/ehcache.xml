@@ -9,7 +9,7 @@
     <!-- Les réponses valides de la semaine courante et des semaines suivantes (réactualisées au bout de 6 heures) -->
     <cache name="requetes"
            eternal="false"
-           maxEntriesLocalHeap="1000"
+           maxEntriesLocalHeap="12000"
            diskPersistent="true"
            timeToIdleSeconds="21600"
            timeToLiveSeconds="21600"
@@ -19,9 +19,9 @@
     <!--  Pour les menus des semaines passées ils ne devraient plus changer, on les garde tant qu'il y de la place  -->
     <cache name="permanent"
            eternal="true"
-           maxEntriesLocalHeap="1000"
+           maxEntriesLocalHeap="10000"
            diskPersistent="true"
-           maxBytesLocalDisk="100M"
+           maxBytesLocalDisk="125M"
            memoryStoreEvictionPolicy="FIFO">
     </cache>
 
@@ -38,7 +38,7 @@
     <!--  cache spécial sur les erreurs de demande de token renouvelé toutes les 10 minutes -->
     <cache name="token"
            eternal="false"
-           maxEntriesLocalHeap="1000"
+           maxEntriesLocalHeap="100"
            diskPersistent="false"
            timeToIdleSeconds="600"
            timeToLiveSeconds="600"
