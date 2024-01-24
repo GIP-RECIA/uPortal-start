@@ -34,7 +34,6 @@
 
 <div class="menu-cantine">
     <menu-cantine-menu-semaine 
-        app-portal-context="${portalContext[0]}"
         app-user-info-uri="${userInfoUri[0]}"
         app-url-img="${urlImg[0]}"
         app-url-rest-api="${urlRestApi[0]}"
