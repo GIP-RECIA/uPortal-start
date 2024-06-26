@@ -25,13 +25,13 @@
 
 <script src="/resource-server/webjars/vue/dist/vue.min.js"></script>
 <script src="/resource-server/webjars/uportal__eyebrow-user-info/dist/eyebrow-user-info.min.js" defer></script>
-<%--<script type="text/javascript" language="javascript">--%>
-  <%--var versionUpdate = (new Date()).getTime();--%>
-  <%--var script = document.createElement("script");--%>
-  <%--script.type = "module";--%>
-  <%--script.src = "${ctxPath}/scripts/eyebrow-user-info.js?v=" + versionUpdate;--%>
-  <%--document.body.appendChild(script);--%>
-<%--</script>--%>
+<%--<script type="text/javascript" language="javascript">
+  var versionUpdate = (new Date()).getTime();
+  var script = document.createElement("script");
+  script.type = "module";
+  script.src = "${ctxPath}/scripts/eyebrow-user-info.js?v=" + versionUpdate;
+  document.body.appendChild(script);
+</script>--%>
 
 <c:set var="avatar">
     <c:choose>
@@ -43,12 +43,14 @@
 </c:set>
 
 <div class="eyebrow-user-info">
-    <eyebrow-user-info display-name="${userInfo['displayName']}"
-                       picture="${avatar}"
-                       email="${personManager.getPerson(request).getAttribute(userMailAttributeName[0])}"
-                       more-link="${moreUserInfoUrl[0]}"
-                       logout-link="${portalLogoutUrl[0]}"
-                       avatar-size="${avatarSize[0]}"
-                       menu-is-dark="true"></eyebrow-user-info>
+    <eyebrow-user-info
+        display-name="${userInfo['displayName']}"
+        picture="${avatar}"
+        email="${personManager.getPerson(request).getAttribute(userMailAttributeName[0])}"
+        more-link="${moreUserInfoUrl[0]}"
+        logout-link="${portalLogoutUrl[0]}"
+        avatar-size="${avatarSize[0]}"
+        menu-is-dark="true">
+    </eyebrow-user-info>
 </div>
 
