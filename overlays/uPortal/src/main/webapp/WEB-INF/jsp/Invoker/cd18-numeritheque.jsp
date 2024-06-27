@@ -6,7 +6,7 @@
 <div id="Numeritheque18">
   <div id="container">
     <div>
-      <p style="text-align: center;"><img alt="La numérithèque du Cher" src="https://www.chercan.fr/numeritheque_clg18/images/bandeauNumerithequeCher.jpg" style="max-width: 100%; border-radius: 5px;" /></p>
+      <p style="text-align: center;"><img alt="La num&eacute;rith&egrave;que du Cher" src="https://www.chercan.fr/numeritheque_clg18/images/bandeauNumerithequeCher.jpg" style="max-width: 100%; border-radius: 5px;" /></p>
 
       <p>Dans le cadre de sa strat&eacute;gie d&eacute;partementale du num&eacute;rique &eacute;ducatif, en collaboration avec l&rsquo;Education Nationale, le conseil d&eacute;partemental propose un pr&ecirc;t de mat&eacute;riel num&eacute;rique innovant permettant aux &eacute;l&egrave;ves et enseignants de d&eacute;couvrir, tester et exp&eacute;rimenter de nouvelles m&eacute;thodes p&eacute;dagogiques. La num&eacute;rith&egrave;que du Cher s&rsquo;efforce de contribuer au d&eacute;veloppement des comp&eacute;tences num&eacute;riques des &eacute;l&egrave;ves et des enseignants.</p>
     </div>
@@ -68,10 +68,10 @@
             <h3>2 bo&icirc;tes de L&eacute;go &eacute;ducation Spike Prime</h3>
           </header>
           <div class="content">
-            <img alt="Boîte de Légo éducation Spike Prime" src="https://www.chercan.fr/numeritheque_clg18/images/legoEducation_vignette.jpg" style="height: 150px;" />
+            <img alt="Bo&icirc;te de L&eacute;go &eacute;ducation Spike Prime" src="https://www.chercan.fr/numeritheque_clg18/images/legoEducation_vignette.jpg" style="height: 150px;" />
           </div>
           <footer>
-            <a href="https://www.chercan.fr/numeritheque_clg18/files/legoEducation.pdf" target="_blank" title="Fiche descriptive de la boite de légo éducation">Acc&eacute;der &agrave; la fiche descriptive</a>
+            <a href="https://www.chercan.fr/numeritheque_clg18/files/legoEducation.pdf" target="_blank" title="Fiche descriptive de la boite de l&eacute;go &eacute;ducation">Acc&eacute;der &agrave; la fiche descriptive</a>
           </footer>
         </article>
 
@@ -89,10 +89,10 @@
 
         <article class="card">
           <header>
-            <h3>2 Studio d&rsquo;animation HUE</h3>
+            <h3>2 Studio d'animation HUE</h3>
           </header>
           <div class="content">
-            <img alt="Studio d’animation HUE" src="https://www.chercan.fr/numeritheque_clg18/images/studioAnimationHUE_vignette.png" style="height: 150px;" />
+            <img alt="Studio d'animation HUE" src="https://www.chercan.fr/numeritheque_clg18/images/studioAnimationHUE_vignette.png" style="height: 150px;" />
           </div>
           <footer>
             <a href="https://www.chercan.fr/numeritheque_clg18/files/studioAnimationHUE.pdf" target="_blank" title="Fiche descriptive su studio d'animation">Acc&eacute;der &agrave; la fiche descriptive</a>
@@ -107,7 +107,7 @@
       <h2>Sous quelles modalit&eacute;s ?</h2>
 
       <ol>
-        <li>Le chef d&rsquo;&eacute;tablissement, le Principal adjoint ou le Secr&eacute;taire G&eacute;n&eacute;ral r&eacute;serve le mat&eacute;riel<span class="d-none ${profils}"> via <a href="https://www.chercan.fr/grr2/grr_cd18/" title="Réservation d'une ressource de la numérithèque">l&rsquo;outil de gestion et de r&eacute;servation des ressources (GRR)</a></span>.<br />
+        <li>Le chef d&rsquo;&eacute;tablissement, le Principal adjoint ou le Secr&eacute;taire G&eacute;n&eacute;ral r&eacute;serve le mat&eacute;riel<span class="d-none ${profils}"> via <a href="https://www.chercan.fr/grr2/grr_cd18/" title="R&eacute;servation d'une ressource de la num&eacute;rith&egrave;que">l&rsquo;outil de gestion et de r&eacute;servation des ressources (GRR)</a></span>.<br />
         La dur&eacute;e d&rsquo;emprunt est d&rsquo;un, deux ou trois trimestres.</li>
         <li>Le chef d&rsquo;&eacute;tablissement re&ccedil;oit, apr&egrave;s validation de l&rsquo;emprunt par le conseil d&eacute;partemental, une convention de pr&ecirc;t &agrave; retourner sign&eacute;e par mail : <a href="mailto:numeritheque@departement18.fr" target="a_blank" title="numeritheque@departement18.fr">numeritheque@departement18.fr</a>.<br />
         <strong>Attention</strong>, cette convention doit &ecirc;tre valid&eacute;e en conseil d&rsquo;administration.</li>
@@ -124,8 +124,8 @@
     <p>&nbsp;</p>
 
     <div style="text-align: center; background-color: #ffffff; padding-top: 1em; padding-bottom: 1em; border-radius: 5px;">
-      <a href="https://www.ac-orleans-tours.fr/" target="_blank" title="Académie Orléans-Tours"><img alt="Logo académie Orléans-Tours" src="https://www.chercan.fr/numeritheque_clg18/images/logoAcademieOT.jpg" style="margin-right: 2em;" /></a>
-      <a href="https://www.departement18.fr/" target="_blank" title="Le département du Cher"><img alt="Logo du département du Cher" src="https://www.chercan.fr/numeritheque_clg18/images/logoDepartement18.jpg" /></a>
+      <a href="https://www.ac-orleans-tours.fr/" target="_blank" title="Acad&eacute;mie Orl&eacute;ans-Tours"><img alt="Logo acad&eacute;mie Orl&eacute;ans-Tours" src="https://www.chercan.fr/numeritheque_clg18/images/logoAcademieOT.jpg" style="margin-right: 2em;" /></a>
+      <a href="https://www.departement18.fr/" target="_blank" title="Le d&eacute;partement du Cher"><img alt="Logo du d&eacute;partement du Cher" src="https://www.chercan.fr/numeritheque_clg18/images/logoDepartement18.jpg" /></a>
     </div>
 
     <p>&nbsp;</p>
