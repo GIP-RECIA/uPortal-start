@@ -1,7 +1,7 @@
 <%@ include file="/WEB-INF/jsp/include.jsp" %>
 
 <c:set var="request" value="${pageContext.request}" />
-<c:set var="profils" value="${fn:join(personManager.getPerson(request).getAttributeValues('ENTPersonProfils'), ' ')}" />
+<c:set var="profils" value="${fn:join(personManager.getPerson(request).getAttributeValues('ESCOPersonProfils'), ' ')}" />
 
 <div id="Numeritheque18">
   <div id="container">
@@ -238,9 +238,8 @@
     display: none;
   }
 
-  #Numeritheque18 #container .National_DIR,
-  #Numeritheque18 #container .National_ETA,
-  #Numeritheque18 #container .National_EVS {
+  #Numeritheque18 #container .DIR,
+  #Numeritheque18 #container .GEST {
     display: revert !important;
   }
 </style>
