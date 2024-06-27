@@ -239,7 +239,8 @@
   }
 
   #Numeritheque18 #container .DIR,
-  #Numeritheque18 #container .GEST {
+  #Numeritheque18 #container .GEST,
+  #Numeritheque18 #container .PERSCOLL {
     display: revert !important;
   }
 </style>
