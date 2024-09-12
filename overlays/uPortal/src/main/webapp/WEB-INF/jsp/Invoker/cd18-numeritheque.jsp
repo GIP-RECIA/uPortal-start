@@ -17,13 +17,13 @@
       <div class="list vertical">
         <article class="card">
           <header>
-            <h3>2 kit webTV</h3>
+            <h3>2 Studio vid&eacute;o</h3>
           </header>
           <div class="content">
-            <img alt="Kit webTV" src="https://www.chercan.fr/numeritheque_clg18/images/webTV_vignette.png" style="height: 150px;" />
+            <img alt="Studio vid&eacute;o" src="https://www.chercan.fr/numeritheque_clg18/images/webTV_vignette.png" style="height: 150px;" />
           </div>
           <footer>
-            <a href="https://www.chercan.fr/numeritheque_clg18/files/webTVPadcaster.pdf" target="_blank" title="Fiche descriptive du kit webTV">Acc&eacute;der &agrave; la fiche descriptive</a>
+            <a href="https://www.chercan.fr/numeritheque_clg18/files/studiovideo.pdf" target="_blank" title="Fiche descriptive du studio Vid&eacute;o">Acc&eacute;der &agrave; la fiche descriptive</a>
           </footer>
         </article>
 
