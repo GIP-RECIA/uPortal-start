@@ -1,12 +1,14 @@
 import org.apereo.portal.start.gradle.plugins.GradleImportExportPlugin
 import org.apereo.portal.start.gradle.plugins.GradlePlutoPlugin
+import scaldingspoon.gradle.WarOverlayPlugin
 
 buildscript {
+    apply plugin: WarOverlayPlugin
+
     repositories {
         jcenter()
     }
     dependencies {
-        classpath "org.scaldingspoon.gradle:gradle-waroverlay-plugin:${waroverlayPluginVersion}"
         classpath "org.jasig.resourceserver:resource-server-core:${resourceServer13Version}"
     }
 }
