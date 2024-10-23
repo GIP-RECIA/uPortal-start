@@ -46,6 +46,7 @@
     user-info-api-url="${userInfoApiUrl[0]}"
     user-info-portlet-url="${moreUserInfoUrl[0]}"
     switch-org-portlet-url="${orgInfoUrl[0]}"
+    switch-org-event
     favorites-portlet-card-size="${favoritesPortletCardSize[0]}"
     grid-portlet-card-size="${gridPortletCardSize[0]}"
     hide-action-mode="${hideActionMode[0]}"
