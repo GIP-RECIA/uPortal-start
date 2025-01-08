@@ -53,6 +53,18 @@
 
         <article class="card">
           <header>
+            <h3>1 d&eacute;coupe laser</h3>
+          </header>
+          <div class="content">
+            <img alt="D&eacute;coupe laser" src="https://www.chercan.fr/numeritheque_clg18/images/decoupeLaser_vignette.png" style="height: 150px;" />
+          </div>
+          <footer>
+            <a href="https://www.chercan.fr/numeritheque_clg18/files/decoupeLaser.pdf" target="_blank" title="Fiche descriptive de la d&eacute;coupe laser">Acc&eacute;der &agrave; la fiche descriptive</a>
+          </footer>
+        </article>
+
+        <article class="card">
+          <header>
             <h3>8 Micro visualiseurs</h3>
           </header>
           <div class="content">
