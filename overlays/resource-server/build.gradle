@@ -17,7 +17,6 @@ dependencies {
     runtime "org.webjars.npm:uportal__content-carousel:${uPortalWebComponentsVersion}@jar"
     runtime "org.webjars.npm:uportal__esco-content-menu:${uPortalWebComponentsVersion}@jar"
     runtime "org.webjars.npm:uportal__waffle-menu:${uPortalWebComponentsVersion}@jar"
-    runtime "org.webjars.npm:uportal__eyebrow-user-info:${uPortalWebComponentsVersion}@jar"
 
     // Notification Webjars
     runtime "org.webjars.npm:uportal__notification-banner:${notificationWebComponentsVersion}@jar"
@@ -30,6 +29,7 @@ dependencies {
 
     // GIP RECIA Webjars
     runtime "org.webjars.npm:gip-recia__esco-content-menu-lit:${escoContentMenuLitWebComponentsVersion}@jar"
+    runtime "org.webjars.npm:gip-recia__eyebrow-user-info-lit:${eyebrowUserInfoLitWebComponentsVersion}@jar"
     runtime "org.webjars.npm:gip-recia__menu-cantine:${menuCantineWebComponentVersion}@jar"
     runtime "org.webjars.npm:gip-recia__param-etab:${paramEtabWebComponentsVersion}@jar"
 

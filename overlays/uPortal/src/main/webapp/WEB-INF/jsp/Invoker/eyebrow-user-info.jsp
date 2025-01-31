@@ -23,8 +23,7 @@
 <c:set var="request" value="${pageContext.request}" />
 <c:set var="ctxPath" value="${request.contextPath}" />
 
-<script src="/resource-server/webjars/vue/dist/vue.min.js"></script>
-<script src="/resource-server/webjars/uportal__eyebrow-user-info/dist/eyebrow-user-info.min.js" defer></script>
+<script src="/resource-server/webjars/gip-recia__eyebrow-user-info-lit/dist/eyebrow-user-info.min.js" defer></script>
 <%--<script type="text/javascript" language="javascript">
   var versionUpdate = (new Date()).getTime();
   var script = document.createElement("script");
