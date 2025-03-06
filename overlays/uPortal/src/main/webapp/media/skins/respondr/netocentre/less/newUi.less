@@ -67,7 +67,7 @@
   --recia-shadow-hover: 0 4px 26px 0;
   --recia-shadow-low-elevation: 0 2px 6px 0;
   --recia-shadow-low-elevation-avatar-notif: 0 1px 24px 0;
-  --recia-font-size-base: 1rem;
+  --recia-font-size-base: 16px; // 1rem;
   --recia-body-font-size: calc(var(--recia-font-size-base) * 0.75);
   --recia-font-size-xxs: calc(var(--recia-font-size-base) * 0.625);
   --recia-font-size-xs: calc(var(--recia-font-size-base) * 0.75);
@@ -170,6 +170,20 @@
   font-weight: 600;
   font-style: normal;
   font-display: swap;
+}
+
+/*
+ * Display new ui components correctly
+ */
+r-wayf,
+carrousel-ui,
+all-news {
+  font-family: DM Sans,"sans-serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: var(--recia-body-font-size);
+  letter-spacing: 0;
+  color: var(--recia-body-color);
 }
 
 /*
