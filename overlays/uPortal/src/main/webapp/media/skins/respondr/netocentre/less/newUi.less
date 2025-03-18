@@ -91,3 +91,31 @@
       --recia-font-size-h4: calc(var(--recia-font-size-base) * 0.875);
   }
 }
+
+/*
+ * Override portlet style
+ */
+
+.portal:not(.up-focused) {
+  #wrapper {
+    > .portal-content {
+      .up-portlet-wrapper {
+        box-shadow: unset !important;
+
+        .up-portlet-wrapper-inner {
+          overflow: hidden !important;
+          border: none !important;
+          border-radius: 10px !important;
+          outline: 1px solid var(--recia-stroke) !important;
+          margin: 32px 0 !important;
+          box-shadow: var(--recia-shadow-neutral) var(--recia-black-10) !important;
+
+          .up-portlet-titlebar,
+          .up-portlet-content-wrapper {
+            border: none !important;
+          }
+        }
+      }
+    }
+  }
+}
