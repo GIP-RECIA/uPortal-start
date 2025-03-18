@@ -189,92 +189,114 @@ all-news {
 /*
  * Override existing style
  */
+html {
+  background-color: var(--recia-body-bg) !important;
 
-.portal:not(.up-focused) {
-  #wrapper {
-    > .portal-content {
+  > .portal {
+    background-color: var(--recia-body-bg) !important;
 
-      /*
-       * Override portlet style
-       */
-      .up-portlet-wrapper {
-        box-shadow: unset !important;
+    #wrapper {
+      background-color: var(--recia-body-bg) !important;
 
-        .up-portlet-wrapper-inner {
-          overflow: hidden !important;
-          border: none !important;
-          border-radius: 10px !important;
-          outline: 1px solid var(--recia-stroke) !important;
-          margin: 32px 0 !important;
-          box-shadow: var(--recia-shadow-neutral) var(--recia-black-10) !important;
+      > .portal-content {
+        background-color: var(--recia-body-bg) !important;
+      }
+    }
 
-          .up-portlet-titlebar,
-          .up-portlet-content-wrapper {
-            border: none !important;
+    &:not(.up-focused) {
+      #wrapper {
+        > .portal-content {
+
+          /*
+           * Override portlet style
+           */
+          .up-portlet-wrapper {
+            box-shadow: unset !important;
+
+            .up-portlet-wrapper-inner {
+              overflow: hidden !important;
+              border: none !important;
+              border-radius: 10px !important;
+              outline: 1px solid var(--recia-stroke) !important;
+              margin: 32px 0 !important;
+              box-shadow: var(--recia-shadow-neutral) var(--recia-black-10) !important;
+
+              .up-portlet-titlebar,
+              .up-portlet-content-wrapper {
+                border: none !important;
+              }
+            }
+          }
+
+          /*
+           * Override mezzanine style
+           */
+          #region-mezzanine {
+            margin-top: 40px;
+            margin-bottom: -2px;
+            padding-left: 4px;
+            padding-right: 4px;
+
+            > .row > [class*="col-"] {
+              display: grid;
+              row-gap: 40px;
+            }
+
+            @media screen and (min-width: 768px) {
+              margin-bottom: 28px;
+              padding-left: 15px;
+              padding-right: 15px;
+
+              .row > [class*="col-"] {
+                row-gap: 70px;
+              }
+            }
+
+            @media screen and (min-width: 1024px) {
+              max-width: 80%;
+              min-width: 1024px;
+              margin-left: auto;
+              margin-right: auto;
+            }
+          }
+
+          /*
+           * Override flash info style
+           */
+          [class*="FlashInfo"] {
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: var(--recia-shadow-neutral) var(--recia-black-10) !important;
+
+            .carousel-indicators {
+              z-index: unset !important;
+
+              > li {
+                position: relative;
+                z-index: 15;
+              }
+            }
+
+            .carousel-control {
+              background: none !important;
+            }
+
+            @media(min-width: 560px) and (max-width: 1500px) {
+              .flashInfoPortlet .carousel-caption > p {
+                height: 4.2em;
+                line-clamp: 3;
+                -webkit-line-clamp: 3;
+              }
+            }
           }
         }
       }
 
       /*
-       * Override mezzanine style
+       * Hide portal CAS login
        */
-      #region-mezzanine {
-        margin-top: 40px;
-        margin-bottom: -2px;
-        padding-left: 4px;
-        padding-right: 4px;
-
-        > .row > [class*="col-"] {
-          display: grid;
-          row-gap: 40px;
-        }
-
-        @media screen and (min-width: 768px) {
-          margin-bottom: 28px;
-          padding-left: 15px;
-          padding-right: 15px;
-
-          .row > [class*="col-"] {
-            row-gap: 70px;
-          }
-        }
-
-        @media screen and (min-width: 1024px) {
-          max-width: 80%;
-          min-width: 1024px;
-          margin-left: auto;
-          margin-right: auto;
-        }
-      }
-
-      /*
-       * Override flash info style
-       */
-      [class*="FlashInfo"] {
-        overflow: hidden;
-        border-radius: 10px;
-        box-shadow: var(--recia-shadow-neutral) var(--recia-black-10) !important;
-
-        .carousel-indicators {
-          z-index: unset !important;
-
-          > li {
-            position: relative;
-            z-index: 15;
-          }
-        }
-
-        .carousel-control {
-          background: none !important;
-        }
-
-        @media(min-width: 560px) and (max-width: 1500px) {
-          .flashInfoPortlet .carousel-caption > p {
-            height: 4.2em;
-            line-clamp: 3;
-            -webkit-line-clamp: 3;
-          }
-        }
+      &.up-guest:has(#region-mezzanine r-wayf) #portalCASLogin {
+        display: none;
       }
     }
   }
