@@ -93,12 +93,16 @@
 }
 
 /*
- * Override portlet style
+ * Override existing style
  */
 
 .portal:not(.up-focused) {
   #wrapper {
     > .portal-content {
+
+      /*
+       * Override portlet style
+       */
       .up-portlet-wrapper {
         box-shadow: unset !important;
 
@@ -113,6 +117,36 @@
           .up-portlet-titlebar,
           .up-portlet-content-wrapper {
             border: none !important;
+          }
+        }
+      }
+
+      /*
+       * Override flash info style
+       */
+      [class*="FlashInfo"] {
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: var(--recia-shadow-neutral) var(--recia-black-10) !important;
+
+        .carousel-indicators {
+          z-index: unset !important;
+
+          > li {
+            position: relative;
+            z-index: 15;
+          }
+        }
+
+        .carousel-control {
+          background: none !important;
+        }
+
+        @media(min-width: 560px) and (max-width: 1500px) {
+          .flashInfoPortlet .carousel-caption > p {
+            height: 4.2em;
+            line-clamp: 3;
+            -webkit-line-clamp: 3;
           }
         }
       }
