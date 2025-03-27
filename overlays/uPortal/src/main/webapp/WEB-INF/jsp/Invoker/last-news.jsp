@@ -35,7 +35,6 @@
 <carrousel-ui 
   user-info-api-url="${userInfoApiUrl[0]}"
   get-user-news-url="${getUserNewsUrl[0]}"
-  base-url="${baseUrl[0]}"
   get-item-by-id-url="${getItemByIdUrl[0]}"
   get-news-reading-informations-url="${getNewsReadingInformationsUrl[0]}"
   set-reading-url="${setReadingUrl[0]}"
