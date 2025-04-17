@@ -34,6 +34,7 @@ dependencies {
     runtime "org.webjars.npm:gip-recia__param-etab:${paramEtabWebComponentsVersion}@jar"
     runtime "org.webjars.npm:gip-recia__actualites:${actualitesWebComponentsVersion}@jar"
     runtime "org.webjars.npm:gip-recia__ui-webcomponents:${uiWebComponentsVersion}@jar"
+    runtime "org.webjars.npm:gip-recia__mediacentre-ui:${mediacentreUiWebComponentsVersion}@jar"
 }
 
 war {
