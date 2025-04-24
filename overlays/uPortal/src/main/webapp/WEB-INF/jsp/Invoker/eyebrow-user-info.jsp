@@ -23,8 +23,7 @@
 <c:set var="request" value="${pageContext.request}" />
 <c:set var="ctxPath" value="${request.contextPath}" />
 
-<script src="/resource-server/webjars/vue/dist/vue.min.js"></script>
-<script src="/resource-server/webjars/uportal__eyebrow-user-info/dist/eyebrow-user-info.min.js" defer></script>
+<script src="/resource-server/webjars/gip-recia__eyebrow-user-info-lit/dist/eyebrow-user-info.min.js" defer></script>
 <%--<script type="text/javascript" language="javascript">
   var versionUpdate = (new Date()).getTime();
   var script = document.createElement("script");
@@ -42,15 +41,44 @@
     </c:choose>
 </c:set>
 
+<c:set var="changeEtabConfig">
+    <c:choose>
+        <c:when test="${fn:length(personManager.getPerson(request).getAttributeValues('ESCOSIREN')) > 1}">
+            { "link": null }
+        </c:when>
+        <c:otherwise>
+            false
+        </c:otherwise>
+    </c:choose>
+</c:set>
+
 <div class="eyebrow-user-info">
     <eyebrow-user-info
         display-name="${userInfo['displayName']}"
         picture="${avatar}"
-        email="${personManager.getPerson(request).getAttribute(userMailAttributeName[0])}"
-        more-link="${moreUserInfoUrl[0]}"
-        logout-link="${portalLogoutUrl[0]}"
         avatar-size="${avatarSize[0]}"
-        menu-is-dark="true">
+        menu-is-dark="true"
+        config='{
+          "notification": false,
+          "settings": {
+            "link": "${moreUserInfoUrl[0]}"
+          },
+          "info-etab": false,
+          "change-etab": ${changeEtabConfig},
+          "starter": false,
+          "logout": {
+            "link": "${portalLogoutUrl[0]}"
+          }
+        }'
+        force-new-ui
+        >
     </eyebrow-user-info>
 </div>
 
+<script type="module" defer>
+    document.addEventListener('eyebrow-user-info', (e) => {
+        if (e.detail.type === 'change-etab') {
+            document.querySelector('esco-hamburger-menu').dispatchEvent(new CustomEvent('switch-org'));
+        }
+    });
+</script>
