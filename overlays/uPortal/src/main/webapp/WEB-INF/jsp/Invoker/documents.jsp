@@ -39,6 +39,8 @@
   get-news-reading-informations-url="${getNewsReadingInformationsUrl[0]}"
   set-reading-url="${setReadingUrl[0]}"
   back-url="${backUrl[0]}"
-  page-type="Documents"
+  dnma-fname="${dnmaFname[0]}"
+  locale-key="${localeKey[0]}"
+  ${useReadingState[0] ? 'use-reading-state' : ''}
 >
 </all-news>
