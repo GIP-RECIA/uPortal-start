@@ -32,7 +32,7 @@
   document.body.appendChild(script);
 </script>--%>
 
-<div class="wayf">
+<div class="container wayf">
   <header>
     <h1>Connectez-vous <span>&agrave; votre Espace Num&eacute;rique de Travail (ENT)</span></h1>
   </header>
@@ -45,18 +45,6 @@
 </div>
 
 <style>
-  .wayf > header > h1,
-  .wayf > header > h1 > span {
-    margin: 0;
-    padding: 0;
-
-    font-family: "Sora", "sans-serif";
-    color: var(--recia-body-color);
-    margin-bottom: var(--recia-font-size-base);
-    font-size: var(--recia-font-size-h1);
-    font-weight: bold;
-  }
-
   .wayf > header > h1 > span {
     display: block;
     font-size: var(--recia-font-size-sm);
