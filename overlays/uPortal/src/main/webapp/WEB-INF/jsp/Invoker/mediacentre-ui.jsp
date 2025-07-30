@@ -85,6 +85,7 @@
             uai-current="${uaiCurrent[0]}"
             uai="${uai[0]}"
             help-location="${helpLocation[0]}"
+            dnma-event-name="${dnmaEventName[0]}"
         />
        </div>
     </c:when>
