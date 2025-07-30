@@ -1,38 +1,39 @@
 .portal {
   .portal-header {
-
     font-size: 18px;
+
     .label, span {
       font-size: 18px;
       padding: 0;
       white-space: nowrap;
     }
 
-    //#content-menu {
+    // #content-menu {
     //  padding-left: 10px;
 
-      //> .content-menu-toggle {
-      //  &:hover > .menu-wrapper > div {
-      //    opacity: 0.7;
-      //  }
-      //
-      //  > .menu-wrapper {
-      //    width: 35px;
-      //    padding: 0 4px;
-      //
-      //    > div {
-      //      height: 2px;
-      //      background-color: @white;
-      //      margin: 5px 0;
-      //    }
-      //  }
-      //}
-    //}
+    //   > .content-menu-toggle {
+    //     &:hover > .menu-wrapper > div {
+    //       opacity: 0.7;
+    //     }
+      
+    //     > .menu-wrapper {
+    //       width: 35px;
+    //       padding: 0 4px;
+      
+    //       > div {
+    //         height: 2px;
+    //         background-color: @white;
+    //         margin: 5px 0;
+    //       }
+    //     }
+    //   }
+    // }
 
-    .project-header-logo{
+    .project-header-logo {
       max-width: 230px;
       margin-top: 0px;
-      .noc-icon{
+
+      .noc-icon {
         width:@nocMenuHeight;
         height: @nocMenuHeight;
         background-image: @logoNocSimple;
@@ -41,10 +42,12 @@
         background-repeat: no-repeat;
         opacity: 0.6;
       }
+
       span.label {
         display:none;
       }
     }
+
     .focused-portlet {
       display: flex;
       align-items: center;
@@ -54,44 +57,45 @@
         content: '>';
         font-size: 20px;
       }
+
       > .label {
         margin-left: 5px;
       }
     }
+
     // Mobile
     @media screen and (max-width: 768px) {
       .etablissement-name-header + :not(focused-portlet-header){
         display: none;
       }
 
-      .focused-portlet {
-        > .noc-icon::before {
-          content: '';
-        }
+      .focused-portlet > .noc-icon::before {
+        content: '';
       }
-      .etablissement-name-header + :not(focused-portlet-header), .focused-portlet {
-        span {
-          background: linear-gradient(45deg, @white, @color1);
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
+
+      .etablissement-name-header + :not(focused-portlet-header), .focused-portlet span {
+        background: linear-gradient(45deg, @white, @color1);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
+
       .project-header-logo {
         opacity: 0.5;
       }
-      #region-eyebrow {
-        .eyebrow-user-info {
-          display: none;
-        }
+
+      #region-eyebrow .eyebrow-user-info {
+        display: none;
       }
     }
     // END Mobile
   }
+
   #region-footer-second {
     .partners-footer {
       display: flex;
       flex-flow: row wrap;
       justify-content: space-between;
+
       .logoFooter {
         background-image: @logoNocFooter;
         background-size: auto @logoNOCFooterHeight;
@@ -100,50 +104,64 @@
         height: 50px;
         width: @logoNocLargeWidth;
       }
+
       @media screen and (max-width: 768px) {
         justify-content: center;
+
         .logoFooter {
           display: none;
         }
       }
+
       p:not(:last-of-type) {
         display: none;
       }
+
       p {
         margin: auto 0;
+
         > a {
           display: inline-block;
           margin: 0 5px;
+
           .styleLogoFooter {
             height: 30px;
           }
 
-          &#centreValLoire{
+          &#centreValLoire {
             display: @displaycentreValLoire;
           }
+
           &#cher{
             display: @displaychercan;
           }
+
           &#eureetloir{
             display: @displaycollegeseureliens;
           }
+
           &#indre{
             display: @displaymonecollege36;
           }
+
           &#touraine{
-             display: @displaytouraine;
+            display: @displaytouraine;
           }
+
           &#loiretcher{
             display: @displaycolleges41;
           }
+
           &#loiret{
             display: @displaymonecollege45;
           }
+
           &#acadOrleTour{
-             display: @displayacad;
+            display: @displayacad;
           }
+
           &#agricole{
-             display: @displayagricole;
+            display: @displayagricole;
           }
         }
       }
@@ -154,46 +172,49 @@
     p {
       margin: 5px 0;
     }
+
     #lienChercan {
       display: @displaychercan;
     }
+
     #lienCollegesEureliens {
       display: @displaycollegeseureliens;
     }
+
     #lienMonECollege36 {
       display: @displaymonecollege36;
     }
+
     #lienTourraineEsch {
       display: @displaytouraine;
     }
+
     #lienColleges41 {
       display: @displaycolleges41;
     }
-     #lienMonECollege45 {
+
+    #lienMonECollege45 {
       display: @displaymonecollege45;
     }
-    #lienNetoCentre{
+
+    #lienNetoCentre {
       display: @displayNetocentre;
     }
+
     #lienRecia {
       display: @displayRecia;
     }
+
     #lienWebocentre {
       display: @displayWebocentre;
     }
   }
 
-  &.up-guest {
-    .portal-header {
-      .project-header-logo {
-        .noc-icon {
-          width: @logoNocLargeWidth;
-          height: @nocMenuHeight;
-          background-image: @logoNocLarge;
-          background-size: contain;
-          opacity: 1;
-        }
-      }
-    }
+  &.up-guest .portal-header .project-header-logo .noc-icon {
+    width: @logoNocLargeWidth;
+    height: @nocMenuHeight;
+    background-image: @logoNocLarge;
+    background-size: contain;
+    opacity: 1;
   }
 }

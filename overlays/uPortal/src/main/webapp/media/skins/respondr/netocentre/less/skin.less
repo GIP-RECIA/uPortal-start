@@ -81,7 +81,7 @@ h4,
 h1 > a,
 h2 > a,
 h3 > a,
-h4 > a{
+h4 > a {
   font-family: 'Roboto Slab';
 }
 
@@ -122,21 +122,25 @@ h4 > a{
 
 .portal {
   min-width: 280px;
+
   // override bootstrap
   .container-fluid {
     padding-left: 0;
     padding-right: 0;
   }
+
   .row {
     margin-left: 0;
     margin-right: 0;
   }
+
   .alert-info,
   .portal .portlet-msg-info {
     background-color: @color2-lighter;
     border-color: @color2-dark;
     color: @nocBodyFontColor;
   }
+
   // to override the modal-open part added by js
   &.modal-open {
     padding-right: 0 !important;
@@ -148,6 +152,7 @@ h4 > a{
       padding-right: 4px;
     }
   }
+
   // uPortal DOM
   .row-offcanvas {
     &.active {
@@ -168,37 +173,39 @@ h4 > a{
         width: 100%;
         z-index: @zindex-navbar-fixed;
 
-        #up-sticky-nav {
-          .portal-global {
-            padding: 0 2px;
-            border: none;
-            box-shadow: none;
-            height: @nocMenuHeight;
+        #up-sticky-nav .portal-global {
+          padding: 0 2px;
+          border: none;
+          box-shadow: none;
+          height: @nocMenuHeight;
 
-            display: flex;
-            flex-direction: row;
-            align-items: center;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
 
-            a.menu-toggle {
-              display: none;
-            }
-            #region-eyebrow {
-              padding: 0;
-              width: 100%;
-            }
+          a.menu-toggle {
+            display: none;
+          }
+
+          #region-eyebrow {
+            padding: 0;
+            width: 100%;
           }
         }
+
         .portal-header-main {
           position: absolute;
           z-index: @zindex-navbar-fixed;
           padding-top: 0;
           top: 0;
+
           #region-header-left {
             display: flex;
             flex-flow: row nowrap;
             align-items: center;
             height: @nocMenuHeight;
             padding-left: 0;
+
             > .up-portlet-wrapper {
               margin-top: 0;
               margin-left: 0;
@@ -206,6 +213,7 @@ h4 > a{
             }
           }
         }
+
         nav.portal-nav {
           display:none;
         }
@@ -214,51 +222,58 @@ h4 > a{
       #portalPageBody {
         margin-top: @nocMenuHeight;
         flex: 1 1 auto;
+
         // remove gutter from header region like mezzanine
-        > .container-fluid > .row  {
-          > [class*="col-"] {
-            padding-right: 0;
-            padding-left: 0;
-          }
+        > .container-fluid > .row > [class*="col-"] {
+          padding-right: 0;
+          padding-left: 0;
         }
 
         #portalPageBodyColumns {
           margin-top: 10px;
-          
+
           div:not(.up-grid) > .up-portlet-wrapper:not(no-chrome) {
             -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             -o-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
           }
+
           .up-portlet-titlebar {
             &.up-standard-chrome {
               background-image: none;
               border-bottom: @border;
 
             }
+
             .portlet-controls {
               display: none;
             }
           }
         }
       }
+
       footer {
         padding: 5px 20px;
       }
+
       #region-page-bottom {
         background-color: @nocHeaderFooterBackGround;
         color: @white;
         width:100%;
         text-align: right;
+
         a {
           margin-left: 11px;
           color: @white;
-          &:hover, &:focus {
+
+          &:hover,
+          &:focus {
             color: @white;
           }
         }
       }
+
       @media screen and (min-width: 1024px) {
         #portalPageBodyColumns, footer > section {
           max-width: 80%;
@@ -271,43 +286,32 @@ h4 > a{
   }
 
   // apply no chrome on guest page or focused portlets
-  &.up-focused, &.up-guest {
-    #wrapper {
-      #portalPageBody {
-        #portalPageBodyColumns > .portal-page-column > .portal-page-column-inner {
-          .up-portlet-titlebar {
-            display: none;
-          }
-        }
-      }
-    }
-  }
-  &.up-focused {
-    #wrapper {
-      #portalPageBody {
-        #portalPageBodyColumns > .portal-page-column > .portal-page-column-inner {
-          .up-portlet-wrapper {
-            box-shadow: unset;
-          }
-          .up-portlet-content-wrapper {
-            border: none;
-            background: none;
-          }
-        }
-      }
-    }
-  }
-  // guest theme
+  &.up-focused,
   &.up-guest {
-    .row-offcanvas #wrapper {
-      .portal-header {
-        .portal-global {
-          background-color: @nocHeaderFooterBackGround;
-        }
-        .portal-header-main #region-header-left {
-          padding-left: 15px;
-        }
-      }
+    #wrapper #portalPageBody #portalPageBodyColumns > .portal-page-column > .portal-page-column-inner .up-portlet-titlebar {
+      display: none;
+    }
+  }
+
+  &.up-focused #wrapper #portalPageBody #portalPageBodyColumns > .portal-page-column > .portal-page-column-inner {
+    .up-portlet-wrapper {
+      box-shadow: unset;
+    }
+
+    .up-portlet-content-wrapper {
+      border: none;
+      background: none;
+    }
+  }
+
+  // guest theme
+  &.up-guest .row-offcanvas #wrapper .portal-header {
+    .portal-global {
+      background-color: @nocHeaderFooterBackGround;
+    }
+
+    .portal-header-main #region-header-left {
+      padding-left: 15px;
     }
   }
 
