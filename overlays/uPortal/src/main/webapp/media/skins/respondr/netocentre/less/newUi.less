@@ -570,8 +570,14 @@ html {
     font-size: var(--recia-body-font-size);
     letter-spacing: 0;
     color: var(--recia-body);
-    margin-top: 68px;
-    margin-left: 72px;
+
+    &:not(.portal.up-guest) {
+      margin-top: 68px;
+
+      @media screen and (min-width: 768px) {
+        margin-left: 72px;
+      }
+    }
   }
 }
 
@@ -736,7 +742,9 @@ html {
     }
 
     #portalPageBodyColumns {
-      margin-bottom: -40px;
+      > div {
+        margin-bottom: -40px;
+      }
   
       .up-portlet-wrapper-inner {
         margin-bottom: 40px;
@@ -752,7 +760,9 @@ html {
       }
 
       @media screen and (min-width: 768px) {
-        margin-bottom: -70px;
+        > div {
+          margin-bottom: -70px;
+        }
 
         .up-portlet-wrapper-inner {
           margin-bottom: 70px;
@@ -799,6 +809,7 @@ html {
 
   &.up-guest #wrapper {
     margin-top: @nocMenuHeight;
+    min-height: calc(100dvh - @nocMenuHeight);
 
     .portal-header {
       position: fixed;

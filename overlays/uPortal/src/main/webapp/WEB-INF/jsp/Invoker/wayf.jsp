@@ -32,7 +32,7 @@
   document.body.appendChild(script);
 </script>--%>
 
-<div class="container mb wayf">
+<div class="container wayf">
   <header>
     <h1>Connectez-vous <span>&agrave; votre Espace Num&eacute;rique de Travail (ENT)</span></h1>
   </header>
