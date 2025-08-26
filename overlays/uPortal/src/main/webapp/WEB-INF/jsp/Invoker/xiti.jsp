@@ -43,3 +43,17 @@
       InfoENT4esciti.marqueOnClick('%ancrePortail');
     </script>
 </div>
+
+<script type="text/javascript" src="/esciti/dnma/dnma.js?v=<%= System.currentTimeMillis() %>"></script>
+
+<script type="text/javascript">
+  console.log("DNMA Parametrage");
+  if (ENT4DNMA) {
+    ENT4DNMA.markPage('Portail');
+    ENT4DNMA.markOnEvent('click-portlet-card');
+    ENT4DNMA.markOnEvent('favorite-event');
+    ENT4DNMA.markOnEvent('service-event');
+    ENT4DNMA.markOnEvent('service-info-event');
+    ENT4DNMA.markOnEvent('search-event');
+  }
+</script>
