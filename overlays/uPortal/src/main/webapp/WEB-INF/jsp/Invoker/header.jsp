@@ -23,45 +23,18 @@
 <c:set var="request" value="${pageContext.request}" />
 <c:set var="ctxPath" value="${request.contextPath}" />
 
-<script src="/resource-server/webjars/gip-recia__ui-webcomponents/dist/r-wayf.js" type="module" defer></script>
+<script src="/resource-server/webjars/gip-recia__ui-webcomponents/dist/r-header.js" type="module" defer></script>
 <%--<script type="text/javascript" language="javascript">
   var versionUpdate = (new Date()).getTime();
   var script = document.createElement("script");
   script.type = "module";
-  script.src = "${ctxPath}/scripts/r-wayf.js?v=" + versionUpdate;
+  script.src = "${ctxPath}/scripts/r-header.js?v=" + versionUpdate;
   document.body.appendChild(script);
 </script>--%>
 
-<div class="container wayf">
-  <header>
-    <h1>Connectez-vous <span>&agrave; votre Espace Num&eacute;rique de Travail (ENT)</span></h1>
-  </header>
-  <r-wayf
-    cas-url="${casRefUrlEncoder.getCasLoginUrl(request)}"
-    idp-ids='${idpIds[0]}'
-    svg-url="${svgUrl[0]}"
-  >
-  </r-wayf>
-</div>
-
-<style>
-  .wayf > header > h1 {
-    margin-bottom: 1.5rem;
-  }
-
-  .wayf > header > h1 > span {
-    display: block;
-    font-size: var(--recia-font-size-sm);
-    font-weight: normal;
-    line-height: 21px;
-  }
-
-  @media (width >= 768px) {
-    .wayf > header h1 > span {
-      display: unset;
-      font-size: unset;
-      font-weight: unset;
-      line-height: unset;
-    }
-  }
-</style>
+<r-header
+  template-api-url="/commun/portal_template_api.tpl.json"
+  navigation-drawer-visible
+  dnma-url=""
+>
+</r-header>
