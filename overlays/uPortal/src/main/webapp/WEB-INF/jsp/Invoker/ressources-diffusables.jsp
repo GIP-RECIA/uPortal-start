@@ -40,21 +40,3 @@
     resources-per-page-default="${resourcesPerPageDefault[0]}"
   />
 </div>
-
-
-<%--style>
-ui-ressources-gar {
-  font-family: DM Sans,"sans-serif";
-  font-style: normal;
-  font-weight: 400;
-  font-size: var(--recia-body-font-size);
-  letter-spacing: 0;
-  color: var(--recia-body-color);
-
-  --ui-ressources-gar-button-border-radius: 16px;
-  --ui-ressources-gar-card-border-radius: 16px;
-  --ui-ressources-gar-margin: 18px;
-  --ui-ressources-gar-padding: 16px;
-
-}
-</style--%>
