@@ -38,3 +38,12 @@
   dnma-url=""
 >
 </r-header>
+
+<script>
+  if (!document.body.classList.contains('up-focused')) {
+    const header = document.querySelector('r-header');
+    header.setAttribute('home-page', true);
+    header.setAttribute('starter', true);
+  }
+</script>
+
