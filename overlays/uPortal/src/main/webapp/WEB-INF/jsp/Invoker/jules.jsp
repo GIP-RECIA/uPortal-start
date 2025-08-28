@@ -47,3 +47,9 @@
     <c:otherwise><span>Jules ne peut s'afficher car aucun d&eacute;partement n'a &eacute;t&eacute; obtenu.</span></c:otherwise>
   </c:choose>
 </div>
+
+<style>
+.l-clevy-chatbox {
+  z-index: 1 !important;
+}
+</style>
