@@ -71,34 +71,34 @@
 </script--%>
 
 <c:choose>
-    <c:when test="${isRedirect == false}">
-      <div class="mediacentre-ui">
-        <mediacentre-ui
-            base-api-url="${baseApiUrl[0]}"
-            config-api-url="${configApiUrl[0]}"
-            gestion-api-url="${gestionApiUrl[0]}"
-            user-info-api-url="${userInfoApiUrl[0]}"
-            user-rights-api-url="${userRightsApiUrl[0]}"
-            get-user-favorite-resources-url="${getUserFavoriteResourcesUrl[0]}"
-            put-user-favorite-resources-url="${putUserFavoriteResourcesUrl[0]}"
-            fname-mediacentre-ui="Mediacentre"
-            uai-current="${uaiCurrent[0]}"
-            uai="${uai[0]}"
-            help-location="${helpLocation[0]}"
-            dnma-event-name="${dnmaEventName[0]}"
-        />
-       </div>
-    </c:when>
-    <c:otherwise>
-      <div class="mediacentre-redirect">
-        <mediacentre-redirect
-            base-api-url="${baseApiUrl[0]}"
-            config-api-url="${configApiUrl[0]}"
-            user-info-api-url="${userInfoApiUrl[0]}"
-            user-rights-api-url="${userRightsApiUrl[0]}"
-            resource-id="${resourceId}"
-            is-base64="${isBase64}"
-        />
+  <c:when test="${isRedirect == false}">
+    <div class="mediacentre-ui">
+      <mediacentre-ui
+        base-api-url="${baseApiUrl[0]}"
+        config-api-url="${configApiUrl[0]}"
+        gestion-api-url="${gestionApiUrl[0]}"
+        user-info-api-url="${userInfoApiUrl[0]}"
+        user-rights-api-url="${userRightsApiUrl[0]}"
+        get-user-favorite-resources-url="${getUserFavoriteResourcesUrl[0]}"
+        put-user-favorite-resources-url="${putUserFavoriteResourcesUrl[0]}"
+        fname-mediacentre-ui="Mediacentre"
+        uai-current="${uaiCurrent[0]}"
+        uai="${uai[0]}"
+        help-location="${helpLocation[0]}"
+        dnma-event-name="${dnmaEventName[0]}"
+      />
       </div>
-    </c:otherwise>
+  </c:when>
+  <c:otherwise>
+    <div class="mediacentre-redirect">
+      <mediacentre-redirect
+        base-api-url="${baseApiUrl[0]}"
+        config-api-url="${configApiUrl[0]}"
+        user-info-api-url="${userInfoApiUrl[0]}"
+        user-rights-api-url="${userRightsApiUrl[0]}"
+        resource-id="${resourceId}"
+        is-base64="${isBase64}"
+      />
+    </div>
+  </c:otherwise>
 </c:choose>

@@ -34,10 +34,10 @@
 </script>--%>
 
 <div class="menu-cantine">
-    <menu-cantine-menu-semaine 
-        app-user-info-uri="${userInfoUri[0]}"
-        app-url-img="${urlImg[0]}"
-        app-url-rest-api="${urlRestApi[0]}"
-        app-url-api-etab="${urlApiEtab[0]}">
-    </menu-cantine-menu-semaine>
+  <menu-cantine-menu-semaine 
+    app-user-info-uri="${userInfoUri[0]}"
+    app-url-img="${urlImg[0]}"
+    app-url-rest-api="${urlRestApi[0]}"
+    app-url-api-etab="${urlApiEtab[0]}">
+  </menu-cantine-menu-semaine>
 </div>

@@ -25,25 +25,25 @@
 <c:set var="departement" value="${fn:substring(uai,1,3)}" />
 
 <div style="display:none;">
-    <c:choose>
-        <c:when test="${departement == '18'}">
-          <script src="https://chatboxv2.clevy.io/script.min.js?token=${token18[0]}" id="clevy-chatbox" data-logo-url="https://cdn.clevy.io/customerdata/cned/logo-jules.png" async></script>
-        </c:when>
-        <c:when test="${departement == '28'}">
-          <script src="https://chatboxv2.clevy.io/script.min.js?token=${token28[0]}" id="clevy-chatbox" data-logo-url="https://cdn.clevy.io/customerdata/cned/logo-jules.png" async></script>
-        </c:when>
-        <c:when test="${departement == '36'}">
-          <script src="https://chatboxv2.clevy.io/script.min.js?token=${token36[0]}" id="clevy-chatbox" data-logo-url="https://cdn.clevy.io/customerdata/cned/logo-jules.png" async></script>
-        </c:when>
-        <c:when test="${departement == '37'}">
-          <script src="https://chatboxv2.clevy.io/script.min.js?token=${token37[0]}" id="clevy-chatbox" data-logo-url="https://cdn.clevy.io/customerdata/cned/logo-jules.png" async></script>
-        </c:when>
-        <c:when test="${departement == '41'}">
-          <script src="https://chatboxv2.clevy.io/script.min.js?token=${token41[0]}" id="clevy-chatbox" data-logo-url="https://cdn.clevy.io/customerdata/cned/logo-jules.png" async></script>
-        </c:when>
-        <c:when test="${departement == '45'}">
-          <script src="https://chatboxv2.clevy.io/script.min.js?token=${token45[0]}" id="clevy-chatbox" data-logo-url="https://cdn.clevy.io/customerdata/cned/logo-jules.png" async></script>
-        </c:when>
-        <c:otherwise><span>Jules ne peut s'afficher car aucun d&eacute;partement n'a &eacute;t&eacute; obtenu.</span></c:otherwise>
-    </c:choose>
+  <c:choose>
+    <c:when test="${departement == '18'}">
+      <script src="https://chatboxv2.clevy.io/script.min.js?token=${token18[0]}" id="clevy-chatbox" data-logo-url="https://cdn.clevy.io/customerdata/cned/logo-jules.png" async></script>
+    </c:when>
+    <c:when test="${departement == '28'}">
+      <script src="https://chatboxv2.clevy.io/script.min.js?token=${token28[0]}" id="clevy-chatbox" data-logo-url="https://cdn.clevy.io/customerdata/cned/logo-jules.png" async></script>
+    </c:when>
+    <c:when test="${departement == '36'}">
+      <script src="https://chatboxv2.clevy.io/script.min.js?token=${token36[0]}" id="clevy-chatbox" data-logo-url="https://cdn.clevy.io/customerdata/cned/logo-jules.png" async></script>
+    </c:when>
+    <c:when test="${departement == '37'}">
+      <script src="https://chatboxv2.clevy.io/script.min.js?token=${token37[0]}" id="clevy-chatbox" data-logo-url="https://cdn.clevy.io/customerdata/cned/logo-jules.png" async></script>
+    </c:when>
+    <c:when test="${departement == '41'}">
+      <script src="https://chatboxv2.clevy.io/script.min.js?token=${token41[0]}" id="clevy-chatbox" data-logo-url="https://cdn.clevy.io/customerdata/cned/logo-jules.png" async></script>
+    </c:when>
+    <c:when test="${departement == '45'}">
+      <script src="https://chatboxv2.clevy.io/script.min.js?token=${token45[0]}" id="clevy-chatbox" data-logo-url="https://cdn.clevy.io/customerdata/cned/logo-jules.png" async></script>
+    </c:when>
+    <c:otherwise><span>Jules ne peut s'afficher car aucun d&eacute;partement n'a &eacute;t&eacute; obtenu.</span></c:otherwise>
+  </c:choose>
 </div>

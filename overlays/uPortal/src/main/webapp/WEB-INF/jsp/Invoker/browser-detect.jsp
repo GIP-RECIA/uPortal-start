@@ -186,9 +186,9 @@ function removeClass(element,className) {
 
     var class2RemoveIndex = currentClassName.indexOf(className);
     if (class2RemoveIndex != -1) {
-        var class2Remove = currentClassName.substr(class2RemoveIndex, className.length);
-        var updatedClassName = currentClassName.replace(class2Remove,"").trim();
-        element.setAttribute("class",updatedClassName);
+      var class2Remove = currentClassName.substr(class2RemoveIndex, className.length);
+      var updatedClassName = currentClassName.replace(class2Remove,"").trim();
+      element.setAttribute("class",updatedClassName);
     }
   }
   else {
@@ -251,14 +251,14 @@ if (browser.name) {
 }
 // 3RDCOOKIES
 var receiveMessage = function (evt) {
-      if (evt.data === 'MM:3PCunsupported') {
-        removeClass(document.body.querySelector(".thirdcookies-detect-script"), "nodisplay");
-        console.log('third party cookies are not supported');
-      } else if (evt.data === 'MM:3PCsupported') {
-        console.log('third party cookies are supported');
-      }
-    };
-    window.addEventListener("message", receiveMessage, false)
+  if (evt.data === 'MM:3PCunsupported') {
+    removeClass(document.body.querySelector(".thirdcookies-detect-script"), "nodisplay");
+    console.log('third party cookies are not supported');
+  } else if (evt.data === 'MM:3PCsupported') {
+    console.log('third party cookies are supported');
+  }
+};
+window.addEventListener("message", receiveMessage, false)
 
 const thirdpartyiframe = document.createElement('iframe');
 thirdpartyiframe.id = "thirdpartyiframe";
