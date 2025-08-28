@@ -37,6 +37,8 @@ dependencies {
     runtime "org.webjars.npm:gip-recia__ui-webcomponents:${uiWebComponentsVersion}@jar"
     runtime "org.webjars.npm:gip-recia__mediacentre-ui:${mediacentreUiWebComponentsVersion}@jar"
     runtime "org.webjars.npm:gip-recia__ui-ressources-gar:${uiRessourcesGarWebComponentsVersion}@jar"
+    runtime "org.webjars.npm:gip-recia__widgets-to-endpoints-adapter:${widgetsToEndpointsAdapterVersion}@jar"
+    runtime "org.webjars.npm:gip-recia__didacticiel-ent:${didacticielEntVersion}@jar"
 }
 
 war {
