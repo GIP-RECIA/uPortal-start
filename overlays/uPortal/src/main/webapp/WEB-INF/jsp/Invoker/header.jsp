@@ -33,7 +33,7 @@
 </script>--%>
 
 <r-header
-  template-api-url="/commun/portal_template_api.tpl.json"
+  template-api-url="/commun/extended-template-api/20250828/portal_template_api.tpl.json"
   navigation-drawer-visible
   dnma-url=""
 >
