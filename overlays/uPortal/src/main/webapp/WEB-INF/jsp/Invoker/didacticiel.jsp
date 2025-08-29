@@ -23,34 +23,25 @@
 <c:set var="request" value="${pageContext.request}" />
 <c:set var="ctxPath" value="${request.contextPath}" />
 
-<%--<script type="text/javascript" language="javascript">
-  var versionUpdate = (new Date()).getTime();
+<script type="text/javascript" language="javascript">
 
-  var style = document.createElement("link");
-  style.rel="stylesheet";
-  style.href="${ctxPath}/scripts/didacticiel-ent.css?v=" + versionUpdate;
-  document.body.appendChild(style);
+  if (!document.body.classList.contains('up-focused')) {
+    // var versionUpdate = (new Date()).getTime();
+
+  // var style = document.createElement("link");
+  // style.rel="stylesheet";
+  // style.href="${ctxPath}/scripts/didacticiel-ent.css?v=" + versionUpdate;
+  // document.body.appendChild(style);
 
   var driverScript = document.createElement("script");
   driverScript.type = "module";
-  driverScript.src = "/commun/didacticiel/style/20250801/didacticiel-ent.js?v=" + versionUpdate;
+  driverScript.src = "/resource-server/webjars/gip-recia__didacticiel-ent/dist/didacticiel-ent.js";
   driverScript.id = "didacticiel-ent";
-  driverScript.setAttribute("confUri", "${ctxPath}/scripts/driver-config.json");
-  driverScript.setAttribute("getUserTourUri", "/portail/api/prefs/getentityonlyprefs/Didacticiel");
-  driverScript.setAttribute("setUserTourUri", "/portail/api/prefs/putprefs?fname=Didacticiel");
-  driverScript.setAttribute("startEventName", "launch-starter");
+  driverScript.setAttribute("configUri", "${configUri[0]}");
+  driverScript.setAttribute("getUserTourUri", "${getUserTourUri[0]}");
+  driverScript.setAttribute("setUserTourUri", "${setUserTourUri[0]}");
   document.body.appendChild(driverScript);
-</script>--%>
+  }
+</script>
 
 <link href="/resource-server/webjars/gip-recia__didacticiel-ent/dist/didacticiel-ent.css" rel="stylesheet" type="text/css">
-
-<script
-  id="didacticiel-ent"
-  type="module"
-  src="/resource-server/webjars/gip-recia__didacticiel-ent/dist/didacticiel-ent.js"
-  configUri="${configUri[0]}"
-  getUserTourUri="${getUserTourUri[0]}"
-  setUserTourUri="${setUserTourUri[0]}"
-  ${askEachTime[0] ? 'askEachTime' : ''}
->
-</script>
