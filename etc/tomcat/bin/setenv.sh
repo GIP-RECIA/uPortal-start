@@ -2,7 +2,7 @@
 CATALINA_OPTS="$CATALINA_OPTS -XX:+PrintCommandLineFlags"
 
 # Prevent "Unrecognized Name" SSL warning
-CATALINA_OPTS="$CATALINA_OPTS -Djsse.enableSNIExtension=false"
+CATALINA_OPTS="$CATALINA_OPTS -Djsse.enableSNIExtension=true"
 
 # CVE-2021-44228 Log4j2
 CATALINA_OPTS="$CATALINA_OPTS -Dcom.sun.jndi.ldap.object.trustURLCodebase=false"
@@ -31,11 +31,11 @@ fi
 echo $CATALINA_OPTS | grep -e '-Xms'
 if [ $? -eq 1 ]
 then
-    CATALINA_OPTS="$CATALINA_OPTS -Xms64m"
+    CATALINA_OPTS="$CATALINA_OPTS -Xms1G"
 fi
  
 echo $CATALINA_OPTS | grep -e '-Xmx'
 if [ $? -eq 1 ]
 then
-    CATALINA_OPTS="$CATALINA_OPTS -Xmx512m"
+    CATALINA_OPTS="$CATALINA_OPTS -Xmx4G"
 fi

@@ -1,0 +1,11 @@
+import org.apereo.portal.start.gradle.plugins.GradlePlutoPlugin
+
+apply plugin: GradlePlutoPlugin
+
+dependencies {
+    runtime "org.esupportail:esup-lecture:${esupLecturePortletVersion}@war"
+}
+
+war {
+    archiveName 'esup-lecture.war'
+}

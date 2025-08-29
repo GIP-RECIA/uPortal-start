@@ -1,0 +1,43 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+
+  <bean id="defaultLdapContext" class="org.springframework.ldap.pool.factory.PoolingContextSource">
+    <property name="contextSource" ref="defaultLdapContext_target"/>
+    <property name="dirContextValidator">
+      <bean class="org.springframework.ldap.pool.validation.DefaultDirContextValidator">
+        <property name="base" value="ou=people" />
+        <property name="searchControls">
+          <bean class="javax.naming.directory.SearchControls">
+            <property name="searchScope"><util:constant static-field="javax.naming.directory.SearchControls.OBJECT_SCOPE" /></property>
+            <property name="countLimit" value="1" />
+            <property name="returningAttributes"><list><value>objectclass</value></list></property>
+            <property name="timeLimit" value="500" />
+          </bean>
+        </property>
+      </bean>
+    </property>
+    <property name="minIdle" value="${ldap.defaultLdapContext.pool.minIdle:1}" />
+    <property name="maxActive" value="${ldap.defaultLdapContext.pool.maxActive:32}" />
+    <property name="maxIdle" value="${ldap.defaultLdapContext.pool.maxIdle:32}" />
+    <property name="maxWait" value="${ldap.defaultLdapContext.pool.maxWait:1000}"/>
+    <property name="testOnBorrow" value="${ldap.defaultLdapContext.pool.testOnBorrow:true}"/>
+    <property name="testWhileIdle" value="${ldap.defaultLdapContext.pool.testWhileIdle:true}"/>
+    <property name="timeBetweenEvictionRunsMillis" value="${ldap.defaultLdapContext.pool.timeBetweenEvictionRunsMillis:120000}"/>
+    <property name="minEvictableIdleTimeMillis" value="${ldap.defaultLdapContext.pool.minEvictableIdleTimeMillis:900000}"/>
+    <property name="numTestsPerEvictionRun" value="${ldap.defaultLdapContext.pool.numTestsPerEvictionRun:6}"/>
+  </bean>
+
+  <bean id="defaultLdapContext_target" class="org.springframework.ldap.core.support.LdapContextSource">
+    <property name="url" value="${ldap.defaultLdapContext.url}"/>
+    <property name="base" value="${ldap.defaultLdapContext.baseDn}"/>
+    <property name="userDn" value="${ldap.defaultLdapContext.user}"/>
+    <property name="password" value="${ldap.defaultLdapContext.password}"/>
+    <property name="pooled" value="${ldap.defaultLdapContext.pooled:false}"/>
+  </bean>
+
+
+</beans>

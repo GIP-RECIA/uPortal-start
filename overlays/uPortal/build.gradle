@@ -1,9 +1,17 @@
 import org.apereo.portal.start.gradle.plugins.GradleImportExportPlugin
 import org.apereo.portal.start.gradle.plugins.GradlePlutoPlugin
 
+configurations {
+    // Create new dependency configuration
+    // for dependencies to be added in
+    // WAR file.
+    warLib.extendsFrom runtime
+}
+
 dependencies {
     runtime "org.jasig.portal:uPortal-webapp:${uPortalVersion}@war"
     compile configurations.jdbc
+    warLib "fr.recia.portal:recia-uPortal-adds:${reciaUPortalAddsVersion}"
 }
 
 apply plugin: GradleImportExportPlugin
@@ -17,6 +25,16 @@ node {
 
 war {
     archiveName 'uPortal.war'
+    // Add warLib dependency configuration
+    classpath this.configurations.warLib
+
+    // We remove all duplicate files
+    // with this assignment.
+    // geFiles() method return a unique
+    // set of File objects, removing
+    // any duplicates from configurations
+    // added by classpath() method.
+    classpath = classpath.files
     /*
      * For uPortal 5 (and beyond), the Community Best Practice for WAR files published to Maven
      * Central is that they should *not* contain JDBC driver jars;  all such WAR files are
@@ -150,9 +168,9 @@ else {
     task skinDeployFiles(type: Copy) {
         dependsOn project.rootProject.tasks.portalProperties
 
-        File serverBase = project.rootProject.file(project.rootProject.ext['buildProperties'].getProperty('server.home'))
-        logger.lifecycle("serverBase: ${serverBase}")
-        File deployDir = new File(serverBase, "webapps/${project.name}/media/skins/respondr")
+        File serverWebapps = project.rootProject.file(project.rootProject.ext['buildProperties'].getProperty('server.webapps'))
+        logger.lifecycle("serverWebapps: ${serverWebapps}")
+        File deployDir = new File(serverWebapps, "${project.name}/media/skins/respondr")
         logger.lifecycle("deployDir: ${deployDir}")
 
         doFirst {
