@@ -37,23 +37,29 @@
       X.setObjectClass('${type}');
     </script>
     <script type="text/javascript" defer>
-      if (! InfoENT4esciti.callByContextInCssClass('%portletPortail')){
-        InfoENT4esciti.callByService("Page_ENT");
-      }
-      InfoENT4esciti.marqueOnClick('%ancrePortail');
+      try {
+        if (! InfoENT4esciti.callByContextInCssClass('%portletPortail')){
+          InfoENT4esciti.callByService("Page_ENT");
+        }
+        InfoENT4esciti.marqueOnClick('%ancrePortail');
+      } catch (e) {}
     </script>
 </div>
 
 <script type="text/javascript" src="/esciti/dnma/dnma.js?v=<%= System.currentTimeMillis() %>"></script>
 
 <script type="text/javascript">
-  console.log("DNMA Parametrage");
-  if (ENT4DNMA) {
-    ENT4DNMA.markPage('Portail');
-    ENT4DNMA.markOnEvent('click-portlet-card');
-    ENT4DNMA.markOnEvent('favorite-event');
-    ENT4DNMA.markOnEvent('service-event');
-    ENT4DNMA.markOnEvent('service-info-event');
-    ENT4DNMA.markOnEvent('search-event');
+  try {
+    if (ENT4DNMA) {
+      ENT4DNMA.markPage('Portail');
+      ENT4DNMA.markOnEvent('click-portlet-card');
+      ENT4DNMA.markOnEvent('favorite-event');
+      ENT4DNMA.markOnEvent('service-event');
+      ENT4DNMA.markOnEvent('service-info-event');
+      ENT4DNMA.markOnEvent('search-event');
+      ENT4DNMA.markOnEvent('DNMA-ACTUS-DOCS');
+    }
+  } catch (e) {
+    console.info('DNMA is not available');
   }
 </script>
