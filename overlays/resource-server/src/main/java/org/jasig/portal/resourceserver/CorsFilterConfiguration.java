@@ -45,8 +45,8 @@ public class CorsFilterConfiguration {
                 return null;
             }
 
-            final List<String> allowedOrigins = (List<String>)this.env.getProperty("cors.allowed.origins", List.class);
-            final List<String> allowedHttpMethods = (List<String>)this.env.getProperty("cors.allowed.methods", List.class);
+            final List<String> allowedOrigins = (List<String>)this.env.getProperty("cors.allowed.origins", List.class, new ArrayList<>());
+            final List<String> allowedHttpMethods = (List<String>)this.env.getProperty("cors.allowed.methods", List.class, new ArrayList<>());
             //final List<String> allowedHttpHeaders =this.env.getProperty("cors.allowed.headers", "Origin,Accept,Authorization,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers");
             //final List<String> exposedHeaders = this.env.getProperty("cors.exposed.headers", null);
             //final boolean supportsCredentials = this.env.getProperty("cors.support.credentials", "true");
