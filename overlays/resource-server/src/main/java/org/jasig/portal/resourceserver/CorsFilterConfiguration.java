@@ -71,12 +71,8 @@ public class CorsFilterConfiguration {
                         .forEach(configuration::addAllowedHeader);
             }
 
-            configuration.addExposedHeader("*");
-
             configuration.setAllowCredentials(true);
-
-            configuration
-                    .setAllowedMethods(allowedHttpMethods);
+            configuration.setAllowedMethods(allowedHttpMethods);
 
             return configuration;
         }));
