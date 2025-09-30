@@ -6,9 +6,41 @@
  * won't work without a copy of ResourceServingWebapp.  For webjar support, on the other hand, we
  * need version 1.3.x.  So (for now) we will run two copies.
  */
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.scaldingspoon.gradle:gradle-waroverlay-plugin:${waroverlayPluginVersion}"
+        classpath "org.jasig.resourceserver:resource-server-core:${resourceServer13Version}"
+    }
+}
+
+repositories {
+    mavenCentral artifactUrls: ["http://developer.jasig.org/repo/content/groups/m2-legacy/", "http://central.maven.org/maven2/"]
+    maven {url "http://oss.sonatype.org/content/repositories/releases/"}
+    maven {url "https://oss.sonatype.org/content/repositories/snapshots/"}
+}
+
+
+configurations {
+    // Create new dependency configuration
+    // for dependencies to be added in
+    // WAR file.
+    warLib.extendsFrom runtime
+}
 
 dependencies {
     runtime "org.jasig.resourceserver:resource-server-webapp:${resourceServerWebjarVersion}@war"
+
+    compile("org.springframework.boot:spring-boot:2.0.4.RELEASE@jar")
+    compile("org.springframework.boot:spring-boot-starter-web:2.0.4.RELEASE@jar")
+    compile("org.springframework:spring-core:5.0.8.RELEASE@jar")
+    compile("org.springframework:spring-context:5.0.8.RELEASE@jar")
+    compile("org.springframework:spring-web:5.0.8.RELEASE@jar")
+    compile("org.springframework:spring-beans:5.0.8.RELEASE@jar")
+    compile("javax.servlet:javax.servlet-api:4.0.1@jar")
+    compile("org.slf4j:slf4j-api:1.7.25@jar")
 
     runtime "org.webjars.npm:vue:${vueVersion}@jar"
 
@@ -43,4 +75,29 @@ dependencies {
 
 war {
     archiveName 'resource-server.war'
+    // Add warLib dependency configuration
+    classpath this.configurations.warLib
+
+    // We remove all duplicate files
+    // with this assignment.
+    // geFiles() method return a unique
+    // set of File objects, removing
+    // any duplicates from configurations
+    // added by classpath() method.
+    classpath = classpath.files
+    /*
+     * For uPortal 5 (and beyond), the Community Best Practice for WAR files published to Maven
+     * Central is that they should *not* contain JDBC driver jars;  all such WAR files are
+     * implemented locally by "overlaying" them, and it is the responsibility of they overlaying
+     * project (here uPortal-start) to provide them with the appropriate drivers.  When the
+     * published artifacts already contain drivers, the danger of conflicting versions is very
+     * high.
+     *
+     * Nevertheless, earlier versions of uPortal and Apereo portlets *do* contain JDBC drivers,
+     * specifically HSQLDB.  The following exclusion prevents the copy of this driver contained
+     * within the published WAR file from being deployed.  Please remove this line when the
+     * published artifact reliably omits the HSQLDB driver.
+     *
+     * See https://github.com/Jasig/uPortal-start/pull/120
+     */
 }
