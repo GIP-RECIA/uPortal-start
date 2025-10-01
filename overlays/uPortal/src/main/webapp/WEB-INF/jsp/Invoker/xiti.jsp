@@ -48,7 +48,7 @@
     </script>
 </div>
 
-<script type="text/javascript" src="/esciti/dnma/dnma.js?v=<%= System.currentTimeMillis() %>"></script>
+<script type="text/javascript" src="/esciti/dnma/dnma.js?v=<%= System.currentTimeMillis() / (1000 * 3600 * 24) %>"></script>
 
 <script type="text/javascript">
   try {
