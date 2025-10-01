@@ -33,7 +33,7 @@
 </script>--%>
 
 <r-footer
-  template-api-url="/commun/extended-template-api/20250828/portal_template_api.tpl.json"
+  template-api-url="${templateApiUrl[0]}"
   top-links='[
     {
       "name": "Mentions l&eacute;gales et CGU",
