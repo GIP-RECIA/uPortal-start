@@ -30,11 +30,13 @@
 <div style="display:none;">
     <script type="text/javascript" src="/esciti/js/esciti.js"></script>
     <script type="text/javascript">
-      var X=InfoENT4esciti;
-      X.setUid('${uid}','${dnmaId}');
-      X.setSiren('${siren}');
-      X.setUai('${uai}');
-      X.setObjectClass('${type}');
+      try {
+        var X=InfoENT4esciti;
+        X.setUid('${uid}','${dnmaId}');
+        X.setSiren('${siren}');
+        X.setUai('${uai}');
+        X.setObjectClass('${type}');
+      } catch (e) {}
     </script>
     <script type="text/javascript" defer>
       try {
