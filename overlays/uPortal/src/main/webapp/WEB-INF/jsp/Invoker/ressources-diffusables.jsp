@@ -32,11 +32,10 @@
   document.body.appendChild(script);
 </script--%>
 
-<div class="ui-ressources-gar">
-  <ui-ressources-gar
-    base-api-url="${baseApiUrl[0]}"
-    ressources-diffusables-api-uri="${ressourcesDiffusablesApiUri[0]}"
-    user-info-api-url="${userInfoApiUrl[0]}"
-    resources-per-page-default="${resourcesPerPageDefault[0]}"
-  />
-</div>
+<ui-ressources-gar
+  base-api-url="${baseApiUrl[0]}"
+  ressources-diffusables-api-uri="${ressourcesDiffusablesApiUri[0]}"
+  user-info-api-url="${userInfoApiUrl[0]}"
+  resources-per-page-default="${resourcesPerPageDefault[0]}"
+>
+</ui-ressources-gar>
