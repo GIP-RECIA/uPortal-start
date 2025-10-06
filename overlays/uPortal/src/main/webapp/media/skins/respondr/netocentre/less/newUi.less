@@ -632,6 +632,11 @@ html {
       margin-top: 40px;
       margin-bottom: 40px;
 
+      @media screen and (min-width: 768px) {
+        margin-top: 60px;
+        margin-bottom: 60px;
+      }
+
       #region-mezzanine {
         margin-bottom: 40px;
 
@@ -640,10 +645,10 @@ html {
         }
 
         @media screen and (min-width: 768px) {
-          margin-bottom: 70px;
+          margin-bottom: 60px;
 
           section:has(.mb) {
-            margin-bottom: 70px;
+            margin-bottom: 60px;
           }
         }
       }
@@ -823,6 +828,8 @@ html {
   }
 
   &.up-focused #wrapper #portalPageBody {
+    margin-top: 32px;
+
     #portalPageBodyColumns .up-portlet-content-wrapper {
       border: none;
       background: none;
