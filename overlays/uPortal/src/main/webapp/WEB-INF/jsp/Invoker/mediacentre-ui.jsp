@@ -22,6 +22,7 @@
 
 <c:set var="request" value="${pageContext.request}" />
 <c:set var="ctxPath" value="${request.contextPath}" />
+<c:set var="name" value="${focusedPortletName.getInfo(request)}" />
 
 <%@ page import = "java.util.Map" %>
 <%
@@ -72,21 +73,31 @@
 
 <c:choose>
   <c:when test="${isRedirect == false}">
-    <mediacentre-ui
-      base-api-url="${baseApiUrl[0]}"
-      config-api-url="${configApiUrl[0]}"
-      gestion-api-url="${gestionApiUrl[0]}"
-      user-info-api-url="${userInfoApiUrl[0]}"
-      user-rights-api-url="${userRightsApiUrl[0]}"
-      get-user-favorite-resources-url="${getUserFavoriteResourcesUrl[0]}"
-      put-user-favorite-resources-url="${putUserFavoriteResourcesUrl[0]}"
-      fname-mediacentre-ui="Mediacentre"
-      uai-current="${uaiCurrent[0]}"
-      uai="${uai[0]}"
-      help-location="${helpLocation[0]}"
-      dnma-event-name="${dnmaEventName[0]}"
+    <r-page-layout
+      back-link='{
+        "name": "Retour &agrave; l&#39;accueil",
+        "href": "${ctxPath}",
+        "target": "_self",
+        "rel": "noopener noreferrer"
+      }'
+      page-title="${name} "
     >
-    </mediacentre-ui>
+      <mediacentre-ui
+        base-api-url="${baseApiUrl[0]}"
+        config-api-url="${configApiUrl[0]}"
+        gestion-api-url="${gestionApiUrl[0]}"
+        user-info-api-url="${userInfoApiUrl[0]}"
+        user-rights-api-url="${userRightsApiUrl[0]}"
+        get-user-favorite-resources-url="${getUserFavoriteResourcesUrl[0]}"
+        put-user-favorite-resources-url="${putUserFavoriteResourcesUrl[0]}"
+        fname-mediacentre-ui="Mediacentre"
+        uai-current="${uaiCurrent[0]}"
+        uai="${uai[0]}"
+        help-location="${helpLocation[0]}"
+        dnma-event-name="${dnmaEventName[0]}"
+      >
+      </mediacentre-ui>
+    </r-page-layout>
   </c:when>
   <c:otherwise>
     <mediacentre-redirect

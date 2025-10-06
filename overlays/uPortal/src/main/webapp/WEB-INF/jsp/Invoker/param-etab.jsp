@@ -22,6 +22,7 @@
 
 <c:set var="request" value="${pageContext.request}" />
 <c:set var="ctxPath" value="${request.contextPath}" />
+<c:set var="name" value="${focusedPortletName.getInfo(request)}" />
 
 <script src="/resource-server/webjars/gip-recia__param-etab/dist/param-etab.min.js" type="module" defer></script>
 <%--<script type="text/javascript" language="javascript">
@@ -32,9 +33,19 @@
   document.body.appendChild(script);
 </script>--%>
 
-<param-etab
-  param-etab-api="${paramEtabApi[0]}"
-  user-info-api-url="${userInfoApiUrl[0]}"
-  default-logo-icon="${defaultLogoIcon[0]}"
+<r-page-layout
+  back-link='{
+    "name": "Retour &agrave; l&#39;accueil",
+    "href": "${ctxPath}",
+    "target": "_self",
+    "rel": "noopener noreferrer"
+  }'
+  page-title="${name} "
 >
-</param-etab>
+  <param-etab
+    param-etab-api="${paramEtabApi[0]}"
+    user-info-api-url="${userInfoApiUrl[0]}"
+    default-logo-icon="${defaultLogoIcon[0]}"
+  >
+  </param-etab>
+</r-page-layout>
