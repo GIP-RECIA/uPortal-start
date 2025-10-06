@@ -22,6 +22,7 @@
 
 <c:set var="request" value="${pageContext.request}" />
 <c:set var="ctxPath" value="${request.contextPath}" />
+<c:set var="name" value="${focusedPortletName.getInfo(request)}" />
 
 <script src="/resource-server/webjars/vue/dist/vue.min.js"></script>
 <script src="/resource-server/webjars/gip-recia__menu-cantine/dist/menu-cantine.min.js" defer></script>
@@ -33,9 +34,19 @@
   document.body.appendChild(script);
 </script>--%>
 
-<menu-cantine-menu-semaine 
-  app-user-info-uri="${userInfoUri[0]}"
-  app-url-img="${urlImg[0]}"
-  app-url-rest-api="${urlRestApi[0]}"
-  app-url-api-etab="${urlApiEtab[0]}">
-</menu-cantine-menu-semaine>
+<r-page-layout
+  back-link='{
+    "name": "Retour &agrave; l&#39;accueil",
+    "href": "${ctxPath}",
+    "target": "_self",
+    "rel": "noopener noreferrer"
+  }'
+  page-title="${name} "
+>
+  <menu-cantine-menu-semaine 
+    app-user-info-uri="${userInfoUri[0]}"
+    app-url-img="${urlImg[0]}"
+    app-url-rest-api="${urlRestApi[0]}"
+    app-url-api-etab="${urlApiEtab[0]}">
+  </menu-cantine-menu-semaine>
+</r-page-layout>

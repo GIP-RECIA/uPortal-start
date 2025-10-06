@@ -23,6 +23,15 @@
 <c:set var="request" value="${pageContext.request}" />
 <c:set var="ctxPath" value="${request.contextPath}" />
 
+<script src="/resource-server/webjars/gip-recia__ui-webcomponents/dist/r-page-layout.js" type="module" defer></script>
+<%--<script type="text/javascript" language="javascript">
+  var versionUpdate = (new Date()).getTime();
+  var script = document.createElement("script");
+  script.type = "module";
+  script.src = "${ctxPath}/scripts/r-page-layout.js?v=" + versionUpdate;
+  document.body.appendChild(script);
+</script>--%>
+
 <script src="/resource-server/webjars/gip-recia__ui-webcomponents/dist/r-header.js" type="module" defer></script>
 <%--<script type="text/javascript" language="javascript">
   var versionUpdate = (new Date()).getTime();

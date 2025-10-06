@@ -22,6 +22,7 @@
 
 <c:set var="request" value="${pageContext.request}" />
 <c:set var="ctxPath" value="${request.contextPath}" />
+<c:set var="name" value="${focusedPortletName.getInfo(request)}" />
 
 <script src="/resource-server/webjars/gip-recia__ui-ressources-gar/dist/ui-ressources-gar.min.js" type="module" defer></script>
 <%--script type="text/javascript" language="javascript">
@@ -32,10 +33,20 @@
   document.body.appendChild(script);
 </script--%>
 
-<ui-ressources-gar
-  base-api-url="${baseApiUrl[0]}"
-  ressources-diffusables-api-uri="${ressourcesDiffusablesApiUri[0]}"
-  user-info-api-url="${userInfoApiUrl[0]}"
-  resources-per-page-default="${resourcesPerPageDefault[0]}"
+<r-page-layout
+  back-link='{
+    "name": "Retour &agrave; l&#39;accueil",
+    "href": "${ctxPath}",
+    "target": "_self",
+    "rel": "noopener noreferrer"
+  }'
+  page-title="${name} "
 >
-</ui-ressources-gar>
+  <ui-ressources-gar
+    base-api-url="${baseApiUrl[0]}"
+    ressources-diffusables-api-uri="${ressourcesDiffusablesApiUri[0]}"
+    user-info-api-url="${userInfoApiUrl[0]}"
+    resources-per-page-default="${resourcesPerPageDefault[0]}"
+  >
+  </ui-ressources-gar>
+</r-page-layout>
