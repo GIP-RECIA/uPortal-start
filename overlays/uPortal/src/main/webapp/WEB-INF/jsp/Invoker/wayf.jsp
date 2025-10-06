@@ -64,49 +64,4 @@
       line-height: unset;
     }
   }
-
-  /* Quick fix - need to be removed when new portal deploy */
-  .portal:not(.up-focused) #wrapper #portalPageBody #region-mezzanine [class*="FlashInfo"] {
-    width: 100%;
-    padding-right: 16px;
-    padding-left: 16px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  .portal:not(.up-focused) #wrapper #portalPageBody #region-mezzanine [class*="FlashInfo"] > * {
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: var(--recia-shadow-neutral) var(--recia-black-10);
-  }
-
-  @media screen and (width >= 576px) {
-    .portal:not(.up-focused) #wrapper #portalPageBody #region-mezzanine [class*="FlashInfo"] {
-      max-width: 540px;
-    }
-  }
-
-  @media screen and (width >= 768px) {
-    .portal:not(.up-focused) #wrapper #portalPageBody #region-mezzanine [class*="FlashInfo"] {
-      max-width: 720px;
-    }
-  }
-
-  @media screen and (width >= 992px) {
-    .portal:not(.up-focused) #wrapper #portalPageBody #region-mezzanine [class*="FlashInfo"] {
-      max-width: 960px;
-    }
-  }
-
-  @media screen and (width >= 1200px) {
-    .portal:not(.up-focused) #wrapper #portalPageBody #region-mezzanine [class*="FlashInfo"] {
-      max-width: 1140px;
-    }
-  }
-
-  @media screen and (width >= 1400px) {
-    .portal:not(.up-focused) #wrapper #portalPageBody #region-mezzanine [class*="FlashInfo"] {
-      max-width: 1320px;
-    }
-  }
 </style>
