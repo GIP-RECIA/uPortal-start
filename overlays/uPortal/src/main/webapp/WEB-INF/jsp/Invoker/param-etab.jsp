@@ -32,10 +32,9 @@
   document.body.appendChild(script);
 </script>--%>
 
-<div class="param-etab">
-  <param-etab
-    param-etab-api="${paramEtabApi[0]}"
-    user-info-api-url="${userInfoApiUrl[0]}"
-    default-logo-icon="${defaultLogoIcon[0]}"
-  />
-</div>
+<param-etab
+  param-etab-api="${paramEtabApi[0]}"
+  user-info-api-url="${userInfoApiUrl[0]}"
+  default-logo-icon="${defaultLogoIcon[0]}"
+>
+</param-etab>

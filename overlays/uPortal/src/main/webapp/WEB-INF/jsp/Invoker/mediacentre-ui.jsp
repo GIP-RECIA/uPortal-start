@@ -29,18 +29,18 @@
     boolean mustRedirect = false;
     String redirectValue = "";
     Map<String, String[]> parameters = request.getParameterMap();
-    for(Map.Entry<String, String[]> entry : parameters.entrySet()){
-      if(entry.getKey().toLowerCase().contains("redirect")){
+    for (Map.Entry<String, String[]> entry : parameters.entrySet()) {
+      if (entry.getKey().toLowerCase().contains("redirect")) {
         redirectValue = "";
-        for(String value : entry.getValue()){
+        for (String value : entry.getValue()) {
           redirectValue = value;
           mustRedirect = true;
           break;
         }
       } else if (entry.getKey().toLowerCase().contains("base64")) {
         isBase64 = true ;
-        for(String value : entry.getValue()){
-          if(value.equals("false")){
+        for (String value : entry.getValue()) {
+          if (value.equals("false")) {
             isBase64 = false;
           }
           break;
@@ -72,33 +72,31 @@
 
 <c:choose>
   <c:when test="${isRedirect == false}">
-    <div class="mediacentre-ui">
-      <mediacentre-ui
-        base-api-url="${baseApiUrl[0]}"
-        config-api-url="${configApiUrl[0]}"
-        gestion-api-url="${gestionApiUrl[0]}"
-        user-info-api-url="${userInfoApiUrl[0]}"
-        user-rights-api-url="${userRightsApiUrl[0]}"
-        get-user-favorite-resources-url="${getUserFavoriteResourcesUrl[0]}"
-        put-user-favorite-resources-url="${putUserFavoriteResourcesUrl[0]}"
-        fname-mediacentre-ui="Mediacentre"
-        uai-current="${uaiCurrent[0]}"
-        uai="${uai[0]}"
-        help-location="${helpLocation[0]}"
-        dnma-event-name="${dnmaEventName[0]}"
-      />
-      </div>
+    <mediacentre-ui
+      base-api-url="${baseApiUrl[0]}"
+      config-api-url="${configApiUrl[0]}"
+      gestion-api-url="${gestionApiUrl[0]}"
+      user-info-api-url="${userInfoApiUrl[0]}"
+      user-rights-api-url="${userRightsApiUrl[0]}"
+      get-user-favorite-resources-url="${getUserFavoriteResourcesUrl[0]}"
+      put-user-favorite-resources-url="${putUserFavoriteResourcesUrl[0]}"
+      fname-mediacentre-ui="Mediacentre"
+      uai-current="${uaiCurrent[0]}"
+      uai="${uai[0]}"
+      help-location="${helpLocation[0]}"
+      dnma-event-name="${dnmaEventName[0]}"
+    >
+    </mediacentre-ui>
   </c:when>
   <c:otherwise>
-    <div class="mediacentre-redirect">
-      <mediacentre-redirect
-        base-api-url="${baseApiUrl[0]}"
-        config-api-url="${configApiUrl[0]}"
-        user-info-api-url="${userInfoApiUrl[0]}"
-        user-rights-api-url="${userRightsApiUrl[0]}"
-        resource-id="${resourceId}"
-        is-base64="${isBase64}"
-      />
-    </div>
+    <mediacentre-redirect
+      base-api-url="${baseApiUrl[0]}"
+      config-api-url="${configApiUrl[0]}"
+      user-info-api-url="${userInfoApiUrl[0]}"
+      user-rights-api-url="${userRightsApiUrl[0]}"
+      resource-id="${resourceId}"
+      is-base64="${isBase64}"
+    >
+    </mediacentre-redirect>
   </c:otherwise>
 </c:choose>
