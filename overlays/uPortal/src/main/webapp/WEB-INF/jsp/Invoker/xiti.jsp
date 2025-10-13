@@ -21,35 +21,8 @@
 <%@ include file="/WEB-INF/jsp/include.jsp" %>
 
 <c:set var="request" value="${pageContext.request}" />
-<c:set var="uid" value="${personManager.getPerson(request).getAttribute('uid')}" />
-<c:set var="dnmaId" value="${personManager.getPerson(request).getAttribute('DNMAId')}" />
-<c:set var="siren" value="${transformUserAttributes.processAttribute('ENTPersonStructRattach', personManager.getPerson(request).getAttribute('ENTPersonStructRattach'))}" />
-<c:set var="uai" value="${personManager.getPerson(request).getAttribute('ESCOUAICourant')}" />
-<c:set var="type" value="${transformUserAttributes.processAttribute('objectClass', personManager.getPerson(request).getAttributeValues('objectClass'))}" />
-
-<div style="display:none;">
-    <script type="text/javascript" src="/esciti/js/esciti.js"></script>
-    <script type="text/javascript">
-      try {
-        var X=InfoENT4esciti;
-        X.setUid('${uid}','${dnmaId}');
-        X.setSiren('${siren}');
-        X.setUai('${uai}');
-        X.setObjectClass('${type}');
-      } catch (e) {}
-    </script>
-    <script type="text/javascript" defer>
-      try {
-        if (! InfoENT4esciti.callByContextInCssClass('%portletPortail')){
-          InfoENT4esciti.callByService("Page_ENT");
-        }
-        InfoENT4esciti.marqueOnClick('%ancrePortail');
-      } catch (e) {}
-    </script>
-</div>
 
 <script type="text/javascript" src="/esciti/dnma/dnma.js?v=<%= System.currentTimeMillis() / (1000 * 3600 * 24) %>"></script>
-
 <script type="text/javascript">
   try {
     if (ENT4DNMA) {
