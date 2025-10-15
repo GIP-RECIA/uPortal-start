@@ -49,3 +49,20 @@
   >
   </param-etab>
 </r-page-layout>
+
+<script type="text/javascript">
+  try {
+    if (ENT4DNMA) {
+      ENT4DNMA.markPage('ESCO-ParamEtab');
+      ENT4DNMA.markOnEvent('click-portlet-card');
+      ENT4DNMA.markOnEvent('favorite-event');
+      ENT4DNMA.markOnEvent('service-event');
+      ENT4DNMA.markOnEvent('service-info-event');
+      ENT4DNMA.markOnEvent('search-event');
+      ENT4DNMA.markOnEvent('open-more');
+      ENT4DNMA.markOnEvent('DNMA-ACTUS-DOCS');
+    }
+  } catch (e) {
+    console.info('DNMA is not available');
+  }
+</script>
