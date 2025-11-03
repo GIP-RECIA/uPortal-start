@@ -40,7 +40,7 @@
     "target": "_self",
     "rel": "noopener noreferrer"
   }'
-  page-title="${name} "
+  page-title="${name}"
 >
   <ui-ressources-gar
     base-api-url="${baseApiUrl[0]}"

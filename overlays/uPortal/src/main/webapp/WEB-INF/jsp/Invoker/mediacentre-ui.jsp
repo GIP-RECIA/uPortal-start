@@ -80,7 +80,7 @@
         "target": "_self",
         "rel": "noopener noreferrer"
       }'
-      page-title="${name} "
+      page-title="${name}"
     >
       <mediacentre-ui
         base-api-url="${baseApiUrl[0]}"
