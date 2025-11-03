@@ -40,7 +40,7 @@
     "target": "_self",
     "rel": "noopener noreferrer"
   }'
-  page-title="${name} "
+  page-title="${name}"
 >
   <param-etab
     param-etab-api="${paramEtabApi[0]}"

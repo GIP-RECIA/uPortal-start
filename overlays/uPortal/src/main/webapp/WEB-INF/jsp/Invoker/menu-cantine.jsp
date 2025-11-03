@@ -41,7 +41,7 @@
     "target": "_self",
     "rel": "noopener noreferrer"
   }'
-  page-title="${name} "
+  page-title="${name}"
 >
   <menu-cantine-menu-semaine 
     app-user-info-uri="${userInfoUri[0]}"
