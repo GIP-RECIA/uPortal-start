@@ -46,13 +46,6 @@
     </listener>
 
     <!--
-     | Loads/Unloads the Spring WebApplicationContext
-     +-->
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
-
-    <!--
      | Passes Session init/destroy events to the WebApplicationContext
      +-->
     <listener>
