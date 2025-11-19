@@ -31,14 +31,15 @@ configurations {
 dependencies {
     runtime "org.jasig.resourceserver:resource-server-webapp:${resourceServerWebjarVersion}@war"
 
-    compile("org.springframework.boot:spring-boot:2.0.4.RELEASE@jar")
-    compile("org.springframework.boot:spring-boot-starter-web:2.0.4.RELEASE@jar")
-    compile("org.springframework:spring-core:5.0.8.RELEASE@jar")
-    compile("org.springframework:spring-context:5.0.8.RELEASE@jar")
-    compile("org.springframework:spring-web:5.0.8.RELEASE@jar")
-    compile("org.springframework:spring-beans:5.0.8.RELEASE@jar")
-    compile("javax.servlet:javax.servlet-api:4.0.1@jar")
-    compile("org.slf4j:slf4j-api:1.7.25@jar")
+    // TODO : get versions from env
+    compileOnly("org.springframework.boot:spring-boot:2.0.4.RELEASE@jar")
+    compileOnly("org.springframework.boot:spring-boot-starter-web:2.0.4.RELEASE@jar")
+    compileOnly("org.springframework:spring-core:5.0.8.RELEASE@jar")
+    compileOnly("org.springframework:spring-context:5.0.8.RELEASE@jar")
+    compileOnly("org.springframework:spring-web:5.0.8.RELEASE@jar")
+    compileOnly("org.springframework:spring-beans:5.0.8.RELEASE@jar")
+    compileOnly("javax.servlet:javax.servlet-api:4.0.1@jar")
+    compileOnly("org.slf4j:slf4j-api:1.7.25@jar")
 
     runtime "org.webjars.npm:vue:${vueVersion}@jar"
 
