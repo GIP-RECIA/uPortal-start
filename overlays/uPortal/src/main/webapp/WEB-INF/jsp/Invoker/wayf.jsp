@@ -32,7 +32,7 @@
   document.body.appendChild(script);
 </script>--%>
 
-<div class="container wayf">
+<div class="container mb wayf">
   <header>
     <h1>Connectez-vous <span>&agrave; votre Espace Num&eacute;rique de Travail (ENT)</span></h1>
   </header>
@@ -62,6 +62,37 @@
       font-size: unset;
       font-weight: unset;
       line-height: unset;
+    }
+  }
+
+  /* Quick fix - need to be removed when new portal deploy */
+  .portal:not(.up-focused) #wrapper #portalPageBody #region-mezzanine [class*="FlashInfo"] {
+    width: 100%;
+    padding-right: 16px;
+    padding-left: 16px;
+    margin-right: auto;
+    margin-left: auto;
+
+    @media screen and (width >= 576px) {
+      max-width: 540px;
+    }
+    @media screen and (width >= 768px) {
+      max-width: 720px;
+    }
+    @media screen and (width >= 992px) {
+      max-width: 960px;
+    }
+    @media screen and (width >= 1200px) {
+      max-width: 1140px;
+    }
+    @media screen and (width >= 1400px) {
+      max-width: 1320px;
+    }
+    
+    > * {
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: var(--recia-shadow-neutral) var(--recia-black-10) !important;
     }
   }
 </style>
