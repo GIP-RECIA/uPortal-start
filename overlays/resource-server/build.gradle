@@ -12,7 +12,7 @@ buildscript {
     }
     dependencies {
         classpath "org.scaldingspoon.gradle:gradle-waroverlay-plugin:${waroverlayPluginVersion}"
-        classpath "org.jasig.resourceserver:resource-server-core:${resourceServer13Version}"
+        classpath "org.jasig.resourceserver:resource-server-core:${resourceServerWebjarVersion}"
     }
 }
 
