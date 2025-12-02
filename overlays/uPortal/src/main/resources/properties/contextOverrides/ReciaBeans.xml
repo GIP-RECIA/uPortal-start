@@ -57,7 +57,7 @@
   <!-- surcharge de la configuration CAS pour le proxyCAS à supprimer lors de nouvelle version supérieure du portail à 5.9.0 -->
   <bean id="proxyGrantingTicketStorage" class="org.jasig.cas.client.proxy.ProxyGrantingTicketStorageImpl" />
 
-  <bean name="ticketValidationFilter" class="org.jasig.cas.client.validation.Cas20ProxyReceivingTicketValidationFilter">
+  <bean name="ticketValidationFilter" class="org.apereo.portal.session.slo.filter.HandleSLOCas20ValidationFilter">
     <property name="serverName" value="${portal.allServerNames}" />
     <property name="encodeServiceUrl" value="${cas.ticketValidationFilter.encodeServiceUrl:true}" />
     <property name="proxyReceptorUrl" value="${cas.ticketValidationFilter.proxyReceptorUrl:}" />
