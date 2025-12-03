@@ -8,4 +8,5 @@ public interface SLOCASMappingStorage {
     String getSessionToST(String session);
     void deleteSessionToST(String session);
     void swapSession(String oldSession, String newSession);
+    void invalidateSessionForST(String ticket);
 }

@@ -4,9 +4,11 @@ import org.apereo.portal.session.redis.SpringSessionRedisEnabledCondition;
 import org.apereo.portal.session.slo.storage.SLOCASMappingStorage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Conditional;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.session.data.redis.RedisOperationsSessionRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.TimeUnit;
@@ -20,6 +22,9 @@ import java.util.concurrent.TimeUnit;
 @Service
 @Conditional(SpringSessionRedisEnabledCondition.class)
 public class RedisSLOCASMappingStorage implements SLOCASMappingStorage {
+
+    @Autowired
+    private RedisOperationsSessionRepository redisOperationsSessionRepository;
 
     private static final Logger logger = LoggerFactory.getLogger(RedisSLOCASMappingStorage.class);
 
@@ -140,7 +145,23 @@ public class RedisSLOCASMappingStorage implements SLOCASMappingStorage {
             deleteSessionToST(oldSession);
             saveSTToSession(st, newSession);
         } else {
-            logger.debug("No need to swap sessions as nothing is in redis");
+            logger.error("No need to swap sessions as nothing is in redis");
+        }
+    }
+
+    /**
+     * Invalidates a session for a given ST
+     * @param ticket The service ticket
+     */
+    @Override
+    public void invalidateSessionForST(String ticket) {
+        final String sessionId = this.getSTToSession(ticket);
+        if(sessionId != null){
+            logger.error("SessionID associated to ticket {} is {}. Invalidating the session and deleting the mapping.", ticket, sessionId);
+            this.deleteSTToSession(ticket);
+            redisOperationsSessionRepository.delete(sessionId);
+        } else {
+            logger.error("No session associated to ticket {} could be retrieved. Session will not be invalidated.", ticket);
         }
     }
 }

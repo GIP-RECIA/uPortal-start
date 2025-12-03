@@ -5,7 +5,6 @@ import org.jasig.cas.client.util.XmlUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.session.data.redis.RedisOperationsSessionRepository;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -27,9 +26,6 @@ public class CASLogoutRequestFilter implements Filter {
     @Autowired
     private SLOCASMappingStorage slocasMappingStorage;
 
-    @Autowired
-    private RedisOperationsSessionRepository redisOperationsSessionRepository;
-
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {}
 
@@ -41,14 +37,7 @@ public class CASLogoutRequestFilter implements Filter {
             logger.debug("Logout request detected : logoutMessage is {}", logoutMessage);
             final String ticket = XmlUtils.getTextForElement(logoutMessage, "SessionIndex");
             logger.debug("Extracted ticket {} from logoutMessage", ticket);
-            final String sessionId = slocasMappingStorage.getSTToSession(ticket);
-            if(sessionId != null){
-                logger.info("SessionID associated to ticket {} is {}. Invalidating the session and deleting the mapping.", ticket, sessionId);
-                slocasMappingStorage.deleteSTToSession(ticket);
-                redisOperationsSessionRepository.delete(sessionId);
-            } else {
-                logger.info("No session associated to ticket {} could be retreived. Session will not be invalidated.", ticket);
-            }
+            slocasMappingStorage.invalidateSessionForST(ticket);
         } else {
             logger.debug("This is not a logout request. Continuing filter chain...");
             chain.doFilter(req, res);
