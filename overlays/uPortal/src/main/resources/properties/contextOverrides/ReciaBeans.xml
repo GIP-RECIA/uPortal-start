@@ -54,8 +54,8 @@
   <!-- récupération du proxy ticket CAS -->
   <bean id="casTicketUserInfoService" class="org.apereo.portal.portlet.container.services.CasTicketUserInfoService" />
 
-  <!-- surcharge de la configuration CAS pour le proxyCAS à supprimer lors de nouvelle version supérieure du portail à 5.9.0 -->
-  <bean id="proxyGrantingTicketStorage" class="org.jasig.cas.client.proxy.ProxyGrantingTicketStorageImpl" />
+  <!-- surcharge de la configuration CAS pour stocker le mapping des PGT dans le redis -->
+  <bean id="proxyGrantingTicketStorage" class="org.apereo.portal.cas.client.RedisProxyGrantingTicketStorageImpl" />
 
   <bean name="ticketValidationFilter" class="org.apereo.portal.session.slo.filter.HandleSLOCas20ValidationFilter">
     <property name="serverName" value="${portal.allServerNames}" />
