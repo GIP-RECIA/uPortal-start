@@ -90,7 +90,7 @@
         user-rights-api-url="${userRightsApiUrl[0]}"
         get-user-favorite-resources-url="${getUserFavoriteResourcesUrl[0]}"
         put-user-favorite-resources-url="${putUserFavoriteResourcesUrl[0]}"
-        fname-mediacentre-ui="Mediacentre"
+        fname-mediacentre-ui=""
         uai-current="${uaiCurrent[0]}"
         uai="${uai[0]}"
         help-location="${helpLocation[0]}"
