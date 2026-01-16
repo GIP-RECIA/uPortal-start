@@ -2,6 +2,8 @@
 
 <c:set var="request" value="${pageContext.request}" />
 <c:set var="profils" value="${fn:join(personManager.getPerson(request).getAttributeValues('ESCOPersonProfils'), ' ')}" />
+<c:set var="siren" value="${personManager.getPerson(request).getAttributeValues('ESCOSIRENCourant')[0]}" />
+<c:set var="fonctions" value="${fn:join(personManager.getPerson(request).getAttributeValues('ENTPersonFonctions'), ' ')}" />
 
 <div id="Numeritheque18">
   <div id="container">
@@ -119,7 +121,7 @@
       <h2>Sous quelles modalit&eacute;s ?</h2>
 
       <ol>
-        <li>Le chef d&rsquo;&eacute;tablissement, le Principal adjoint ou le Secr&eacute;taire G&eacute;n&eacute;ral r&eacute;serve le mat&eacute;riel<span class="d-none ${profils}"> via <a href="https://www.chercan.fr/grr2/grr_cd18/" title="R&eacute;servation d'une ressource de la num&eacute;rith&egrave;que">l&rsquo;outil de gestion et de r&eacute;servation des ressources (GRR)</a></span>.<br />
+        <li>Le chef d&rsquo;&eacute;tablissement, le Principal adjoint ou le Secr&eacute;taire G&eacute;n&eacute;ral r&eacute;serve le mat&eacute;riel<span id="grr-link" class="d-none ${profils}"> via <a href="https://www.chercan.fr/grr2/grr_cd18/" title="R&eacute;servation d'une ressource de la num&eacute;rith&egrave;que">l&rsquo;outil de gestion et de r&eacute;servation des ressources (GRR)</a></span>.<br />
         La dur&eacute;e d&rsquo;emprunt est d&rsquo;un, deux ou trois trimestres.</li>
         <li>Le chef d&rsquo;&eacute;tablissement re&ccedil;oit, apr&egrave;s validation de l&rsquo;emprunt par le conseil d&eacute;partemental, une convention de pr&ecirc;t &agrave; retourner sign&eacute;e par mail : <a href="mailto:numeritheque@departement18.fr" target="a_blank" title="numeritheque@departement18.fr">numeritheque@departement18.fr</a>.<br />
         <strong>Attention</strong>, cette convention doit &ecirc;tre valid&eacute;e en conseil d&rsquo;administration.</li>
@@ -256,3 +258,13 @@
     display: revert !important;
   }
 </style>
+
+<script>
+  const fonctions = '${fonctions}'.split(' ');
+  const regex = /[^=]+=([^,]+),[^$]+\\$([^$]+)\\$([^$]+)\\$([^$]+)\\$([^$]+)/;
+  const codes = fonctions.map((fun) => {
+    const match = fun.match(regex);  
+    return match[1] == '${siren}' ? match[4] : null;
+  }).filter((x) => x != null);
+  document.querySelector('#grr-link').classList.add(...codes);
+</script>
