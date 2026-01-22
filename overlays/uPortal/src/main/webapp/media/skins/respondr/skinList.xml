@@ -125,10 +125,5 @@
     <skin-name>RECIA</skin-name>
     <skin-description>Skin ENT pour le GIP RÉCIA</skin-description>
   </skin>
-  <skin>
-    <skin-key>webocentre</skin-key>
-    <skin-name>WebO'Centre</skin-name>
-    <skin-description>Skin ENT pour les utilisateurs de WebO'Centre</skin-description>
-  </skin>
 
 </skins>
