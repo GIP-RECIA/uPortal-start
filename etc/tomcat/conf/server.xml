@@ -219,9 +219,6 @@
           <Manager pathname=""/>
         </Context>
         <!-- Applis GIP -->
-        <Context path="/change-etablissement" docBase="/opt/webapps/change-etablissement" reloadable="false" crossContext="true">
-          <Manager pathname=""/>
-        </Context>
         <Context path="/esup-filemanager" docBase="/opt/webapps/esup-filemanager" reloadable="false" crossContext="true">
           <Manager pathname=""/>
         </Context>
@@ -276,10 +273,6 @@
           <Manager pathname=""/>
         </Context>
         <Context path="/admin-portlet-sympa" docBase="/opt/webapps/esco-portlet-sympa" reloadable="false" crossContext="true">
-          <Manager pathname=""/>
-        </Context>
-
-        <Context path="/mediacentre" docBase="/opt/webapps/mediacentre" reloadable="false" crossContext="true">
           <Manager pathname=""/>
         </Context>
 
