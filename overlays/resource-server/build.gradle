@@ -70,6 +70,7 @@ dependencies {
     runtime "org.webjars.npm:gip-recia__ui-ressources-gar:${uiRessourcesGarWebComponentsVersion}@jar"
     runtime "org.webjars.npm:gip-recia__widgets-to-endpoints-adapter:${widgetsToEndpointsAdapterVersion}@jar"
     runtime "org.webjars.npm:gip-recia__didacticiel-ent:${didacticielEntVersion}@jar"
+    runtime "org.webjars.npm:gip-recia__sympa:${sympaVersion}@jar"
 }
 
 war {
