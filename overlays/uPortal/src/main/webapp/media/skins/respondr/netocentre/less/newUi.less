@@ -377,6 +377,10 @@ html {
         padding-left: 16px;
         margin-right: auto;
         margin-left: auto;
+
+        .portal-page-column .portal-page-column-inner {
+          min-height: unset;
+        }
   
         @media screen and (min-width: 576px) {
           max-width: 540px;
@@ -603,9 +607,25 @@ html {
       }
     }
 
-    #portalPageBody #portalPageBodyColumns {
-      @media screen and (min-width: 992px) {
-        .portal-page-column {
+    #portalPageBody {
+      #region-mezzanine {
+        section:has(.flashInfoPortlet):not(:has([data-ride="carousel"])) {
+          margin-bottom: -40px;
+
+          @media screen and (min-width: 768px) {
+            margin-bottom: -60px;
+          }
+        }
+      }
+
+      #portalPageBodyColumns:has(.column-2) .portal-page-column {
+        @media screen and (max-width: 991px) {
+          &:not(:last-child) {
+            padding-bottom: 16px;
+          }
+        }
+  
+        @media screen and (min-width: 992px) {
           &.column-1 {
             padding-right: 8px;
           }
