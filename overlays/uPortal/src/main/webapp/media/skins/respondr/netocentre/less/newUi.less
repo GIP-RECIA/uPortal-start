@@ -543,8 +543,8 @@ html {
   }
 
   &.up-guest #wrapper {
-    margin-top: @nocMenuHeight;
-    min-height: calc(100dvh - @nocMenuHeight);
+    margin-top: 68px;
+    min-height: calc(100dvh - 68px);
 
     .portal-header {
       position: fixed;
@@ -553,50 +553,86 @@ html {
       z-index: @zindex-navbar-fixed;
 
       #up-sticky-nav .portal-global {
-        padding: 0 2px;
-        border: none;
-        box-shadow: none;
-        height: @nocMenuHeight;
-        background-color: @nocHeaderFooterBackGround;
-
+        position: relative;
+        background-color: var(--recia-body-bg);
+        box-shadow: var(--recia-shadow-strong) #0000001a;
         display: flex;
-        flex-direction: row;
         align-items: center;
+        justify-content: space-between;
+        column-gap: 16px;
+        height: 68px;
+        padding: 0;
+        border: none;
 
         #region-eyebrow {
           display: flex;
           justify-content: flex-end;
           padding: 0;
           width: 100%;
+
+          #portalCASLoginLink {
+            color: var(--recia-body);
+            vertical-align: middle;
+            cursor: pointer;
+            user-select: none;
+            border-radius: 50px;
+            font-family: Sora, "sans-serif";
+            padding: 6px 12px;
+            font-weight: 600;
+            font-size: var(--recia-font-size-md);
+
+            > span {
+              display: inline-flex;
+              flex-direction: row-reverse;
+              align-items: center;
+              justify-content: center;
+              column-gap: 8px;
+              text-align: center;
+            }
+
+            &:focus-visible {
+              outline: 4px solid var(--recia-primary);
+            }
+          }
         }
       }
 
       .portal-header-main {
         position: absolute;
         z-index: @zindex-navbar-fixed;
-        padding-top: 0;
         top: 0;
         width: unset;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px;
 
         #region-header-left {
           display: flex;
           flex-flow: row nowrap;
           align-items: center;
-          height: @nocMenuHeight;
-          padding-left: 15px;
+          padding: 0;
 
           .project-header-logo {
             max-width: 230px;
-            margin-top: 0px;
+            margin: 0px;
 
             .noc-icon {
-              width: @logoNocLargeWidth;
-              height: @nocMenuHeight;
-              background-image: @logoNocLarge;
-              background-size: contain;
-              background-position: center;
-              background-repeat: no-repeat;
-              opacity: 1;
+              height: 36px;
+              width: 36px;
+              background-color: var(--recia-primary);
+              mask: @logoNocSimple no-repeat center;
+              mask-size: contain;
+
+              @media screen and (min-width: 768px) {
+                width: @logoNocLargeWidth;
+                background-image: @logoNocLarge;
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                mask: unset;
+                background-color: unset;
+              }
             }
 
             span.label {
