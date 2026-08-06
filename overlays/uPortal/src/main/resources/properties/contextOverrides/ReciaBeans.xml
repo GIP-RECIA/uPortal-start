@@ -102,6 +102,7 @@
         <entry key="guest-clg45" value="mon-e-college45" />
         <entry key="guest-recia" value="recia" />
         <entry key="guest-ef2s" value="ef2s-netocentre" />
+        <entry key="guest-entkapreunion" value="entkapreunion" />
       </util:map>
     </property>
   </bean>
@@ -125,6 +126,7 @@
         <entry key="${serverName.clg45}" value="mon-e-college45" />
         <entry key="${serverName.recia}" value="recia" />
         <entry key="${serverName.ef2s}" value="ef2s-netocentre" />
+        <entry key="${serverName.entkapreunion}" value="entkapreunion" />
       </map>
     </property>
   </bean>
