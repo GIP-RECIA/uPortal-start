@@ -60,6 +60,7 @@
       ENT4DNMA.markOnEvent('service-info-event');
       ENT4DNMA.markOnEvent('search-event');
       ENT4DNMA.markOnEvent('open-more');
+      ENT4DNMA.markOnEvent('notification-event');
       ENT4DNMA.markOnEvent('DNMA-ACTUS-DOCS');
     }
   } catch (e) {
