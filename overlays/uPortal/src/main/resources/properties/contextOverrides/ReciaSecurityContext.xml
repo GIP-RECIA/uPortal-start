@@ -39,6 +39,7 @@
   <util:map id="reciaServerNames">
     <!-- Only server names listed here are authorized ! (the value replace the server name)  -->
     <entry key="${serverName.lycees}" value="guest-lycees" />
+    <entry key="${serverName.lyc974}" value="guest-lyc974" />
     <entry key="${serverName.cfa}" value="guest-cfa" />
     <entry key="${serverName.clg18}" value="guest-clg18" />
     <entry key="${serverName.clg28}" value="guest-clg28" />

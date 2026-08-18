@@ -125,5 +125,10 @@
     <skin-name>RECIA</skin-name>
     <skin-description>Skin ENT pour le GIP RÉCIA</skin-description>
   </skin>
+  <skin>
+    <skin-key>entkapreunion</skin-key>
+    <skin-name>Ent Kap Réunion</skin-name>
+    <skin-description>Skin ENT pour les Lycées en Région Réunion</skin-description>
+  </skin>
 
 </skins>
