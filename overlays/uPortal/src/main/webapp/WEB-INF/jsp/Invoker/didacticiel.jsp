@@ -24,23 +24,23 @@
 <c:set var="ctxPath" value="${request.contextPath}" />
 
 <script type="text/javascript" language="javascript">
-
   if (!document.body.classList.contains('up-focused')) {
     // var versionUpdate = (new Date()).getTime();
 
-  // var style = document.createElement("link");
-  // style.rel="stylesheet";
-  // style.href="${ctxPath}/scripts/didacticiel-ent.css?v=" + versionUpdate;
-  // document.body.appendChild(style);
+    // var style = document.createElement("link");
+    // style.rel = "stylesheet";
+    // style.href = "${ctxPath}/scripts/didacticiel-ent.css?v=" + versionUpdate;
+    // document.body.appendChild(style);
 
-  var driverScript = document.createElement("script");
-  driverScript.type = "module";
-  driverScript.src = "/resource-server/webjars/gip-recia__didacticiel-ent/dist/didacticiel-ent.js";
-  driverScript.id = "didacticiel-ent";
-  driverScript.setAttribute("configUri", "${configUri[0]}");
-  driverScript.setAttribute("getUserTourUri", "${getUserTourUri[0]}");
-  driverScript.setAttribute("setUserTourUri", "${setUserTourUri[0]}");
-  document.body.appendChild(driverScript);
+    var driverScript = document.createElement("script");
+    driverScript.type = "module";
+    driverScript.src = "/resource-server/webjars/gip-recia__didacticiel-ent/dist/didacticiel-ent.js";
+    // driverScript.src = "${ctxPath}/scripts/didacticiel-ent.js?v=" + versionUpdate;
+    driverScript.id = "didacticiel-ent";
+    driverScript.setAttribute("configUri", "${configUri[0]}");
+    driverScript.setAttribute("getUserTourUri", "${getUserTourUri[0]}");
+    driverScript.setAttribute("setUserTourUri", "${setUserTourUri[0]}");
+    document.body.appendChild(driverScript);
   }
 </script>
 
