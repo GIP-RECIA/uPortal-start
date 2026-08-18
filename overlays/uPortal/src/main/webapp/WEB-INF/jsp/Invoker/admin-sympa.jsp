@@ -26,25 +26,23 @@
 
 
 <script src="/resource-server/webjars/gip-recia__sympa/dist/sympa.min.js" type="module" defer></script>
-<%--script type="text/javascript" language="javascript">
+<%--<script type="text/javascript" language="javascript">
   var versionUpdate = (new Date()).getTime();
   var script = document.createElement("script");
   script.type = "module";
   script.src = "${ctxPath}/scripts/sympa.js?v=" + versionUpdate;
   document.body.appendChild(script);
-</script--%>
+</script>--%>
 
-
-
-    <r-page-layout
-      back-link='{
-        "name": "Retour &agrave; l&#39;accueil",
-        "href": "${ctxPath}",
-        "target": "_self",
-        "rel": "noopener noreferrer"
-      }'
-      page-title="${name}"
-    >
-      <page-admin-sympa>
-      </page-admin-sympa>
-    </r-page-layout>
+<r-page-layout
+  back-link='{
+    "name": "Retour &agrave; l&#39;accueil",
+    "href": "${ctxPath}",
+    "target": "_self",
+    "rel": "noopener noreferrer"
+  }'
+  page-title="${name}"
+>
+  <page-admin-sympa>
+  </page-admin-sympa>
+</r-page-layout>

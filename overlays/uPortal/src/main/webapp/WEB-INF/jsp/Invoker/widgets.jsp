@@ -26,15 +26,9 @@
 <script src="/resource-server/webjars/gip-recia__ui-webcomponents/dist/r-widgets-wrapper.js" type="module" defer></script>
 <%--<script type="text/javascript" language="javascript">
   var versionUpdate = (new Date()).getTime();
-
   var script = document.createElement("script");
   script.type = "module";
   script.src = "${ctxPath}/scripts/r-widgets-wrapper.js?v=" + versionUpdate;
-  document.body.appendChild(script);
-
-  script = document.createElement("script");
-  script.type = "module";
-  script.src = "${ctxPath}/scripts/r-bottom-sheet-esidoc-search.js?v=" + versionUpdate;
   document.body.appendChild(script);
 </script>--%>
 

@@ -25,13 +25,13 @@
 <c:set var="name" value="${focusedPortletName.getInfo(request)}" />
 
 <script src="/resource-server/webjars/gip-recia__ui-ressources-gar/dist/ui-ressources-gar.min.js" type="module" defer></script>
-<%--script type="text/javascript" language="javascript">
+<%--<script type="text/javascript" language="javascript">
   var versionUpdate = (new Date()).getTime();
   var script = document.createElement("script");
   script.type = "module";
   script.src = "${ctxPath}/scripts/ui-ressources-gar.js?v=" + versionUpdate;
   document.body.appendChild(script);
-</script--%>
+</script>--%>
 
 <r-page-layout
   back-link='{
