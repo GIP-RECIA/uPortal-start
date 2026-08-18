@@ -246,13 +246,6 @@
           <Manager pathname=""/>
         </Context>
 
-        <Context path="/esup-portlet-sympa" docBase="/opt/webapps/esup-portlet-sympa" reloadable="false" crossContext="true">
-          <Manager pathname=""/>
-        </Context>
-        <Context path="/admin-portlet-sympa" docBase="/opt/webapps/esco-portlet-sympa" reloadable="false" crossContext="true">
-          <Manager pathname=""/>
-        </Context>
-
         <Context path="/mediacentre-ws" docBase="/opt/webapps/mediacentre-ws" reloadable="false" crossContext="true">
           <Manager pathname="" />
           <Parameter name="spring.config.additional-location" value="${PORTAL_HOME}/mediacentre-ws.yml"/>
