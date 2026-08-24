@@ -79,7 +79,9 @@
   <!-- fin surcharge -->
 
   <!-- bean pour logger les session id associés aux uids -->
-  <bean id="escoStatsLoggerQueuingEventHandler" class="fr.recia.portal.events.handlers.EscoStatsLogger" />
+  <bean id="escoStatsLoggerQueuingEventHandler" class="fr.recia.portal.events.handlers.EscoStatsLogger">
+    <property name="allowedUrls" value="${stats.allowed.urls}" />
+  </bean>
 
   <!-- beans pour l'association de skins par défaut sur des paramètres utilisateurs hors dynamic-respondr portlet -->
   <!-- bean pour l'association sur les guest -->
