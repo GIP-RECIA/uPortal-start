@@ -33,17 +33,15 @@
 </script>--%>
 
 <div class="container mb widgets">
-  <header>
-    <h1>Bienvenue sur votre ENT, ${userInfo['displayName']}</h1>
-  </header>
   <r-widgets-wrapper
-    localization-uri="${localizationUri[0]}"
-    soffit-uri="${soffitUri[0]}"
-    widget-max-count="${widgetMaxCount[0]}"
-    get-prefs-uri="${getPrefsUri[0]}"
-    put-prefs-uri="${putPrefsUri[0]}"
-    adapter-source-uri="${adapterSourceUri[0]}"
-    adapter-config-uri="${adapterConfigUri[0]}"
+  localization-uri="${localizationUri[0]}"
+  soffit-uri="${soffitUri[0]}"
+  widget-max-count="${widgetMaxCount[0]}"
+  get-prefs-uri="${getPrefsUri[0]}"
+  put-prefs-uri="${putPrefsUri[0]}"
+  adapter-source-uri="${adapterSourceUri[0]}"
+  adapter-config-uri="${adapterConfigUri[0]}"
   >
+    <h1 slot="header">Bienvenue sur votre ENT, ${userInfo['displayName']}</h1>
   </r-widgets-wrapper>
 </div>
